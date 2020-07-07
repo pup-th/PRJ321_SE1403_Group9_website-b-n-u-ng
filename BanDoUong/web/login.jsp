@@ -42,7 +42,12 @@
                     background-color: #f5f5f5;
                 }
                 h1{
-                    text-align: center;
+                    font-family: Helvetica, Arial, sans-serif;  
+                    text-align: center; 
+                    font-size:50px; 
+                    margin-top: 100px; 
+                    color:#fff;
+                    text-shadow: 2px 2px 0px rgba(255,255,255,.7), 5px 7px 0px rgba(0, 0, 0, 0.1); 
                 }
                 .form-signin {
                     width: 100%;
@@ -74,21 +79,37 @@
                     border-top-right-radius: 0;
                 }
             }
+            body{
+                background: #696969;
+                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');	
+                animation: snow 20s linear infinite;
+            }
+
+            @keyframes snow {
+                0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+                100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
+            }
         </style>
     </head>
     <body>
-        <form class="form-signin">          
-            <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
-            <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me         
-                </label>
+        <jsp:include page="header.jsp"/>
+        <div class="container">
+                <form class="form-signin">          
+                    <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+                    <label for="inputUsername" class="sr-only">Username</label>
+                    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me" style="color: white"> Remember me         
+                        </label>
+                    </div>
+                    <div class="control-text ">
+                        <a href="#" class="text-dark" style="text-align: right; color: white;"> Register </a>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                </form>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        </form>
     </body>
 </html>
