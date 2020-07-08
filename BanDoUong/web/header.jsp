@@ -11,13 +11,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-            body{
-                font-family: sans-serif;
-            }
+
 
             .navbar .nav-link{
-                font-size: 14px;
-                text-transform: uppercase;
+                font-size: 15px;
                 padding: 0 20px !important;
             }
 
@@ -26,7 +23,10 @@
             }
 
             .bg-black{
-                background: #000;
+                background: #100100100;
+            }   
+            body{
+                font-family: Helvetica, Arial, sans-serif;
             }
         </style>
     </head>
@@ -40,10 +40,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto ">
-                        <li class="nav-item"><a href="home.jsp" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Cart</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
-                        <li class="nav-item"><a href="login.jsp" class="nav-link">Login</a></li>
+                        <li class="nav-item"><a href="home.jsp" class="nav-link">HOME</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">CART</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
+                        <li class="nav-item"><a href="login.jsp" class="nav-link">LOGIN</a></li>
                     </ul> 
 <!--                    <div class="dropdown dropleft">
                         <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background: white;color: black">

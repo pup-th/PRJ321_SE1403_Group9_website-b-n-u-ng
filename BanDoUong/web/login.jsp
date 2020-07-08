@@ -45,9 +45,9 @@
                     font-family: Helvetica, Arial, sans-serif;  
                     text-align: center; 
                     font-size:50px; 
-                    margin-top: 100px; 
-                    color:#fff;
-                    text-shadow: 2px 2px 0px rgba(255,255,255,.7), 5px 7px 0px rgba(0, 0, 0, 0.1); 
+                    margin-top: 10px; 
+                    color:#000;
+                    text-shadow: 2px 2px 0px rgba(0,0,0,.7), 5px 7px 0px rgba(255, 255, 255, 0.1); 
                 }
                 .form-signin {
                     width: 100%;
@@ -68,7 +68,7 @@
                 .form-signin .form-control:focus {
                     z-index: 2;
                 }
-                .form-signin input[type="email"] {
+                .form-signin input[type="text"] {
                     margin-bottom: -1px;
                     border-bottom-right-radius: 0;
                     border-bottom-left-radius: 0;
@@ -89,27 +89,31 @@
                 0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
                 100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
             }
+            #con{
+                background-color: #fff;
+                width: 25%;
+            }
         </style>
     </head>
     <body>
         <jsp:include page="header.jsp"/>
-        <div class="container">
-                <form class="form-signin">          
-                    <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
-                    <label for="inputUsername" class="sr-only">Username</label>
-                    <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me" style="color: white"> Remember me         
-                        </label>
-                    </div>
-                    <div class="control-text ">
-                        <a href="#" class="text-dark" style="text-align: right; color: white;"> Register </a>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                </form>
-            </div>
+        <div class="container" id="con">
+            <form class="form-signin">          
+                <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+                <label for="inputPassword" class="sr-only">Password</label>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me" style="color: white"> Remember me         
+                    </label>
+                </div>
+                <div class="control-text ">
+                    <a href="#" class="text-dark" style="text-align: right; color: white;"> Register </a>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            </form>
+        </div>
     </body>
 </html>
