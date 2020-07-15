@@ -42,7 +42,7 @@
                     <ul class="navbar-nav ml-auto ">
                         <li class="nav-item"><a href="home.jsp" class="nav-link">HOME</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">CART</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a></li>
+                        <li class="nav-item"><a href="aboutus.jsp" class="nav-link">ABOUT US</a></li>
                         <li class="nav-item"><a href="login.jsp" class="nav-link">LOGIN</a></li>
                     </ul> 
 <!--                    <div class="dropdown dropleft">
