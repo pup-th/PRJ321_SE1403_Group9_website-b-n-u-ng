@@ -52,6 +52,8 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\" \n");
       out.write("              integrity=\"sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk\" \n");
       out.write("              crossorigin=\"anonymous\">\n");
+      out.write("        <meta name=\"google-signin-client_id\" content=\"559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com\"/>\n");
+      out.write("        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\n");
       out.write("        <style>\n");
       out.write("            .bd-placeholder-img {\n");
       out.write("                font-size: 1.125rem;\n");
@@ -134,6 +136,25 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            }\n");
       out.write("        </style>\n");
       out.write("    </head>\n");
+      out.write("    ");
+
+        String name = "";
+        String email = "";
+        
+    
+      out.write("\n");
+      out.write("    <script type=\"text/javascript\">\n");
+      out.write("        function onSignIn(googleUser) {\n");
+      out.write("            var profile = googleUser.getBasicProfile();\n");
+      out.write("            var name = profile.getName();\n");
+      out.write("            var email = profile.getEmail();\n");
+      out.write("            document.getElementById(\"inputEmail\").innerHTML = \"Welcome \" + name + \", \" + email;\n");
+      out.write("        }\n");
+      out.write("        function onLogout(){\n");
+      out.write("            gapi.auth2.getAuthInstance().disconnect();\n");
+      out.write("            location.reload();\n");
+      out.write("        }\n");
+      out.write("    </script>\n");
       out.write("    <body>\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
@@ -141,10 +162,10 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"container\" id=\"con\">\n");
       out.write("            <form class=\"form-signin\">          \n");
       out.write("                <h1 class=\"h3 mb-3 font-weight-normal\">Sign in</h1>\n");
-      out.write("                <label for=\"inputUsername\" class=\"sr-only\">Username</label>\n");
-      out.write("                <input type=\"text\" id=\"inputUsername\" class=\"form-control\" placeholder=\"Username\" required autofocus>\n");
+      out.write("                <label for=\"inputEmail\" class=\"sr-only\">Email</label>\n");
+      out.write("                <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email\" required autofocus>\n");
       out.write("                <label for=\"inputPassword\" class=\"sr-only\">Password</label>\n");
-      out.write("                <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>\n");
+      out.write("                <input type=\"password\" id=\"inputPassword\" value=\"\" class=\"form-control\" placeholder=\"Password\" required>\n");
       out.write("                <div class=\"checkbox mb-3\">\n");
       out.write("                    <label>\n");
       out.write("                        <input type=\"checkbox\" value=\"remember-me\" style=\"color: white\"> Remember me         \n");
@@ -154,7 +175,13 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <a href=\"#\" class=\"text-dark\" style=\"text-align: right; color: white;\"> Register </a>\n");
       out.write("                </div>\n");
       out.write("                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>\n");
+      out.write("                <div class=\"g-signin2\" data-onsuccess=\"onSignIn\" id=\"myP\"></div>\n");
+      out.write("                \n");
+      out.write("                    \n");
       out.write("            </form>\n");
+      out.write("\n");
+      out.write("            <button onclick=\"onLogout()\">Logout</button>\n");
+      out.write("            <div id=\"status\"></div>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
