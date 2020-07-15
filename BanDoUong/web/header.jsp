@@ -33,7 +33,7 @@
     <body>
         <nav class="navbar navbar-expand-sm navbar-dark bg-black fixed-top">
             <div class="container">
-                <a href="#" class="navbar-brand">GroupChin</a>
+                <a href="home.jsp" class="navbar-brand">GroupChin</a>
                 <button class="navbar-toggler" data-toggle="collapse"
                         data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>

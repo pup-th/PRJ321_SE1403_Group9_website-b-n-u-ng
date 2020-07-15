@@ -82,6 +82,18 @@
         </div>
         <div class="container" id="product">
             <div class="row row-cols-1 row-cols-md-3">
+                <div class="col-sm-4 mb-4">
+                    <div class="card h-100">
+                        <img src="douong/c2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">C2</h5>
+                            <p class="card-text"></p>
+                            <footer>
+                                <button class="btn btn-lg btn-primary btn-block">Buy</button>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
                 <%
                     String[] name = {"c2.png", "sting.png", "khongdo.png", "c2.png", "sting.png", "khongdo.png"};
                     for (int i = 0; i < name.length; i++) {
