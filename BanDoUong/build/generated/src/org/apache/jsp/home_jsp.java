@@ -3,6 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.ArrayList;
+import DAO.ItemDAO;
 
 public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -44,6 +46,8 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -57,8 +61,8 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <style>\n");
       out.write("            body{\n");
       out.write("                background: #696969;\n");
-      out.write("                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');\t\n");
-      out.write("                animation: snow 20s linear infinite;\n");
+      out.write("                /*                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');\t\n");
+      out.write("                                animation: snow 20s linear infinite;*/\n");
       out.write("            }\n");
       out.write("\n");
       out.write("            @keyframes snow {\n");
@@ -89,24 +93,24 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                <div class=\"carousel-inner\">\n");
       out.write("                    <div class=\"carousel-item active\">\n");
-      out.write("                        <img src=\"background/destop.jpg\"\n");
+      out.write("                        <img src=\"background/1.jpg\"\n");
       out.write("                             class=\"d-block w-100\" alt=\"...\">\n");
       out.write("                        <div class=\"carousel-caption d-none d-md-block\">\n");
-      out.write("                            <h5>Hinh 1</h5>\n");
+      out.write("                            <h3>WELCOME TO OUR SHOP</h3>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"carousel-item\">\n");
       out.write("                        <img\n");
-      out.write("                            src=\"background/destop.jpg\"\n");
+      out.write("                            src=\"background/2.jpg\"\n");
       out.write("                            class=\"d-block w-100\" alt=\"...\">\n");
       out.write("                        <div class=\"carousel-caption d-none d-md-block\">\n");
-      out.write("                            <h3>Hinh 2</h3>\n");
+      out.write("                            <h3>WELCOME TO OUR SHOP</h3>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"carousel-item\">\n");
-      out.write("                        <img src=\"background/destop.jpg\" class=\"d-block w-100\" alt=\"...\">\n");
+      out.write("                        <img src=\"background/3.jpg\" class=\"d-block w-100\" alt=\"...\">\n");
       out.write("                        <div class=\"carousel-caption d-none d-md-block\">\n");
-      out.write("                            <h5>Hinh 3</h5>\n");
+      out.write("                            <h3>WELCOME TO OUR SHOP</h3>\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");
@@ -137,20 +141,22 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </div>\n");
       out.write("                ");
 
-                    String[] name = {"c2.png", "sting.png", "khongdo.png", "c2.png", "sting.png", "khongdo.png"};
-                    for (int i = 0; i < name.length; i++) {
-                        out.println("<div class=\"col-sm-4 mb-4\">");
-                        out.println("<div class=\"card h-100\">");
-                        out.println("<img src=\"douong/" + name[i] + "\" class=\"card-img-top\" alt=\"...\">");
-                        out.println("<div class=\"card-body\">");
-                        out.println("<h5 class=\"card-title\">" + name[i].substring(0, name[i].indexOf(".png")) + "</h5>");
-                        out.println("<p class=\"card-text\"></p>");
-                        out.println("<footer>");
-                        out.println("<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>");
-                        out.println("</footer>");
-                        out.println("</div>");
-                        out.println("</div>");
-                        out.println("</div>");
+                    ArrayList<String> listName = new ItemDAO().getNameOfItems();
+                    for (String name : listName) {
+                        if (!name.isEmpty()) {
+                            out.println("<div class=\"col-sm-4 mb-4\">"
+                                    + "<div class=\"card h-100\">"
+                                    + "<img src=\"douong/" + name + "\" class=\"card-img-top\" alt=\"...\">"
+                                    + "<div class=\"card-body\">"
+                                    + "<h5 class=\"card-title\">" + name.substring(0, name.indexOf(".png")) + "</h5>"
+                                    + "<p class=\"card-text\"></p>"
+                                    + "<footer>"
+                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>"
+                                    + "</footer>"
+                                    + "</div>"
+                                    + "</div>"
+                                    + "</div>");
+                        }
                     }
                 
       out.write("\n");
@@ -161,7 +167,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"text-center\">\n");
       out.write("                    <div>\n");
       out.write("                        <h4>Contact us by: </h4>\n");
-      out.write("                        <a href=\"#\"><i class=\"fa fa-facebook-square fa-2x\"></i></a>\n");
+      out.write("                        <a href=\"https://www.facebook.com/profile.php?id=100033120579664\"><i class=\"fa fa-facebook-square fa-2x\"></i></a>\n");
       out.write("                        <a href=\"#\"><i class=\"fa fa-instagram fa-2x\"></i></a>\n");
       out.write("                    </div>\n");
       out.write("                </div>\n");

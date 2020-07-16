@@ -4,6 +4,9 @@
     Author     : Asus
 --%>
 
+<%@page import="DAO.UserDAO"%>
+<%@page import="com.sl.GlobalCons"%>
+<%@page import="com.sl.GooglePojo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -49,7 +52,7 @@
                     font-size:50px; 
                     margin-top: 10px; 
                     color:#000;
-                    text-shadow: 2px 2px 0px rgba(0,0,0,.7), 5px 7px 0px rgba(255, 255, 255, 0.1); 
+                    /*text-shadow: 2px 2px 0px rgba(0,0,0,.7), 5px 7px 0px rgba(255, 255, 255, 0.1);*/ 
                 }
                 .form-signin {
                     width: 100%;
@@ -81,15 +84,8 @@
                     border-top-right-radius: 0;
                 }
             }
-            body{
-                background: #696969;
-                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');	
-                animation: snow 20s linear infinite;
-            }
-
-            @keyframes snow {
-                0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
-                100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
+            body{ 
+                background-image: url('background/a.png');
             }
             #con{
                 background-color: #fff;
@@ -97,24 +93,38 @@
             }
         </style>
     </head>
+    
     <body>
+        <%
+//            GooglePojo gp = (GooglePojo) request.getAttribute(GlobalCons.AUTH);
+//            if (!new UserDAO().checkLoginByGoogle(gp.getEmail()).isEmpty()) {
+//                String name = gp.getEmail().substring(0, gp.getEmail().indexOf("@"));
+//            }
+//            if (request.getAttribute("txtEmail") != null
+//                    && request.getAttribute("txtEmail") != null) {
+//                if (!new UserDAO().checkLogin(request.getAttribute("txtEmail").toString(), request.getAttribute("txtEmail").toString()).isEmpty()) {
+//                    request.getRequestDispatcher("home.jsp").forward(request, response);
+//                }
+//            }
+%>
         <jsp:include page="header.jsp"/>
-        <div class="container" id="con">
-            <form class="form-signin">          
+        <div class="container" id="con" >
+            <form class="form-signin" action="UserController" method="POST">          
                 <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
                 <label for="inputEmail" class="sr-only">Email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <input type="email" class="form-control" placeholder="Email" name="txtEmail" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" value="remember-me" style="color: white"> Remember me         
-                    </label>
-                </div>
-                <div class="control-text ">
-                    <a href="#" class="text-dark" style="text-align: right; color: white;"> Register </a>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <input type="password" class="form-control" name="txtPass" placeholder="Password" required>
+                <input type="checkbox" value="remember-me" style="color: white">  Remember me     
+
+                <a href="register.jsp" class="text-dark" style="text-align: right; color: white;"> Register </a>
+
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Signin"/>
+                <!--                <div class="googleDemo" style="text-align: center" border="1">
+                                    <a	href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/BanDoUong/login.jsp&response_type=code&client_id=559443797881-3h3h7b9hnls91oeoft4gei5vh9ng3odl.apps.googleusercontent.com&approval_prompt=force"
+                                       class="btn btn-lg btn-social btn-google"> Sign in with Google
+                                    </a>
+                                </div>-->
             </form>
         </div>
     </body>

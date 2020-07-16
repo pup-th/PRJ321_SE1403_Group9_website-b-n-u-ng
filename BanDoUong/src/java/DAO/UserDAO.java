@@ -26,10 +26,25 @@ public class UserDAO {
 
     public String checkLogin(String mail, String password) {
         try {
-            String sql = "SELECT * FROM `users` WHERE `uMail`=? and `uPassword` = ?";
+            String sql = "SELECT * FROM `users` WHERE `uMail`=? and `uPassword` = MD5(?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, mail);
             pst.setString(2, password);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                return rs.getString("uMail");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+    
+    public String checkLoginByGoogle(String email){
+        try {
+            String sql = "SELECT * FROM `users` WHERE `uMail`=?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, email);
             ResultSet rs = pst.executeQuery();
             if(rs.next()){
                 return rs.getString("uMail");

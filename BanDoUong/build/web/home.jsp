@@ -4,6 +4,8 @@
     Author     : Asus
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="DAO.ItemDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,9 +19,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <style>
             body{
-                background: #696969;
-                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');	
-                animation: snow 20s linear infinite;
+                background: #fff;
+                /*                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');	
+                                animation: snow 20s linear infinite;*/
             }
 
             @keyframes snow {
@@ -48,24 +50,24 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="background/destop.jpg"
+                        <img src="background/1.jpg"
                              class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Hinh 1</h5>
+                            <h3>WELCOME TO OUR SHOP</h3>
                         </div>
                     </div>
                     <div class="carousel-item">
                         <img
-                            src="background/destop.jpg"
+                            src="background/2.jpg"
                             class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h3>Hinh 2</h3>
+                            <h3>WELCOME TO OUR SHOP</h3>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="background/destop.jpg" class="d-block w-100" alt="...">
+                        <img src="background/3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Hinh 3</h5>
+                            <h3>WELCOME TO OUR SHOP</h3>
                         </div>
                     </div>
                 </div>
@@ -95,20 +97,22 @@
                     </div>
                 </div>
                 <%
-                    String[] name = {"c2.png", "sting.png", "khongdo.png", "c2.png", "sting.png", "khongdo.png"};
-                    for (int i = 0; i < name.length; i++) {
-                        out.println("<div class=\"col-sm-4 mb-4\">");
-                        out.println("<div class=\"card h-100\">");
-                        out.println("<img src=\"douong/" + name[i] + "\" class=\"card-img-top\" alt=\"...\">");
-                        out.println("<div class=\"card-body\">");
-                        out.println("<h5 class=\"card-title\">" + name[i].substring(0, name[i].indexOf(".png")) + "</h5>");
-                        out.println("<p class=\"card-text\"></p>");
-                        out.println("<footer>");
-                        out.println("<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>");
-                        out.println("</footer>");
-                        out.println("</div>");
-                        out.println("</div>");
-                        out.println("</div>");
+                    ArrayList<String> listName = new ItemDAO().getNameOfItems();
+                    for (String name : listName) {
+                        if (!name.isEmpty()) {
+                            out.println("<div class=\"col-sm-4 mb-4\">"
+                                    + "<div class=\"card h-100\">"
+                                    + "<img src=\"douong/" + name + "\" class=\"card-img-top\" alt=\"...\">"
+                                    + "<div class=\"card-body\">"
+                                    + "<h5 class=\"card-title\">" + name.substring(0, name.indexOf(".png")) + "</h5>"
+                                    + "<p class=\"card-text\"></p>"
+                                    + "<footer>"
+                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>"
+                                    + "</footer>"
+                                    + "</div>"
+                                    + "</div>"
+                                    + "</div>");
+                        }
                     }
                 %>
             </div>
@@ -118,7 +122,7 @@
                 <div class="text-center">
                     <div>
                         <h4>Contact us by: </h4>
-                        <a href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100033120579664"><i class="fa fa-facebook-square fa-2x"></i></a>
                         <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
                     </div>
                 </div>

@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import DAO.UserDAO;
+import com.sl.GlobalCons;
+import com.sl.GooglePojo;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +44,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -88,7 +94,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    font-size:50px; \n");
       out.write("                    margin-top: 10px; \n");
       out.write("                    color:#000;\n");
-      out.write("                    text-shadow: 2px 2px 0px rgba(0,0,0,.7), 5px 7px 0px rgba(255, 255, 255, 0.1); \n");
+      out.write("                    /*text-shadow: 2px 2px 0px rgba(0,0,0,.7), 5px 7px 0px rgba(255, 255, 255, 0.1);*/ \n");
       out.write("                }\n");
       out.write("                .form-signin {\n");
       out.write("                    width: 100%;\n");
@@ -120,15 +126,8 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    border-top-right-radius: 0;\n");
       out.write("                }\n");
       out.write("            }\n");
-      out.write("            body{\n");
-      out.write("                background: #696969;\n");
-      out.write("                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');\t\n");
-      out.write("                animation: snow 20s linear infinite;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            @keyframes snow {\n");
-      out.write("                0% {background-position: 0px 0px, 0px 0px, 0px 0px;}\n");
-      out.write("                100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}\n");
+      out.write("            body{ \n");
+      out.write("                background-image: url('background/a.png');\n");
       out.write("            }\n");
       out.write("            #con{\n");
       out.write("                background-color: #fff;\n");
@@ -136,52 +135,43 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            }\n");
       out.write("        </style>\n");
       out.write("    </head>\n");
-      out.write("    ");
-
-        String name = "";
-        String email = "";
-        
-    
-      out.write("\n");
-      out.write("    <script type=\"text/javascript\">\n");
-      out.write("        function onSignIn(googleUser) {\n");
-      out.write("            var profile = googleUser.getBasicProfile();\n");
-      out.write("            var name = profile.getName();\n");
-      out.write("            var email = profile.getEmail();\n");
-      out.write("            document.getElementById(\"inputEmail\").innerHTML = \"Welcome \" + name + \", \" + email;\n");
-      out.write("        }\n");
-      out.write("        function onLogout(){\n");
-      out.write("            gapi.auth2.getAuthInstance().disconnect();\n");
-      out.write("            location.reload();\n");
-      out.write("        }\n");
-      out.write("    </script>\n");
+      out.write("    \n");
       out.write("    <body>\n");
+      out.write("        ");
+
+//            GooglePojo gp = (GooglePojo) request.getAttribute(GlobalCons.AUTH);
+//            if (!new UserDAO().checkLoginByGoogle(gp.getEmail()).isEmpty()) {
+//                String name = gp.getEmail().substring(0, gp.getEmail().indexOf("@"));
+//            }
+//            if (request.getAttribute("txtEmail") != null
+//                    && request.getAttribute("txtEmail") != null) {
+//                if (!new UserDAO().checkLogin(request.getAttribute("txtEmail").toString(), request.getAttribute("txtEmail").toString()).isEmpty()) {
+//                    request.getRequestDispatcher("home.jsp").forward(request, response);
+//                }
+//            }
+
+      out.write("\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
       out.write("\n");
-      out.write("        <div class=\"container\" id=\"con\">\n");
-      out.write("            <form class=\"form-signin\">          \n");
+      out.write("        <div class=\"container\" id=\"con\" >\n");
+      out.write("            <form class=\"form-signin\" action=\"UserController\" method=\"POST\">          \n");
       out.write("                <h1 class=\"h3 mb-3 font-weight-normal\">Sign in</h1>\n");
       out.write("                <label for=\"inputEmail\" class=\"sr-only\">Email</label>\n");
-      out.write("                <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email\" required autofocus>\n");
+      out.write("                <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"txtEmail\" required autofocus>\n");
       out.write("                <label for=\"inputPassword\" class=\"sr-only\">Password</label>\n");
-      out.write("                <input type=\"password\" id=\"inputPassword\" value=\"\" class=\"form-control\" placeholder=\"Password\" required>\n");
-      out.write("                <div class=\"checkbox mb-3\">\n");
-      out.write("                    <label>\n");
-      out.write("                        <input type=\"checkbox\" value=\"remember-me\" style=\"color: white\"> Remember me         \n");
-      out.write("                    </label>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"control-text \">\n");
-      out.write("                    <a href=\"#\" class=\"text-dark\" style=\"text-align: right; color: white;\"> Register </a>\n");
-      out.write("                </div>\n");
-      out.write("                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Sign in</button>\n");
-      out.write("                <div class=\"g-signin2\" data-onsuccess=\"onSignIn\" id=\"myP\"></div>\n");
-      out.write("                \n");
-      out.write("                    \n");
-      out.write("            </form>\n");
+      out.write("                <input type=\"password\" class=\"form-control\" name=\"txtPass\" placeholder=\"Password\" required>\n");
+      out.write("                <input type=\"checkbox\" value=\"remember-me\" style=\"color: white\">  Remember me     \n");
       out.write("\n");
-      out.write("            <button onclick=\"onLogout()\">Logout</button>\n");
-      out.write("            <div id=\"status\"></div>\n");
+      out.write("                <a href=\"register.jsp\" class=\"text-dark\" style=\"text-align: right; color: white;\"> Register </a>\n");
+      out.write("\n");
+      out.write("                <input class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" value=\"Signin\"/>\n");
+      out.write("                <!--                <div class=\"googleDemo\" style=\"text-align: center\" border=\"1\">\n");
+      out.write("                                    <a\thref=\"https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/BanDoUong/login.jsp&response_type=code&client_id=559443797881-3h3h7b9hnls91oeoft4gei5vh9ng3odl.apps.googleusercontent.com&approval_prompt=force\"\n");
+      out.write("                                       class=\"btn btn-lg btn-social btn-google\"> Sign in with Google\n");
+      out.write("                                    </a>\n");
+      out.write("                                </div>-->\n");
+      out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
