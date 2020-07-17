@@ -1,0 +1,14 @@
+
+
+            .navbar .nav-link{
+                font-size: 15px;
+                padding: 0 20px !important;
+            }
+
+            .navbar-toogler{
+                outline: none;
+            } 
+            #header{
+                font-family: Helvetica, Arial, sans-serif;
+                background-color: #696969;
+            }

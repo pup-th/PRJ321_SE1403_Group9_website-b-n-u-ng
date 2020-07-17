@@ -12,25 +12,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style>
-
-
-            .navbar .nav-link{
-                font-size: 15px;
-                padding: 0 20px !important;
-            }
-
-            .navbar-toogler{
-                outline: none;
-            } 
-            #header{
-                font-family: Helvetica, Arial, sans-serif;
-                background-color: #696969;
-            }
+            <%@include file="/css/header.css" %>
         </style>
     </head>
     <body>
         <%
-            if (request.getAttribute("emailName") != null) {
+            if (request.getAttribute("username") != null) {
                 String email = request.getAttribute("emailName").toString();
                 String s = email.substring(0, email.indexOf("@"));
             }
@@ -57,34 +44,9 @@
                                 </div>
                             </div>                            
                         </li>
-                    </ul> 
-                    <!--                    <div class="dropdown dropleft">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="background: white;color: black">
-                                                Search
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">Link 1</a>
-                                                <a class="dropdown-item">
-                                                    <form class="form-inline">
-                                                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                                                        <button class="btn btn-success" type="submit">Search</button>
-                                                    </form>
-                                                </a>
-                                            </div>
-                                        </div>-->
-
+                    </ul>
                 </div>
-                <!--                <div class="dropdown float-right">
-                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                        Drop button
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Link 1</a>
-                                        <a class="dropdown-item" href="#">Link 2</a>
-                                    </div>
-                                </div>-->
             </div>
         </nav>
-
-
+    </body>
 </html>

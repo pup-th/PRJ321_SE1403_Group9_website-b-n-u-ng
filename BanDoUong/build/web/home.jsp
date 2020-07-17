@@ -18,22 +18,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <style>
-            body{
-                background: #fff;
-                /*                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');	
-                                animation: snow 20s linear infinite;*/
-            }
-
-            @keyframes snow {
-                0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
-                100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
-            }
-            #container{
-                margin-top: 55px;
-            }
-            #product{
-                padding-top: 20px;
-            }
+            <%@include file="/css/home.css" %>
         </style>
     </head>
     <body>

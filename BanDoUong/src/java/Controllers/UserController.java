@@ -38,7 +38,7 @@ public class UserController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet UserController</title>");            
+            out.println("<title>Servlet UserController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet UserController at " + request.getContextPath() + "</h1>");
@@ -78,10 +78,12 @@ public class UserController extends HttpServlet {
         String email = request.getParameter("txtEmail");
         String pass = request.getParameter("txtPass");
         String check = uDAO.checkLogin(email, pass);
-        if(!check.isEmpty()){
+        if (!check.isEmpty()) {
 //            request.setAttribute("emailName", check);
+            request.setAttribute("username", check);
             request.getRequestDispatcher("home.jsp").forward(request, response);
-        }else{
+        } else {
+            request.setAttribute("fail", "Wrong Username or Password");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }

@@ -14,53 +14,12 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-        <style>
-            /*            body{
-                            background: #696969;
-                            background-image: url('background/backaboutus.jpg');	
-                        }*/
-            .back1{
-                margin-top: 100px;
 
-            }
-            .center{
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                height: 0%;
-                width: 100%;
-            }
-            .para{
-                padding-left: 5%;
-                padding-top: 5%;
-                font-family: inherit;
-            }
-            .dv{
-                padding-top: 3%; 
-                margin-left:15%;
-                font-size: medium;
-                width: 70%;
-                text-align: center; 
-            }
-            h1{
-                text-align: center;
-            }
-            .dv1{
-                padding-top: 3%;
-            }
-            .help{
-                padding: 20px;
-                font-size: 30px;
-                width: 50px;
-                text-align: center;
-                text-decoration: none;
-            }
-            body{
-                background-color: #fff;
-            }
-        </style>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
+    <style>
+        <%@include file="/css/aboutUs.css" %>
+    </style>
     <body>
         <div class="back1">
             <img src="background/backus.jpg"  alt="Responsive image"  width="1600" height="550">

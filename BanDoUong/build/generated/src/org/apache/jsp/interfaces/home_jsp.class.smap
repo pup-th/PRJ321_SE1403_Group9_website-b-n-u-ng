@@ -4,7 +4,7 @@ JSP
 *S JSP
 *F
 + 0 home.jsp
-home.jsp
+interfaces/home.jsp
 + 1 home.css
 css/home.css
 *L

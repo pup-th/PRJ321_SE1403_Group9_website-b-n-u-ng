@@ -17,78 +17,7 @@
         <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-            html,
-            body {
-                height: 100%;
-            }
-
-            body {
-                display: -ms-flexbox;
-                display: flex;
-                -ms-flex-align: center;
-                align-items: center;
-                padding-top: 40px;
-                padding-bottom: 40px;
-                background-color: #f5f5f5;
-            }
-            h1{
-                font-family: Helvetica, Arial, sans-serif;  
-                text-align: center; 
-                font-size:50px; 
-                margin-top: 10px; 
-                color:#000;
-                /*text-shadow: 2px 2px 0px rgba(0,0,0,.7), 5px 7px 0px rgba(255, 255, 255, 0.1);*/ 
-            }
-            .form-signin {
-                width: 100%;
-                max-width: 330px;
-                padding: 15px;
-                margin: auto;
-            }
-            .form-signin .checkbox {
-                font-weight: 400;
-            }
-            .form-signin .form-control {
-                position: relative;
-                box-sizing: border-box;
-                height: auto;
-                padding: 10px;
-                font-size: 16px;
-            }
-            .form-signin .form-control:focus {
-                z-index: 2;
-            }
-            .form-signin input {
-                margin-bottom: 10px;
-                border-bottom-right-radius: 0;
-                border-bottom-left-radius: 0;
-            }
-        }
-        body{
-            background-image: url('background/a.png');
-        }
-
-        @keyframes snow {
-            0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
-            100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
-        }
-        #con{
-            background-color: #fff;
-            width: 25%;
-        }
+        <%@include file="/css/register.css" %>
     </style>
     <body>
         <div class="container" id="con">
