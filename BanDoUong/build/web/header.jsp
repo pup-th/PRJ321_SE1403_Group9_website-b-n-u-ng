@@ -15,11 +15,16 @@
             <%@include file="/css/header.css" %>
         </style>
     </head>
+
     <body>
+
+
         <%
-            if (request.getAttribute("username") != null) {
-                String email = request.getAttribute("emailName").toString();
-                String s = email.substring(0, email.indexOf("@"));
+            String email = null;
+            String s = "";
+            if (request.getAttribute("uMail") != null) {
+                email = request.getAttribute("uMail").toString();
+                s = email.substring(0, email.indexOf("@"));
             }
         %>
         <nav class="navbar navbar-expand-sm navbar-dark bg-black fixed-top" id="header">
@@ -35,14 +40,35 @@
                         <li class="nav-item"><a href="#" class="nav-link">CART</a></li>
                         <li class="nav-item"><a href="aboutus.jsp" class="nav-link">ABOUT US</a></li>
                         <li class="nav-item">
-                            <div class="dropdown navbar-nav ml-auto ">
-                                <a class="nav-link" href="#" data-toggle="dropdown">ACCOUNT</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="login.jsp">Sign in</a>
-                                    <a class="dropdown-item" href="#">Profile</a>
-                                    <a class="dropdown-item" href="#">Sign out</a>
-                                </div>
-                            </div>                            
+                            <c:choose>
+                                <c:when test="<%=email == null%>">
+                                    <div class="dropdown navbar-nav ml-auto ">
+                                        <a class="nav-link" href="#" data-toggle="dropdown">ACCOUNT</a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="login.jsp">Sign in</a>
+                                            <a class="dropdown-item" href="register.jsp">Register</a>
+                                        </div>
+                                    </div> 
+                                </c:when>
+                                <c:when test="<%=email != null%>">
+                                    <div class="dropdown navbar-nav ml-auto ">
+                                        <a class="nav-link" href="#" data-toggle="dropdown"><%=s%></a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#">Cart</a>
+                                            <a class="dropdown-item" href="#">Profile</a>
+                                            <a class="dropdown-item" href="home.jsp" >Sign out
+                                                <script>
+                                                    function myFunction() {
+                                                        gapi.auth2.getAuthInstance().disconnect();
+                                                        location.reload();
+                                                    }
+                                                </script></a>
+                                        </div>
+                                    </div> 
+                                </c:when>  
+                            </c:choose>
+
+
                         </li>
                     </ul>
                 </div>

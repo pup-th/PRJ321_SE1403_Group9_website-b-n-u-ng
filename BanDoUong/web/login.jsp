@@ -17,51 +17,76 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
               integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
               crossorigin="anonymous">
-        <meta name="google-signin-client_id" content="559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com"/>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="559443797881-3h3h7b9hnls91oeoft4gei5vh9ng3odl.apps.googleusercontent.com">
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="css/styleLogin.css" rel="stylesheet" type="text/css" media="all"/>
         <style>
-            <%@include file="/css/login.css" %>
+            <%--<%@include file="/css/style.css" %>--%>
         </style>
+        <script type="text/javascript">
+            function onSignIn(googleUser) {
+                gapi.auth2.getAuthInstance().disconnect();
+                location.reload();
+                var profile = googleUser.getBasicProfile();
+                var email = profile.getEmail();
+                window.location = "UserController?mail=" + email;
+            }
+        </script>
     </head>
 
     <body>
         <%
-//            GooglePojo gp = (GooglePojo) request.getAttribute(GlobalCons.AUTH);
-//            if (!new UserDAO().checkLoginByGoogle(gp.getEmail()).isEmpty()) {
-//                String name = gp.getEmail().substring(0, gp.getEmail().indexOf("@"));
-//            }
-//            if (request.getAttribute("txtEmail") != null
-//                    && request.getAttribute("txtEmail") != null) {
-//                if (!new UserDAO().checkLogin(request.getAttribute("txtEmail").toString(), request.getAttribute("txtEmail").toString()).isEmpty()) {
-//                    request.getRequestDispatcher("home.jsp").forward(request, response);
-//                }
-//            }
             String fail = "";
+            String fillEmail = "";
+            String fillPass = "";
             if (request.getAttribute("fail") != null) {
                 fail = request.getAttribute("fail").toString();
             }
+            if(request.getAttribute("fillEmail") != null &&
+                    request.getAttribute("fillPass") != null){
+                fillEmail = request.getAttribute("fillEmail").toString();
+                fillPass = request.getAttribute("fillPass").toString();
+            }
         %>
         <jsp:include page="header.jsp"/>
-        <div class="container" id="con" >
-            <form class="form-signin" action="UserController" method="POST">          
-                <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
-                <label for="inputEmail" class="sr-only">Email</label>
-                <input type="email" class="form-control" placeholder="Email" name="txtEmail" required autofocus>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" class="form-control" name="txtPass" placeholder="Password" required>
-                <input type="checkbox" value="remember-me" style="color: white">  Remember me     
-
-                <a href="register.jsp" class="text-dark" style="text-align: right; color: white;"> Register </a>
-                <c:if test="${! empty fail}">
-                    <label id="fail" class="center">Wrong Username or Password</label> 
+        <div class="login">
+            <div class="login-top">
+                <h2>LOG IN</h2>
+            </div>
+            <div class="login-bottom">
+                <h3>Log in with a social network:</h3>
+                <center><a class="g-signin2" data-onsuccess="onSignIn" center></a></center>
+                <h3>Log in With registered details:</h3>
+                <form action="UserController" method="POST">
+                    <div class="user">
+                        <input type="text" placeholder="Email" name="txtEmail" value="<%=fillEmail%>" required autofocus>
+                        <i></i>
+                    </div>
+                    <div class="user-in">
+                        <input type="password"  name="txtPass" placeholder="Password" value="<%=fillPass%>" required ><i></i>
+                    </div>
+                <c:if test="<%=fail != null%>">
+                    <div id="fail" style="text-align: center; color: red; font-family: sans-serif;"><%=fail%></div>
                 </c:if>
-                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Signin"/>
-                <!--                <div class="googleDemo" style="text-align: center" border="1">
-                                    <a	href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/BanDoUong/login.jsp&response_type=code&client_id=559443797881-3h3h7b9hnls91oeoft4gei5vh9ng3odl.apps.googleusercontent.com&approval_prompt=force"
-                                       class="btn btn-lg btn-social btn-google"> Sign in with Google
-                                    </a>
-                                </div>-->
-            </form>
+                <div class="keepme">
+                    <div>
+                        <input type="checkbox" id="remember" name="remember" value="remember-me">
+                        <label for="remember" style="font-family: sans-serif;">Remember me</label>  
+                    </div>
+                    <div class="keep-loginbutton">
+                        <input type="submit" value="Log in" />
+                        </form>
+                    </div>
+                    <div class="clear"> </div>
+                </div>
+                <div class="forgot">
+                    <div class="forgot-register">
+                        <p>Don't have an account? <a href="register.jsp">Register Now</a></p>
+                    </div> 
+                </div>
+            </div>
         </div>
     </body>
 </html>

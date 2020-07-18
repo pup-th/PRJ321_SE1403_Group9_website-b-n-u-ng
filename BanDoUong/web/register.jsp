@@ -15,32 +15,45 @@
               crossorigin="anonymous">
         <meta name="google-signin-client_id" content="559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com"/>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <link rel="stylesheet" href="css/styleLogin.css" type="text/css" media="all" />
     </head>
-    <style>
-        <%@include file="/css/register.css" %>
-    </style>
     <body>
-        <div class="container" id="con">
-            <form class="form-signin">          
-                <h1 class="h3 mb-3 font-weight-normal">Register</h1>
-                <label for="inputEmail" class="sr-only">Email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
-                <label for="inputName" class="sr-only">Real name</label>
-                <input type="text" id="inputName" class="form-control" placeholder="Real Name" required>
-
-                <label for="inputPhone" class="sr-only">Phone number</label>
-                <input type="text" id="inputPhone" class="form-control" placeholder="Phone number" required>
-
-                <label for="inputAddress" class="sr-only">Address</label>
-                <input type="text" id="inputAddress" class="form-control" placeholder="Address" required>
-
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-            </form>
+        <%@include file="header.jsp" %>
+        <div class="login">
+            <div class="login-top">
+                <h2>Register</h2>
+            </div>
+            <div class="login-bottom">
+                <h3>Fill out all information: </h3>
+                <form action="UserController" method="POST">
+                    <div class="user">
+                        <input type="text" placeholder="Email" name="txtEmail" required autofocus><i></i>
+                    </div>
+                    <div class="user-in">
+                        <input type="password" placeholder="Password" name="txtPass" required ><i></i>
+                    </div>
+                    <div class="user">
+                        <input type="text" placeholder="Your name" name="txtName" required><i></i>
+                    </div>
+                    <div class="user">
+                        <input type="text" placeholder="Phone number" name="txtPhone" required><i></i>
+                    </div>
+                    <div class="user">
+                        <input type="text" placeholder="Address" name="txtAddress" required><i></i>
+                    </div>
+                    <div class="forgot">
+                        <div class="forgot-register">
+                            <p>Already have an account?<a href="login.jsp">Login Now</a></p>
+                        </div> 
+                    </div>
+                    <div class="keepme">
+                        <div class="keep-loginbutton">
+                            <input type="submit" value="Register" />
+                        </div>
+                        <div class="clear"> </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
     </body>
 </html>

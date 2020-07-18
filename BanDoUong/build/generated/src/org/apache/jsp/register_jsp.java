@@ -11,10 +11,29 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(2);
+    _jspx_dependants.add("/header.jsp");
+    _jspx_dependants.add("/css/header.css");
+  }
+
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_choose;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_when_test;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_choose = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_when_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_choose.release();
+    _jspx_tagPool_c_when_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -54,112 +73,199 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              crossorigin=\"anonymous\">\n");
       out.write("        <meta name=\"google-signin-client_id\" content=\"559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com\"/>\n");
       out.write("        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/styleLogin.css\" type=\"text/css\" media=\"all\" />\n");
       out.write("    </head>\n");
-      out.write("    <style>\n");
-      out.write("        .bd-placeholder-img {\n");
-      out.write("            font-size: 1.125rem;\n");
-      out.write("            text-anchor: middle;\n");
-      out.write("            -webkit-user-select: none;\n");
-      out.write("            -moz-user-select: none;\n");
-      out.write("            -ms-user-select: none;\n");
-      out.write("            user-select: none;\n");
-      out.write("        }\n");
-      out.write("\n");
-      out.write("        @media (min-width: 768px) {\n");
-      out.write("            .bd-placeholder-img-lg {\n");
-      out.write("                font-size: 3.5rem;\n");
-      out.write("            }\n");
-      out.write("            html,\n");
-      out.write("            body {\n");
-      out.write("                height: 100%;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            body {\n");
-      out.write("                display: -ms-flexbox;\n");
-      out.write("                display: flex;\n");
-      out.write("                -ms-flex-align: center;\n");
-      out.write("                align-items: center;\n");
-      out.write("                padding-top: 40px;\n");
-      out.write("                padding-bottom: 40px;\n");
-      out.write("                background-color: #f5f5f5;\n");
-      out.write("            }\n");
-      out.write("            h1{\n");
-      out.write("                font-family: Helvetica, Arial, sans-serif;  \n");
-      out.write("                text-align: center; \n");
-      out.write("                font-size:50px; \n");
-      out.write("                margin-top: 10px; \n");
-      out.write("                color:#000;\n");
-      out.write("                text-shadow: 2px 2px 0px rgba(0,0,0,.7), 5px 7px 0px rgba(255, 255, 255, 0.1); \n");
-      out.write("            }\n");
-      out.write("            .form-signin {\n");
-      out.write("                width: 100%;\n");
-      out.write("                max-width: 330px;\n");
-      out.write("                padding: 15px;\n");
-      out.write("                margin: auto;\n");
-      out.write("            }\n");
-      out.write("            .form-signin .checkbox {\n");
-      out.write("                font-weight: 400;\n");
-      out.write("            }\n");
-      out.write("            .form-signin .form-control {\n");
-      out.write("                position: relative;\n");
-      out.write("                box-sizing: border-box;\n");
-      out.write("                height: auto;\n");
-      out.write("                padding: 10px;\n");
-      out.write("                font-size: 16px;\n");
-      out.write("            }\n");
-      out.write("            .form-signin .form-control:focus {\n");
-      out.write("                z-index: 2;\n");
-      out.write("            }\n");
-      out.write("            .form-signin input[type=\"text\"] {\n");
-      out.write("                margin-bottom: -1px;\n");
-      out.write("                border-bottom-right-radius: 0;\n");
-      out.write("                border-bottom-left-radius: 0;\n");
-      out.write("            }\n");
-      out.write("            .form-signin input[type=\"password\"] {\n");
-      out.write("                margin-bottom: 10px;\n");
-      out.write("                border-top-left-radius: 0;\n");
-      out.write("                border-top-right-radius: 0;\n");
-      out.write("            }\n");
-      out.write("        }\n");
-      out.write("        body{\n");
-      out.write("            background: #696969;\n");
-      out.write("            background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');\t\n");
-      out.write("            animation: snow 20s linear infinite;\n");
-      out.write("        }\n");
-      out.write("\n");
-      out.write("        @keyframes snow {\n");
-      out.write("            0% {background-position: 0px 0px, 0px 0px, 0px 0px;}\n");
-      out.write("            100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}\n");
-      out.write("        }\n");
-      out.write("        #con{\n");
-      out.write("            background-color: #fff;\n");
-      out.write("            width: 25%;\n");
-      out.write("        }\n");
-      out.write("    </style>\n");
       out.write("    <body>\n");
-      out.write("        <div class=\"container\" id=\"con\">\n");
-      out.write("            <form class=\"form-signin\">          \n");
-      out.write("                <h1 class=\"h3 mb-3 font-weight-normal\">Register</h1>\n");
-      out.write("                <label for=\"inputEmail\" class=\"sr-only\">Email</label>\n");
-      out.write("                <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"Email\" required autofocus>\n");
-      out.write("\n");
-      out.write("                <label for=\"inputPassword\" class=\"sr-only\">Password</label>\n");
-      out.write("                <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>\n");
-      out.write("\n");
-      out.write("                <label for=\"inputName\" class=\"sr-only\">Real name</label>\n");
-      out.write("                <input type=\"text\" id=\"inputName\" class=\"form-control\" placeholder=\"Real Name\" required>\n");
-      out.write("\n");
-      out.write("                <label for=\"inputPhone\" class=\"sr-only\">Phone number</label>\n");
-      out.write("                <input type=\"text\" id=\"inputPhone\" class=\"form-control\" placeholder=\"Phone number\" required>\n");
+      out.write("        ");
       out.write("\n");
       out.write("\n");
-      out.write("                <label for=\"inputAddress\" class=\"sr-only\">Address</label>\n");
-      out.write("                <input type=\"text\" id=\"inputAddress\" class=\"form-control\" placeholder=\"Address\" required>\n");
       out.write("\n");
-      out.write("                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Register</button>\n");
-      out.write("            </form>\n");
+      out.write(">\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta charset=\"utf-8\">\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("        <style>\n");
+      out.write("            ");
+      out.write("\r\n");
+      out.write("\r\n");
+      out.write("            .navbar .nav-link{\r\n");
+      out.write("                font-size: 15px;\r\n");
+      out.write("                padding: 0 20px !important;\r\n");
+      out.write("            }\r\n");
+      out.write("\r\n");
+      out.write("            .navbar-toogler{\r\n");
+      out.write("                outline: none;\r\n");
+      out.write("            } \r\n");
+      out.write("            #header{\r\n");
+      out.write("                font-family: Helvetica, Arial, sans-serif;\r\n");
+      out.write("                background-color: #696969;\r\n");
+      out.write("            }");
+      out.write("\n");
+      out.write("        </style>\n");
+      out.write("    </head>\n");
+      out.write("\n");
+      out.write("    <body>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        ");
+
+            String email = null;
+            String s = "";
+            if (request.getAttribute("uMail") != null) {
+                email = request.getAttribute("uMail").toString();
+                s = email.substring(0, email.indexOf("@"));
+            }
+        
+      out.write("\n");
+      out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-black fixed-top\" id=\"header\">\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("                <a href=\"home.jsp\" class=\"navbar-brand\">GroupChin</a>\n");
+      out.write("                <button class=\"navbar-toggler\" data-toggle=\"collapse\"\n");
+      out.write("                        data-target=\"#navbarCollapse\">\n");
+      out.write("                    <span class=\"navbar-toggler-icon\"></span>\n");
+      out.write("                </button>\n");
+      out.write("                <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n");
+      out.write("                    <ul class=\"navbar-nav ml-auto \">\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"home.jsp\" class=\"nav-link\">HOME</a></li>\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">CART</a></li>\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"aboutus.jsp\" class=\"nav-link\">ABOUT US</a></li>\n");
+      out.write("                        <li class=\"nav-item\">\n");
+      out.write("                            ");
+      //  c:choose
+      org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
+      _jspx_th_c_choose_0.setPageContext(_jspx_page_context);
+      _jspx_th_c_choose_0.setParent(null);
+      int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
+      if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                                ");
+          //  c:when
+          org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+          _jspx_th_c_when_0.setPageContext(_jspx_page_context);
+          _jspx_th_c_when_0.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+          _jspx_th_c_when_0.setTest(email == null);
+          int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
+          if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+            do {
+              out.write("\n");
+              out.write("                                    <div class=\"dropdown navbar-nav ml-auto \">\n");
+              out.write("                                        <a class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\">ACCOUNT</a>\n");
+              out.write("                                        <div class=\"dropdown-menu\">\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"login.jsp\">Sign in</a>\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"register.jsp\">Register</a>\n");
+              out.write("                                        </div>\n");
+              out.write("                                    </div> \n");
+              out.write("                                ");
+              int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
+              if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+                break;
+            } while (true);
+          }
+          if (_jspx_th_c_when_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+            _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+            return;
+          }
+          _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
+          out.write("\n");
+          out.write("                                ");
+          //  c:when
+          org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_1 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
+          _jspx_th_c_when_1.setPageContext(_jspx_page_context);
+          _jspx_th_c_when_1.setParent((javax.servlet.jsp.tagext.Tag) _jspx_th_c_choose_0);
+          _jspx_th_c_when_1.setTest(email != null);
+          int _jspx_eval_c_when_1 = _jspx_th_c_when_1.doStartTag();
+          if (_jspx_eval_c_when_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+            do {
+              out.write("\n");
+              out.write("                                    <div class=\"dropdown navbar-nav ml-auto \">\n");
+              out.write("                                        <a class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\">");
+              out.print(s);
+              out.write("</a>\n");
+              out.write("                                        <div class=\"dropdown-menu\">\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"#\">Cart</a>\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"#\">Profile</a>\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"home.jsp\" >Sign out\n");
+              out.write("                                                <script>\n");
+              out.write("                                                    function myFunction() {\n");
+              out.write("                                                        gapi.auth2.getAuthInstance().disconnect();\n");
+              out.write("                                                        location.reload();\n");
+              out.write("                                                    }\n");
+              out.write("                                                </script></a>\n");
+              out.write("                                        </div>\n");
+              out.write("                                    </div> \n");
+              out.write("                                ");
+              int evalDoAfterBody = _jspx_th_c_when_1.doAfterBody();
+              if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+                break;
+            } while (true);
+          }
+          if (_jspx_th_c_when_1.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+            _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_1);
+            return;
+          }
+          _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_1);
+          out.write("  \n");
+          out.write("                            ");
+          int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_choose_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+        return;
+      }
+      _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("                        </li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </nav>\n");
+      out.write("    </body>\n");
+      out.write("</html>");
+      out.write("\n");
+      out.write("        <div class=\"login\">\n");
+      out.write("            <div class=\"login-top\">\n");
+      out.write("                <h2>Register</h2>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"login-bottom\">\n");
+      out.write("                <h3>Fill out all information: </h3>\n");
+      out.write("                <form action=\"UserController\" method=\"POST\">\n");
+      out.write("                    <div class=\"user\">\n");
+      out.write("                        <input type=\"text\" placeholder=\"Email\" name=\"txtEmail\" required autofocus><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"user-in\">\n");
+      out.write("                        <input type=\"password\" placeholder=\"Password\" name=\"txtPass\" required ><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"user\">\n");
+      out.write("                        <input type=\"text\" placeholder=\"Your name\" name=\"txtName\" required><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"user\">\n");
+      out.write("                        <input type=\"text\" placeholder=\"Phone number\" name=\"txtPhone\" required><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"user\">\n");
+      out.write("                        <input type=\"text\" placeholder=\"Address\" name=\"txtAddress\" required><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"forgot\">\n");
+      out.write("                        <div class=\"forgot-register\">\n");
+      out.write("                            <p>Already have an account?<a href=\"login.jsp\">Login Now</a></p>\n");
+      out.write("                        </div> \n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"keepme\">\n");
+      out.write("                        <div class=\"keep-loginbutton\">\n");
+      out.write("                            <input type=\"submit\" value=\"Register\" />\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"clear\"> </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </form>\n");
+      out.write("            </div>\n");
       out.write("        </div>\n");
-      out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {
