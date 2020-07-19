@@ -4,8 +4,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import DAO.UserDAO;
-import com.sl.GlobalCons;
-import com.sl.GooglePojo;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -59,8 +57,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -74,10 +70,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\n");
       out.write("        <link href=\"css/styleLogin.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\"/>\n");
-      out.write("        <style>\n");
-      out.write("            ");
-      out.write("\n");
-      out.write("        </style>\n");
       out.write("        <script type=\"text/javascript\">\n");
       out.write("            function onSignIn(googleUser) {\n");
       out.write("                gapi.auth2.getAuthInstance().disconnect();\n");
@@ -118,9 +110,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <h3>Log in With registered details:</h3>\n");
       out.write("                <form action=\"UserController\" method=\"POST\">\n");
       out.write("                    <div class=\"user\">\n");
-      out.write("                        <input type=\"text\" placeholder=\"Email\" name=\"txtEmail\" value=\"");
+      out.write("                        <input type=\"text\" placeHolder=\"Email\" name =\"txtEmail\" value=\"");
       out.print(fillEmail);
-      out.write("\" required autofocus>\n");
+      out.write("\"  onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Email';}\">\n");
       out.write("                        <i></i>\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"user-in\">\n");
@@ -154,10 +146,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
       out.write("\n");
       out.write("                <div class=\"keepme\">\n");
-      out.write("                    <div>\n");
-      out.write("                        <input type=\"checkbox\" id=\"remember\" name=\"remember\" value=\"remember-me\">\n");
-      out.write("                        <label for=\"remember\" style=\"font-family: sans-serif;\">Remember me</label>  \n");
-      out.write("                    </div>\n");
+      out.write("                    <label class=\"checkbox\"><input type=\"checkbox\" name=\"checkbox\" checked><i> </i>Remember me</label>\n");
       out.write("                    <div class=\"keep-loginbutton\">\n");
       out.write("                        <input type=\"submit\" value=\"Log in\" />\n");
       out.write("                        </form>\n");

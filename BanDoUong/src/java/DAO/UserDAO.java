@@ -66,4 +66,22 @@ public class UserDAO {
         pst.setString(5, u.getuAddress());
         pst.executeUpdate();
     }
+    public Users getUserByEmail(String email){
+        try {
+            String sql = "SELECT * FROM `users` WHERE `uMail` = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
+            if(rs.next()){
+                return new Users(rs.getString("uMail"), 
+                        rs.getString("uPassword"), 
+                        rs.getString("uName"),
+                        rs.getString("uPhone"), 
+                        rs.getString("uAddress"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

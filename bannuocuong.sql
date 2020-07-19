@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2020 at 06:45 PM
+-- Generation Time: Jul 19, 2020 at 05:18 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -25,22 +25,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `adminitem`
+-- Table structure for table `admin`
 --
 
-CREATE TABLE `adminitem` (
-  `aId` int(11) NOT NULL,
-  `aUsername` varchar(50) NOT NULL,
-  `aPassword` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `admin` (
+  `aMail` varchar(100) NOT NULL,
+  `aPassword` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `adminitem`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `adminitem` (`aId`, `aUsername`, `aPassword`) VALUES
-(1, 'user1', 'e10adc3949ba59abbe56e057f20f883e'),
-(2, 'user2', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `admin` (`aMail`, `aPassword`) VALUES
+('phuc@gmai.com', 'e10adc3949ba59abbe56e057f20f883e'),
+('qui@gmai.com', 'e10adc3949ba59abbe56e057f20f883e'),
+('tri@gmai.com', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
@@ -332,6 +332,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uMail`, `uPassword`, `uName`, `uPhone`, `uAddress`) VALUES
+('a@gmai.com', 'e10adc3949ba59abbe56e057f20f883e', 'phuc', '0987654321', 'vl'),
+('b@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1', '1', '1'),
 ('phucthce140628@fpt.edu.vn', 'e10adc3949ba59abbe56e057f20f883e', 'Hoang Phuc', '0987654321', 'Vinh Long'),
 ('user1@gmail.com', '8a13a81b63c9f02d897e8b39dd21372f', 'Nguyen Van A', '0123456789', 'Can Tho'),
 ('user2@gmail.com', '415ae01d78998c8191a416ddd8cabe33', 'Tran Thi B', '0321654897', 'An Giang'),
@@ -388,10 +390,10 @@ INSERT INTO `voucher` (`vuoId`, `vouType`, `vouDiscount`, `vouDescription`) VALU
 --
 
 --
--- Indexes for table `adminitem`
+-- Indexes for table `admin`
 --
-ALTER TABLE `adminitem`
-  ADD PRIMARY KEY (`aId`);
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`aMail`);
 
 --
 -- Indexes for table `blockitems`
@@ -480,12 +482,6 @@ ALTER TABLE `voucher`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `adminitem`
---
-ALTER TABLE `adminitem`
-  MODIFY `aId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `blockitems`

@@ -9,6 +9,7 @@
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/css/header.css</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/footer.jsp</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/src/java/Controller.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/src/java/Entities/Users.java</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/login.jsp</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/css/styleRegister.css</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/home.jsp</file>
@@ -16,10 +17,12 @@
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/src/java/Controllers/UserController.java</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/src/java/DAO/UserDAO.java</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/aboutus.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/src/java/DAO/DBConnection.java</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/css/styleLogin.css</file>
-            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/google.jsp</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/profile.jsp</file>
             <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_BanDoUong/BanDoUong/web/css/styleProfile.css</file>
         </group>
     </open-files>
 </project-private>

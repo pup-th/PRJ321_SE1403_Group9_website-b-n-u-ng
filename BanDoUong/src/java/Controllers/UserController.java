@@ -7,8 +7,6 @@ package Controllers;
 
 import DAO.UserDAO;
 import Entities.Users;
-import com.sl.GlobalCons;
-import com.sl.GooglePojo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -46,11 +44,11 @@ public class UserController extends HttpServlet {
             if (email != null && pass != null) {
                 String check = uDAO.checkLogin(email, pass);
                 if (!check.isEmpty()) {
-                    request.setAttribute("uMail", check);
+                    request.getSession().setAttribute("uMail", check);
                     request.getRequestDispatcher("home.jsp").forward(request, response);
 //                response.sendRedirect("home.jsp");
                 } else {
-                    request.setAttribute("fail", "Wrong Username or Password");
+                    request.getSession().setAttribute("fail", "Wrong Username or Password");
                     request.getRequestDispatcher("login.jsp").forward(request, response);
 //                response.sendRedirect("login.jsp");
                 }
@@ -59,11 +57,11 @@ public class UserController extends HttpServlet {
                 if (mail != null) {
                     String uMail = uDAO.checkLoginByGoogle(mail);
                     if (uMail.equals("")) {
-                        request.setAttribute("fail", "You don't have account on our website, please Register");
+                        request.getSession().setAttribute("fail", "You don't have account on our website, please Register");
                         request.getRequestDispatcher("login.jsp").forward(request, response);
 //                    response.sendRedirect("login.jsp");
                     } else {
-                        request.setAttribute("uMail", mail);
+                        request.getSession().setAttribute("uMail", mail);
                         request.getRequestDispatcher("home.jsp").forward(request, response);
 //                    response.sendRedirect("home.jsp");
                     }

@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,13 +17,11 @@
     </head>
 
     <body>
-
-
         <%
             String email = null;
             String s = "";
-            if (request.getAttribute("uMail") != null) {
-                email = request.getAttribute("uMail").toString();
+            if (request.getSession().getAttribute("uMail") != null) {
+                email = request.getSession().getAttribute("uMail").toString();
                 s = email.substring(0, email.indexOf("@"));
             }
         %>
@@ -55,8 +53,8 @@
                                         <a class="nav-link" href="#" data-toggle="dropdown"><%=s%></a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="#">Cart</a>
-                                            <a class="dropdown-item" href="#">Profile</a>
-                                            <a class="dropdown-item" href="home.jsp" >Sign out
+                                            <a class="dropdown-item" href="profile.jsp?em=<%=email%>">Profile</a>
+                                            <a class="dropdown-item" href="home.jsp?out=1" >Sign out
                                                 <script>
                                                     function myFunction() {
                                                         gapi.auth2.getAuthInstance().disconnect();
@@ -67,8 +65,6 @@
                                     </div> 
                                 </c:when>  
                             </c:choose>
-
-
                         </li>
                     </ul>
                 </div>

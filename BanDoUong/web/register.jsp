@@ -15,7 +15,7 @@
               crossorigin="anonymous">
         <meta name="google-signin-client_id" content="559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com"/>
         <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <link rel="stylesheet" href="css/styleLogin.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="css/register.css" type="text/css" media="all" />
     </head>
     <body>
         <%@include file="header.jsp" %>
@@ -27,7 +27,7 @@
                 <h3>Fill out all information: </h3>
                 <form action="UserController" method="POST">
                     <div class="user">
-                        <input type="text" placeholder="Email" name="txtEmail" required autofocus><i></i>
+                        <input type="text" placeHolder="Email" name ="txtEmail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"><i></i>
                     </div>
                     <div class="user-in">
                         <input type="password" placeholder="Password" name="txtPass" required ><i></i>

@@ -5,8 +5,6 @@
 --%>
 
 <%@page import="DAO.UserDAO"%>
-<%@page import="com.sl.GlobalCons"%>
-<%@page import="com.sl.GooglePojo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -22,9 +20,6 @@
         <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="css/styleLogin.css" rel="stylesheet" type="text/css" media="all"/>
-        <style>
-            <%--<%@include file="/css/style.css" %>--%>
-        </style>
         <script type="text/javascript">
             function onSignIn(googleUser) {
                 gapi.auth2.getAuthInstance().disconnect();
@@ -61,7 +56,7 @@
                 <h3>Log in With registered details:</h3>
                 <form action="UserController" method="POST">
                     <div class="user">
-                        <input type="text" placeholder="Email" name="txtEmail" value="<%=fillEmail%>" required autofocus>
+                        <input type="text" placeHolder="Email" name ="txtEmail" value="<%=fillEmail%>"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}">
                         <i></i>
                     </div>
                     <div class="user-in">
@@ -71,10 +66,7 @@
                     <div id="fail" style="text-align: center; color: red; font-family: sans-serif;"><%=fail%></div>
                 </c:if>
                 <div class="keepme">
-                    <div>
-                        <input type="checkbox" id="remember" name="remember" value="remember-me">
-                        <label for="remember" style="font-family: sans-serif;">Remember me</label>  
-                    </div>
+                    <label class="checkbox"><input type="checkbox" name="checkbox" checked><i> </i>Remember me</label>
                     <div class="keep-loginbutton">
                         <input type="submit" value="Log in" />
                         </form>

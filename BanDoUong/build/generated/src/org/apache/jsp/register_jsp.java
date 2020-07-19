@@ -73,14 +73,14 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("              crossorigin=\"anonymous\">\n");
       out.write("        <meta name=\"google-signin-client_id\" content=\"559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com\"/>\n");
       out.write("        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/styleLogin.css\" type=\"text/css\" media=\"all\" />\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/register.css\" type=\"text/css\" media=\"all\" />\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write(">\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -107,14 +107,12 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("\n");
       out.write("    <body>\n");
-      out.write("\n");
-      out.write("\n");
       out.write("        ");
 
             String email = null;
             String s = "";
-            if (request.getAttribute("uMail") != null) {
-                email = request.getAttribute("uMail").toString();
+            if (request.getSession().getAttribute("uMail") != null) {
+                email = request.getSession().getAttribute("uMail").toString();
                 s = email.substring(0, email.indexOf("@"));
             }
         
@@ -186,8 +184,10 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
               out.write("</a>\n");
               out.write("                                        <div class=\"dropdown-menu\">\n");
               out.write("                                            <a class=\"dropdown-item\" href=\"#\">Cart</a>\n");
-              out.write("                                            <a class=\"dropdown-item\" href=\"#\">Profile</a>\n");
-              out.write("                                            <a class=\"dropdown-item\" href=\"home.jsp\" >Sign out\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"profile.jsp?em=");
+              out.print(email);
+              out.write("\">Profile</a>\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"home.jsp?out=1\" >Sign out\n");
               out.write("                                                <script>\n");
               out.write("                                                    function myFunction() {\n");
               out.write("                                                        gapi.auth2.getAuthInstance().disconnect();\n");
@@ -219,8 +219,6 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       }
       _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
-      out.write("\n");
-      out.write("\n");
       out.write("\n");
       out.write("                        </li>\n");
       out.write("                    </ul>\n");
@@ -259,7 +257,7 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\n");
       out.write("                    <div class=\"keepme\">\n");
       out.write("                        <div class=\"keep-loginbutton\">\n");
-      out.write("                            <input type=\"submit\" value=\"Register\" />\n");
+      out.write("                            <input type=\"button\" value=\"Register\" />\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"clear\"> </div>\n");
       out.write("                    </div>\n");

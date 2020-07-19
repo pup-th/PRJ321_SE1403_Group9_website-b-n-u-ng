@@ -22,6 +22,11 @@
         </style>
     </head>
     <body>
+        <%
+            if(request.getParameter("out") != null){
+                request.getSession().removeAttribute("uMail");
+            }
+        %>
         <jsp:include page="header.jsp"/>
         <div class="container" id="container">
             <div id="carouselExampleIndicators" class="carousel slide"
