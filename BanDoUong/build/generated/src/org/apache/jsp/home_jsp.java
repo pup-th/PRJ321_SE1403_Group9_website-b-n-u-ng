@@ -86,6 +86,13 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
+
+            if(request.getParameter("out") != null){
+                request.getSession().removeAttribute("uMail");
+            }
+        
+      out.write("\n");
+      out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
       out.write("\n");
       out.write("        <div class=\"container\" id=\"container\">\n");

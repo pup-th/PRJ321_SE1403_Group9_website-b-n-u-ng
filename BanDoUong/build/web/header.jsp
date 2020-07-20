@@ -53,7 +53,7 @@
                                         <a class="nav-link" href="#" data-toggle="dropdown"><%=s%></a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="#">Cart</a>
-                                            <a class="dropdown-item" href="profile.jsp?em=<%=email%>">Profile</a>
+                                            <a class="dropdown-item" href="#">Profile</a>
                                             <a class="dropdown-item" href="home.jsp?out=1" >Sign out
                                                 <script>
                                                     function myFunction() {
