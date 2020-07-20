@@ -93,7 +93,7 @@ public class AdminController extends HttpServlet {
             Itemall itemall = new Itemall(rId, tId, bId, iName, blockId, size, pId, outputPrice, orginCode, 
                     status, quantity, rId, discoutnStatus, vouId, taste, expiryDate, iPic);
             ItemDAO idao = new ItemDAO();
-            idao.insertStudent(itemall);
+            idao.insert(itemall);
             response.sendRedirect("admin.jsp");
         }
 

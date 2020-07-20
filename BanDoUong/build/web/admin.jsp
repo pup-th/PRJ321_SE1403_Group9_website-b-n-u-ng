@@ -18,34 +18,38 @@
     </head>
     <body>
         <%
-            if(request.getParameter("del")!= null)
-            {
+            if (request.getParameter("del") != null) {
                 response.sendRedirect("admin.jsp");
             }
 
         %>
-               <table>
-            <sql:setDataSource var="conn" scope="session" 
-                               driver="com.mysql.jdbc.Driver"
-                               url="jdbc:mysql://localhost/bannuocuong"
-                               user="root"
-                               password=""/>
-            <sql:query  var="items" dataSource="${conn}">
+        <table>
+<!--            <th>ID</th>
+            <th>Name</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Address</th>-->
+                <sql:setDataSource var="conn" scope="session" 
+                                   driver="com.mysql.jdbc.Driver"
+                                   url="jdbc:mysql://localhost/bannuocuong"
+                                   user="root"
+                                   password=""/>
+                <sql:query  var="items" dataSource="${conn}">
                 SELECT * FROM `item`
             </sql:query>
             <sql:update var="delete" dataSource="${conn}" sql="DELETE FROM `item` WHERE `iId`='${param.del}'"/>
-            <c:forEach var="row" items="${items.rows}" >
+            <c:forEach var="row" items="${items.rows}"  begin="1" end="17" step="1">
                 <tr>
                     <c:forEach var="colums" items="${row}">
                         <td><c:out value="${colums.value}"/></td>
+                        
                     </c:forEach>
-                        <td><a href="admin.jsp?del=${row.iId}">Delete</a></td>
+                    <td><a href="admin.jsp?del=${row.iId}">Delete</a></td>
                     <td><a href="update.jsp?id=${row.iId}">Update</a></td>
                 </tr>
             </c:forEach>
         </table> 
-            <%
-//                ItemDAO item = new ItemDAO();
+        <%//                ItemDAO item = new ItemDAO();
 //                ArrayList<Itemall>list = item.getNameOfItems();
 //                out.print("<table>");
 //                for (Itemall i : list) {

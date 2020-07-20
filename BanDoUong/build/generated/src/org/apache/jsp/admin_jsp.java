@@ -16,6 +16,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_items;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_out_value_nobody;
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_var_step_items_end_begin;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_sql_setDataSource_var_user_url_scope_password_driver_nobody;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_sql_query_var_dataSource;
   private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_sql_update_var_sql_dataSource_nobody;
@@ -29,6 +30,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspInit() {
     _jspx_tagPool_c_forEach_var_items = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_c_out_value_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+    _jspx_tagPool_c_forEach_var_step_items_end_begin = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_sql_setDataSource_var_user_url_scope_password_driver_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_sql_query_var_dataSource = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
     _jspx_tagPool_sql_update_var_sql_dataSource_nobody = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
@@ -37,6 +39,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
   public void _jspDestroy() {
     _jspx_tagPool_c_forEach_var_items.release();
     _jspx_tagPool_c_out_value_nobody.release();
+    _jspx_tagPool_c_forEach_var_step_items_end_begin.release();
     _jspx_tagPool_sql_setDataSource_var_user_url_scope_password_driver_nobody.release();
     _jspx_tagPool_sql_query_var_dataSource.release();
     _jspx_tagPool_sql_update_var_sql_dataSource_nobody.release();
@@ -83,19 +86,23 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("        ");
 
-            if(request.getParameter("del")!= null)
-            {
+            if (request.getParameter("del") != null) {
                 response.sendRedirect("admin.jsp");
             }
 
         
       out.write("\n");
-      out.write("               <table>\n");
-      out.write("            ");
+      out.write("        <table>\n");
+      out.write("<!--            <th>ID</th>\n");
+      out.write("            <th>Name</th>\n");
+      out.write("            <th>Birthday</th>\n");
+      out.write("            <th>Gender</th>\n");
+      out.write("            <th>Address</th>-->\n");
+      out.write("                ");
       if (_jspx_meth_sql_setDataSource_0(_jspx_page_context))
         return;
       out.write("\n");
-      out.write("            ");
+      out.write("                ");
       if (_jspx_meth_sql_query_0(_jspx_page_context))
         return;
       out.write("\n");
@@ -108,8 +115,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       out.write("\n");
       out.write("        </table> \n");
-      out.write("            ");
-
+      out.write("        ");
 //                ItemDAO item = new ItemDAO();
 //                ArrayList<Itemall>list = item.getNameOfItems();
 //                out.print("<table>");
@@ -255,11 +261,14 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
     PageContext pageContext = _jspx_page_context;
     JspWriter out = _jspx_page_context.getOut();
     //  c:forEach
-    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_items.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_var_step_items_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
     _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
     _jspx_th_c_forEach_0.setParent(null);
     _jspx_th_c_forEach_0.setVar("row");
     _jspx_th_c_forEach_0.setItems((java.lang.Object) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${items.rows}", java.lang.Object.class, (PageContext)_jspx_page_context, null));
+    _jspx_th_c_forEach_0.setBegin(1);
+    _jspx_th_c_forEach_0.setEnd(17);
+    _jspx_th_c_forEach_0.setStep(1);
     int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
     try {
       int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
@@ -271,7 +280,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
           if (_jspx_meth_c_forEach_1((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_0, _jspx_page_context, _jspx_push_body_count_c_forEach_0))
             return true;
           out.write("\n");
-          out.write("                        <td><a href=\"admin.jsp?del=");
+          out.write("                    <td><a href=\"admin.jsp?del=");
           out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${row.iId}", java.lang.String.class, (PageContext)_jspx_page_context, null));
           out.write("\">Delete</a></td>\n");
           out.write("                    <td><a href=\"update.jsp?id=");
@@ -293,7 +302,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_th_c_forEach_0.doCatch(_jspx_exception);
     } finally {
       _jspx_th_c_forEach_0.doFinally();
-      _jspx_tagPool_c_forEach_var_items.reuse(_jspx_th_c_forEach_0);
+      _jspx_tagPool_c_forEach_var_step_items_end_begin.reuse(_jspx_th_c_forEach_0);
     }
     return false;
   }
@@ -318,6 +327,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
           if (_jspx_meth_c_out_0((javax.servlet.jsp.tagext.JspTag) _jspx_th_c_forEach_1, _jspx_page_context, _jspx_push_body_count_c_forEach_1))
             return true;
           out.write("</td>\n");
+          out.write("                        \n");
           out.write("                    ");
           int evalDoAfterBody = _jspx_th_c_forEach_1.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
