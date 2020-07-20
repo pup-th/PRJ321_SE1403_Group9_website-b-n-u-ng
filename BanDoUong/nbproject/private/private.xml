@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Downloads/PRJ321_SE1403_Group9_website-b-n-u-ng-master/PRJ321_SE1403_Group9_website-b-n-u-ng-master/BanDoUong/web/view2.jsp</file>
-            <file>file:/C:/Users/ASUS/Downloads/PRJ321_SE1403_Group9_website-b-n-u-ng-master/PRJ321_SE1403_Group9_website-b-n-u-ng-master/BanDoUong/src/java/DAO/ItemDAO.java</file>
-            <file>file:/C:/Users/ASUS/Downloads/PRJ321_SE1403_Group9_website-b-n-u-ng-master/PRJ321_SE1403_Group9_website-b-n-u-ng-master/BanDoUong/web/view.jsp</file>
-            <file>file:/C:/Users/ASUS/Downloads/PRJ321_SE1403_Group9_website-b-n-u-ng-master/PRJ321_SE1403_Group9_website-b-n-u-ng-master/BanDoUong/src/java/Entities/Items.java</file>
-            <file>file:/C:/Users/ASUS/Downloads/PRJ321_SE1403_Group9_website-b-n-u-ng-master/PRJ321_SE1403_Group9_website-b-n-u-ng-master/BanDoUong/web/profile.jsp</file>
-            <file>file:/C:/Users/ASUS/Downloads/PRJ321_SE1403_Group9_website-b-n-u-ng-master/PRJ321_SE1403_Group9_website-b-n-u-ng-master/BanDoUong/web/home.jsp</file>
-            <file>file:/C:/Users/ASUS/Downloads/PRJ321_SE1403_Group9_website-b-n-u-ng-master/PRJ321_SE1403_Group9_website-b-n-u-ng-master/BanDoUong/src/java/DAO/DBConnection.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/styleLogin.css</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/styleRegister.css</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/register.css</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Controllers/AdminController.java</file>
         </group>
     </open-files>
 </project-private>
