@@ -6,12 +6,10 @@
 package Controllers;
 
 import DAO.UserDAO;
-import Entities.Users;
+import com.sl.GlobalCons;
+import com.sl.GooglePojo;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,51 +32,19 @@ public class UserController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserDAO uDAO = new UserDAO();
-        String email = request.getParameter("txtEmail");
-        String pass = request.getParameter("txtPass");
-        String name = request.getParameter("txtName");
-        String phone = request.getParameter("txtPhone");
-        String address = request.getParameter("txtAddress");
-        if (address == null) {
-            if (email != null && pass != null) {
-                String check = uDAO.checkLogin(email, pass);
-                if (!check.isEmpty()) {
-                    request.getSession().setAttribute("uMail", check);
-                    request.getRequestDispatcher("home.jsp").forward(request, response);
-//                response.sendRedirect("home.jsp");
-                } else {
-                    request.getSession().setAttribute("fail", "Wrong Username or Password");
-                    request.getRequestDispatcher("login.jsp").forward(request, response);
-//                response.sendRedirect("login.jsp");
-                }
-            } else {
-                String mail = request.getParameter("mail");
-                if (mail != null) {
-                    String uMail = uDAO.checkLoginByGoogle(mail);
-                    if (uMail.equals("")) {
-                        request.getSession().setAttribute("fail", "You don't have account on our website, please Register");
-                        request.getRequestDispatcher("login.jsp").forward(request, response);
-//                    response.sendRedirect("login.jsp");
-                    } else {
-                        request.getSession().setAttribute("uMail", mail);
-                        request.getRequestDispatcher("home.jsp").forward(request, response);
-//                    response.sendRedirect("home.jsp");
-                    }
-                }
-            }
-        } else {
-            try {
-                Users u = new Users(email, pass, name, phone, address);
-                uDAO.register(u);
-                request.setAttribute("fillEmail", email);
-                request.setAttribute("fillPass", pass);
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            } catch (SQLException ex) {
-                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UserController</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UserController at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -107,7 +73,17 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        UserDAO uDAO = new UserDAO();
+//        GooglePojo gp = (GooglePojo) request.getAttribute(GlobalCons.AUTH);
+        String email = request.getParameter("txtEmail");
+        String pass = request.getParameter("txtPass");
+        String check = uDAO.checkLogin(email, pass);
+        if(!check.isEmpty()){
+//            request.setAttribute("emailName", check);
+            request.getRequestDispatcher("home.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
     }
 
     /**

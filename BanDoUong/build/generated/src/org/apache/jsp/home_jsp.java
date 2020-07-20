@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import Entities.Items;
 import java.util.ArrayList;
 import DAO.ItemDAO;
 
@@ -12,11 +13,6 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
-
-  static {
-    _jspx_dependants = new java.util.ArrayList<String>(1);
-    _jspx_dependants.add("/css/home.css");
-  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -53,45 +49,44 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>JSP Page</title>\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.0/css/all.css\" integrity=\"sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ\" crossorigin=\"anonymous\">\n");
+      out.write("        <!--        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\n");
+      out.write("                <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.0/css/all.css\" integrity=\"sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ\" crossorigin=\"anonymous\">\n");
+      out.write("                <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n");
+      out.write("                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js\"></script>\n");
+      out.write("                <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>\n");
+      out.write("                <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\n");
+      out.write("                <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">-->\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\">\n");
       out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n");
       out.write("        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js\"></script>\n");
-      out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>\n");
+      out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js\"></script>\n");
       out.write("        <style>\n");
-      out.write("            ");
-      out.write("body{\r\n");
-      out.write("                background: #fff;\r\n");
-      out.write("                /*                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');\t\r\n");
-      out.write("                                animation: snow 20s linear infinite;*/\r\n");
-      out.write("            }\r\n");
-      out.write("\r\n");
-      out.write("            @keyframes snow {\r\n");
-      out.write("                0% {background-position: 0px 0px, 0px 0px, 0px 0px;}\r\n");
-      out.write("                100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}\r\n");
-      out.write("            }\r\n");
-      out.write("            #container{\r\n");
-      out.write("                margin-top: 55px;\r\n");
-      out.write("            }\r\n");
-      out.write("            #product{\r\n");
-      out.write("                padding-top: 20px;\r\n");
-      out.write("            }");
+      out.write("            body{\n");
+      out.write("                background: #fff;\n");
+      out.write("                /*                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');\t\n");
+      out.write("                                animation: snow 20s linear infinite;*/\n");
+      out.write("            }\n");
       out.write("\n");
+      out.write("            @keyframes snow {\n");
+      out.write("                0% {background-position: 0px 0px, 0px 0px, 0px 0px;}\n");
+      out.write("                100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}\n");
+      out.write("            }\n");
+      out.write("            #container{\n");
+      out.write("                margin-top: 55px;\n");
+      out.write("            }\n");
+      out.write("            #product{\n");
+      out.write("                padding-top: 20px;\n");
+      out.write("            }\n");
       out.write("        </style>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        ");
-
-            if(request.getParameter("out") != null){
-                request.getSession().removeAttribute("uMail");
-            }
-        
-      out.write("\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
       out.write("\n");
@@ -140,33 +135,66 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("        </div>\n");
       out.write("        <div class=\"container\" id=\"product\">\n");
+      out.write("            <div align=\"right\">\n");
+      out.write("                <form action=\"SortController\" method=\"POST\">\n");
+      out.write("                    <select  name =\"choose\" >\n");
+      out.write("                        <option value = \"default\">Default</option>\n");
+      out.write("                        <option value = \"lowhigh\">Price: Low -> High</option>\n");
+      out.write("                        <option value = \"highlow\">Price: High -> Low</option>\n");
+      out.write("                        <option value = \"az\">A -> Z</option>\n");
+      out.write("                        <option value = \"za\">Z -> A</option>\n");
+      out.write("                    </select>\n");
+      out.write("                    <input type=\"submit\" name=\"button\" value=\"Sort\"/>\n");
+      out.write("                </form>\n");
+      out.write("            </div>\n");
       out.write("            <div class=\"row row-cols-1 row-cols-md-3\">\n");
-      out.write("                <div class=\"col-sm-4 mb-4\">\n");
-      out.write("                    <div class=\"card h-100\">\n");
-      out.write("                        <img src=\"douong/c2.png\" class=\"card-img-top\" alt=\"...\">\n");
-      out.write("                        <div class=\"card-body\">\n");
-      out.write("                            <h5 class=\"card-title\">C2</h5>\n");
-      out.write("                            <p class=\"card-text\"></p>\n");
-      out.write("                            <footer>\n");
-      out.write("                                <button class=\"btn btn-lg btn-primary btn-block\">Buy</button>\n");
-      out.write("                            </footer>\n");
-      out.write("                        </div>\n");
-      out.write("                    </div>\n");
-      out.write("                </div>\n");
       out.write("                ");
 
-                    ArrayList<String> listName = new ItemDAO().getNameOfItems();
-                    for (String name : listName) {
-                        if (!name.isEmpty()) {
+                    DAO.ItemDAO it = new DAO.ItemDAO();
+                    ArrayList<Entities.Items> listName = new ArrayList<>();
+                    String choose = "";
+
+                    if (request.getParameter("button") == null) {
+                        listName = it.getNameOfItems();
+                    } else {
+                        choose = request.getAttribute("choose").toString();
+                        if (choose.equals("default")) {
+                            listName = it.getNameOfItems();
+                        } else if (choose.equals("lowhigh")) {
+                            listName = it.sortItemByPricelowhigh();
+                        } else if (choose.equals("highlow")) {
+                            listName = it.sortItemByPricehighlow();
+                        } else if (choose.equals("az")) {
+                            listName = it.sortItemByNameaz();
+                        } else if (choose.equals("za")) {
+                            listName = it.sortItemByNameza();
+                        }
+                    }
+                    for (Entities.Items name : listName) {
+                        if (name != null) {
                             out.println("<div class=\"col-sm-4 mb-4\">"
-                                    + "<div class=\"card h-100\">"
-                                    + "<img src=\"douong/" + name + "\" class=\"card-img-top\" alt=\"...\">"
-                                    + "<div class=\"card-body\">"
-                                    + "<h5 class=\"card-title\">" + name.substring(0, name.indexOf(".png")) + "</h5>"
-                                    + "<p class=\"card-text\"></p>"
-                                    + "<footer>"
-                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>"
-                                    + "</footer>"
+                                    //                                    + "<div class=\"card h-100\">"
+                                    //                                    + "<img src=\"douong/" + name.getImg() + "\" class=\"card-img-top\" alt=\"...\">"
+                                    //                                    + "<div class=\"card-body\">"
+                                    //                                    + "<h5 class=\"card-title\">Drink: " + name.getName() + "</h5>"
+                                    //                                    + "<h5 class=\"card-title\"> Price: " + name.getPrice() + "</h5>"
+                                    //                                    + "<p class=\"card-text\"></p>"
+                                    //                                    + "<footer>"
+                                    //                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>"
+                                    //                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Add to cart</button>"
+                                    //                                    + "</footer>"
+                                    //                                    + "</div>"
+                                    //
+                                    + " <a href='view2.jsp?img=" + name.getImg() + "&name=" + name.getName() + "&size=" + name.getSize() + "&price=" + name.getPrice() + "&status="
+                                    + "" + name.getStatus() + "&quantity=" + name.getQuantity() + "&discount=" + name.getDiscounstt() + "&taste=" + name.getTaste() + ""
+                                    + "&expirydate="+name.getExpiryDate()+"&rId="+name.getrId()+"' target='_blank'>"
+                                    + "<div class='card'>"
+                                    + "<img src=\"douong/" + name.getImg() + "\" class=\"card-img-top\" alt=\"...\">"
+                                    + "<div class='card-body'>"
+                                    + "</a>"
+                                    + "<h4 class='card-title'>" + name.getName() + "</h4>"
+                                    + "<p class='card-text'>Price: " + name.getPrice() + "</p>"
+                                    + "<a href='view.jsp' class=\"btn btn-lg btn-primary btn-block\" target='_blank'>Add to cart</a>"
                                     + "</div>"
                                     + "</div>"
                                     + "</div>");

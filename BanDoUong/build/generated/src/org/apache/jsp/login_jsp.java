@@ -4,6 +4,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import DAO.UserDAO;
+import com.sl.GlobalCons;
+import com.sl.GooglePojo;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -12,20 +14,10 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
-  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
-
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
-  }
-
-  public void _jspInit() {
-    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
-  }
-
-  public void _jspDestroy() {
-    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -57,6 +49,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
@@ -65,100 +58,120 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\" \n");
       out.write("              integrity=\"sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk\" \n");
       out.write("              crossorigin=\"anonymous\">\n");
+      out.write("        <meta name=\"google-signin-client_id\" content=\"559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com\"/>\n");
       out.write("        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\n");
-      out.write("        <meta name=\"google-signin-client_id\" content=\"559443797881-3h3h7b9hnls91oeoft4gei5vh9ng3odl.apps.googleusercontent.com\">\n");
-      out.write("        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\n");
-      out.write("        <link href=\"css/styleLogin.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\"/>\n");
-      out.write("        <script type=\"text/javascript\">\n");
-      out.write("            function onSignIn(googleUser) {\n");
-      out.write("                gapi.auth2.getAuthInstance().disconnect();\n");
-      out.write("                location.reload();\n");
-      out.write("                var profile = googleUser.getBasicProfile();\n");
-      out.write("                var email = profile.getEmail();\n");
-      out.write("                window.location = \"UserController?mail=\" + email;\n");
+      out.write("        <style>\n");
+      out.write("            .bd-placeholder-img {\n");
+      out.write("                font-size: 1.125rem;\n");
+      out.write("                text-anchor: middle;\n");
+      out.write("                -webkit-user-select: none;\n");
+      out.write("                -moz-user-select: none;\n");
+      out.write("                -ms-user-select: none;\n");
+      out.write("                user-select: none;\n");
       out.write("            }\n");
-      out.write("        </script>\n");
-      out.write("    </head>\n");
       out.write("\n");
+      out.write("            @media (min-width: 768px) {\n");
+      out.write("                .bd-placeholder-img-lg {\n");
+      out.write("                    font-size: 3.5rem;\n");
+      out.write("                }\n");
+      out.write("                html,\n");
+      out.write("                body {\n");
+      out.write("                    height: 100%;\n");
+      out.write("                }\n");
+      out.write("\n");
+      out.write("                body {\n");
+      out.write("                    display: -ms-flexbox;\n");
+      out.write("                    display: flex;\n");
+      out.write("                    -ms-flex-align: center;\n");
+      out.write("                    align-items: center;\n");
+      out.write("                    padding-top: 40px;\n");
+      out.write("                    padding-bottom: 40px;\n");
+      out.write("                    background-color: #f5f5f5;\n");
+      out.write("                }\n");
+      out.write("                h1{\n");
+      out.write("                    font-family: Helvetica, Arial, sans-serif;  \n");
+      out.write("                    text-align: center; \n");
+      out.write("                    font-size:50px; \n");
+      out.write("                    margin-top: 10px; \n");
+      out.write("                    color:#000;\n");
+      out.write("                    /*text-shadow: 2px 2px 0px rgba(0,0,0,.7), 5px 7px 0px rgba(255, 255, 255, 0.1);*/ \n");
+      out.write("                }\n");
+      out.write("                .form-signin {\n");
+      out.write("                    width: 100%;\n");
+      out.write("                    max-width: 330px;\n");
+      out.write("                    padding: 15px;\n");
+      out.write("                    margin: auto;\n");
+      out.write("                }\n");
+      out.write("                .form-signin .checkbox {\n");
+      out.write("                    font-weight: 400;\n");
+      out.write("                }\n");
+      out.write("                .form-signin .form-control {\n");
+      out.write("                    position: relative;\n");
+      out.write("                    box-sizing: border-box;\n");
+      out.write("                    height: auto;\n");
+      out.write("                    padding: 10px;\n");
+      out.write("                    font-size: 16px;\n");
+      out.write("                }\n");
+      out.write("                .form-signin .form-control:focus {\n");
+      out.write("                    z-index: 2;\n");
+      out.write("                }\n");
+      out.write("                .form-signin input[type=\"text\"] {\n");
+      out.write("                    margin-bottom: -1px;\n");
+      out.write("                    border-bottom-right-radius: 0;\n");
+      out.write("                    border-bottom-left-radius: 0;\n");
+      out.write("                }\n");
+      out.write("                .form-signin input[type=\"password\"] {\n");
+      out.write("                    margin-bottom: 10px;\n");
+      out.write("                    border-top-left-radius: 0;\n");
+      out.write("                    border-top-right-radius: 0;\n");
+      out.write("                }\n");
+      out.write("            }\n");
+      out.write("            body{ \n");
+      out.write("                background-image: url('background/a.png');\n");
+      out.write("            }\n");
+      out.write("            #con{\n");
+      out.write("                background-color: #fff;\n");
+      out.write("                width: 25%;\n");
+      out.write("            }\n");
+      out.write("        </style>\n");
+      out.write("    </head>\n");
+      out.write("    \n");
       out.write("    <body>\n");
       out.write("        ");
 
-            String fail = "";
-            String fillEmail = "";
-            String fillPass = "";
-            if (request.getAttribute("fail") != null) {
-                fail = request.getAttribute("fail").toString();
-            }
-            if(request.getAttribute("fillEmail") != null &&
-                    request.getAttribute("fillPass") != null){
-                fillEmail = request.getAttribute("fillEmail").toString();
-                fillPass = request.getAttribute("fillPass").toString();
-            }
-        
+//            GooglePojo gp = (GooglePojo) request.getAttribute(GlobalCons.AUTH);
+//            if (!new UserDAO().checkLoginByGoogle(gp.getEmail()).isEmpty()) {
+//                String name = gp.getEmail().substring(0, gp.getEmail().indexOf("@"));
+//            }
+//            if (request.getAttribute("txtEmail") != null
+//                    && request.getAttribute("txtEmail") != null) {
+//                if (!new UserDAO().checkLogin(request.getAttribute("txtEmail").toString(), request.getAttribute("txtEmail").toString()).isEmpty()) {
+//                    request.getRequestDispatcher("home.jsp").forward(request, response);
+//                }
+//            }
+
       out.write("\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
       out.write("\n");
-      out.write("        <div class=\"login\">\n");
-      out.write("            <div class=\"login-top\">\n");
-      out.write("                <h2>LOG IN</h2>\n");
-      out.write("            </div>\n");
-      out.write("            <div class=\"login-bottom\">\n");
-      out.write("                <h3>Log in with a social network:</h3>\n");
-      out.write("                <center><a class=\"g-signin2\" data-onsuccess=\"onSignIn\" center></a></center>\n");
-      out.write("                <h3>Log in With registered details:</h3>\n");
-      out.write("                <form action=\"UserController\" method=\"POST\">\n");
-      out.write("                    <div class=\"user\">\n");
-      out.write("                        <input type=\"text\" placeHolder=\"Email\" name =\"txtEmail\" value=\"");
-      out.print(fillEmail);
-      out.write("\"  onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {this.value = 'Email';}\">\n");
-      out.write("                        <i></i>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"user-in\">\n");
-      out.write("                        <input type=\"password\"  name=\"txtPass\" placeholder=\"Password\" value=\"");
-      out.print(fillPass);
-      out.write("\" required ><i></i>\n");
-      out.write("                    </div>\n");
-      out.write("                ");
-      //  c:if
-      org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
-      _jspx_th_c_if_0.setPageContext(_jspx_page_context);
-      _jspx_th_c_if_0.setParent(null);
-      _jspx_th_c_if_0.setTest(fail != null);
-      int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
-      if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
-        do {
-          out.write("\n");
-          out.write("                    <div id=\"fail\" style=\"text-align: center; color: red; font-family: sans-serif;\">");
-          out.print(fail);
-          out.write("</div>\n");
-          out.write("                ");
-          int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
-          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
-            break;
-        } while (true);
-      }
-      if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
-        _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
-        return;
-      }
-      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+      out.write("        <div class=\"container\" id=\"con\" >\n");
+      out.write("            <form class=\"form-signin\" action=\"UserController\" method=\"POST\">          \n");
+      out.write("                <h1 class=\"h3 mb-3 font-weight-normal\">Sign in</h1>\n");
+      out.write("                <label for=\"inputEmail\" class=\"sr-only\">Email</label>\n");
+      out.write("                <input type=\"email\" class=\"form-control\" placeholder=\"Email\" name=\"txtEmail\" required autofocus>\n");
+      out.write("                <label for=\"inputPassword\" class=\"sr-only\">Password</label>\n");
+      out.write("                <input type=\"password\" class=\"form-control\" name=\"txtPass\" placeholder=\"Password\" required>\n");
+      out.write("                <input type=\"checkbox\" value=\"remember-me\" style=\"color: white\">  Remember me     \n");
       out.write("\n");
-      out.write("                <div class=\"keepme\">\n");
-      out.write("                    <label class=\"checkbox\"><input type=\"checkbox\" name=\"checkbox\" checked><i> </i>Remember me</label>\n");
-      out.write("                    <div class=\"keep-loginbutton\">\n");
-      out.write("                        <input type=\"submit\" value=\"Log in\" />\n");
-      out.write("                        </form>\n");
-      out.write("                    </div>\n");
-      out.write("                    <div class=\"clear\"> </div>\n");
-      out.write("                </div>\n");
-      out.write("                <div class=\"forgot\">\n");
-      out.write("                    <div class=\"forgot-register\">\n");
-      out.write("                        <p>Don't have an account? <a href=\"register.jsp\">Register Now</a></p>\n");
-      out.write("                    </div> \n");
-      out.write("                </div>\n");
-      out.write("            </div>\n");
+      out.write("                <a href=\"register.jsp\" class=\"text-dark\" style=\"text-align: right; color: white;\"> Register </a>\n");
+      out.write("\n");
+      out.write("                <input class=\"btn btn-lg btn-primary btn-block\" type=\"submit\" value=\"Signin\" name=\"btnSignin\"/>\n");
+      out.write("                <!--                <div class=\"googleDemo\" style=\"text-align: center\" border=\"1\">\n");
+      out.write("                                    <a\thref=\"https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/BanDoUong/login.jsp&response_type=code&client_id=559443797881-3h3h7b9hnls91oeoft4gei5vh9ng3odl.apps.googleusercontent.com&approval_prompt=force\"\n");
+      out.write("                                       class=\"btn btn-lg btn-social btn-google\"> Sign in with Google\n");
+      out.write("                                    </a>\n");
+      out.write("                                </div>-->\n");
+      out.write("            </form>\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
