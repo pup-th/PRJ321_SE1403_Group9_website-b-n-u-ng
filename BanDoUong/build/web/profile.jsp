@@ -1,3 +1,6 @@
+<%@page import="Controllers.ChangeController"%>
+<%@page import="java.nio.charset.StandardCharsets"%>
+<%@page import="java.security.MessageDigest"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -152,7 +155,8 @@
         <jsp:include page="header.jsp"/>
         <%
             DAO.UserDAO dao = new DAO.UserDAO();
-            Entities.Users u = dao.getInfoUser("user1@gmail.com");
+            String user = request.getSession().getAttribute("uMail").toString();
+            Entities.Users u = dao.getInfoUser(user);
             String name = u.getuName();
             String mail = u.getuMail();
             String phone = u.getuPhone();
@@ -192,9 +196,28 @@
                 }
             }
         </script>
+        <%
+            String oldpass = dao.getPassword(mail);
+            if (request.getParameter("btnChange") != null) {
+                String ippass = request.getParameter("opass");
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                byte[] hashInBytes = md.digest(ippass.getBytes(StandardCharsets.UTF_8));
+                StringBuilder sb = new StringBuilder();
+                for (byte b : hashInBytes) {
+                    sb.append(String.format("%02x", b));
+                }
+                String change = sb.toString();
+                String cpass = request.getParameter("cpass");
+                String npass = request.getParameter("npass");
+                if (change.equals(oldpass) && npass.equals(cpass)) {
+                    request.getRequestDispatcher("ChangeController");
+                }
+            }
+        %>
         <div id="id01" class="modal">
             <form class="modal-content animate" action="ChangeController" method="post">
                 <input type="hidden" name="omail" value="<%= mail%>"/>
+                <input type="hidden" name="opassw" value="<%= oldpass%>"/>
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
                 </div>
@@ -235,7 +258,7 @@
                         <%
                             ArrayList<Entities.Orders> listorder = dao.getHisPurchase(mail);
                             int count = 1;
-                            SimpleDateFormat sdf= new SimpleDateFormat("dd/MM/yyy");
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
                             out.println("<tr align='center'>");
                             out.println("<th>No.</th>");
                             out.println("<th>Item Name</th>");

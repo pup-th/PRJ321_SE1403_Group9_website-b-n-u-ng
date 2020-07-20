@@ -19,20 +19,21 @@ import java.util.logging.Logger;
  * @author Asus
  */
 public class ItemDAO {
+
     public Connection conn;
 
     public ItemDAO() {
         this.conn = new DBConnection().getConnection();
     }
-    
-    public ArrayList getNameOfItems(){
+
+    public ArrayList getNameOfItems() {
         try {
             ArrayList<Items> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` WHERE 1";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
                         rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
             }
@@ -42,14 +43,15 @@ public class ItemDAO {
         }
         return null;
     }
-     public ArrayList sortItemByPricelowhigh(){
+
+    public ArrayList sortItemByPricelowhigh() {
         try {
             ArrayList<Items> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` ORDER BY `outputPrice` ASC";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
                         rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
             }
@@ -59,14 +61,15 @@ public class ItemDAO {
         }
         return null;
     }
-     public ArrayList sortItemByPricehighlow(){
+
+    public ArrayList sortItemByPricehighlow() {
         try {
             ArrayList<Items> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` ORDER BY `outputPrice` DESC";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
                         rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
             }
@@ -76,14 +79,15 @@ public class ItemDAO {
         }
         return null;
     }
-     public ArrayList sortItemByNameaz(){
+
+    public ArrayList sortItemByNameaz() {
         try {
             ArrayList<Items> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` ORDER BY `iName` ASC";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
                         rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
             }
@@ -93,14 +97,15 @@ public class ItemDAO {
         }
         return null;
     }
-     public ArrayList sortItemByNameza(){
+
+    public ArrayList sortItemByNameza() {
         try {
             ArrayList<Items> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` ORDER BY `iName` DESC";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
                         rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
             }
@@ -110,5 +115,4 @@ public class ItemDAO {
         }
         return null;
     }
-     
 }

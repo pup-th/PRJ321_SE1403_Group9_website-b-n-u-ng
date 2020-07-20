@@ -3,6 +3,10 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import Controllers.ChangeController;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -42,6 +46,10 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -179,6 +187,16 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                margin-bottom: -80px;\n");
       out.write("                margin-left: 170px; \n");
       out.write("            }\n");
+      out.write("            .tableorder{\n");
+      out.write("                height: 20%;\n");
+      out.write("                width: 100%;\n");
+      out.write("            }\n");
+      out.write("            th, td {\n");
+      out.write("                border-bottom: 1px solid #ddd;\n");
+      out.write("            }\n");
+      out.write("            h2{\n");
+      out.write("                padding-top: 30px;\n");
+      out.write("            }\n");
       out.write("        </style>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
@@ -188,13 +206,12 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
 
             DAO.UserDAO dao = new DAO.UserDAO();
-            Entities.Users u = dao.getInfoUser("user1@gmail.com");
+            String user = request.getSession().getAttribute("uMail").toString();
+            Entities.Users u = dao.getInfoUser(user);
             String name = u.getuName();
             String mail = u.getuMail();
             String phone = u.getuPhone();
             String address = u.getuAddress();
-            ArrayList<Entities.Orders> listorder = dao.getHisPurchase(mail);
-            pageContext.setAttribute("orders", listorder);
         
       out.write("\n");
       out.write("        <div class=\"menu\">\n");
@@ -229,10 +246,6 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("                <button type=\"submit\" name=\"btnSave\">Save</button>\n");
       out.write("            </div>\n");
-      out.write("\n");
-      out.write("            <div class=\"container\" style=\"background-color:#f1f1f1\">\n");
-      out.write("                <button type=\"button\" onclick=\"document.getElementById('id01').style.display = 'none'\" class=\"cancelbtn\">Cancel</button>\n");
-      out.write("            </div>\n");
       out.write("        </form>\n");
       out.write("        <!--</div>-->\n");
       out.write("        <script>\n");
@@ -245,10 +258,33 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                }\n");
       out.write("            }\n");
       out.write("        </script>\n");
+      out.write("        ");
+
+            String oldpass = dao.getPassword(mail);
+            if (request.getParameter("btnChange") != null) {
+                String ippass = request.getParameter("opass");
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                byte[] hashInBytes = md.digest(ippass.getBytes(StandardCharsets.UTF_8));
+                StringBuilder sb = new StringBuilder();
+                for (byte b : hashInBytes) {
+                    sb.append(String.format("%02x", b));
+                }
+                String change = sb.toString();
+                String cpass = request.getParameter("cpass");
+                String npass = request.getParameter("npass");
+                if (change.equals(oldpass) && npass.equals(cpass)) {
+                    request.getRequestDispatcher("ChangeController");
+                }
+            }
+        
+      out.write("\n");
       out.write("        <div id=\"id01\" class=\"modal\">\n");
       out.write("            <form class=\"modal-content animate\" action=\"ChangeController\" method=\"post\">\n");
       out.write("                <input type=\"hidden\" name=\"omail\" value=\"");
       out.print( mail);
+      out.write("\"/>\n");
+      out.write("                <input type=\"hidden\" name=\"opassw\" value=\"");
+      out.print( oldpass);
       out.write("\"/>\n");
       out.write("                <div class=\"imgcontainer\">\n");
       out.write("                    <span onclick=\"document.getElementById('id01').style.display = 'none'\" class=\"close\" title=\"Close Modal\">&times;</span>\n");
@@ -288,8 +324,33 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <span onclick=\"document.getElementById('id02').style.display = 'none'\" class=\"close\" title=\"Close Modal\">&times;</span>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"container\">\n");
-      out.write("                    <table>\n");
-      out.write("                        \n");
+      out.write("                    <table class=\"tableorder\">\n");
+      out.write("                        ");
+
+                            ArrayList<Entities.Orders> listorder = dao.getHisPurchase(mail);
+                            int count = 1;
+                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
+                            out.println("<tr align='center'>");
+                            out.println("<th>No.</th>");
+                            out.println("<th>Item Name</th>");
+                            out.println("<th>Quantity</th>");
+                            out.println("<th>Price</th>");
+                            out.println("<th>Order Date</th>");
+                            out.println("<th>Total</th>");
+                            out.println("</tr>");
+                            for (Entities.Orders elem : listorder) {
+                                out.println("<tr align='center'>");
+                                out.println("<td>" + count++ + "</td>");
+                                out.println("<td>" + elem.getName() + "</td>");
+                                out.println("<td>" + elem.getQuantity() + "</td>");
+                                out.println("<td>" + elem.getIprice() + "</td>");
+                                out.println("<td>" + sdf.format(elem.getDate()) + "</td>");
+                                out.println("<td>" + elem.getTotal() + "</td>");
+                                out.println("<tr>");
+                            }
+
+                        
+      out.write("\n");
       out.write("                    </table>\n");
       out.write("                </div>\n");
       out.write("                <div class=\"container\" style=\"background-color:#f1f1f1\">\n");

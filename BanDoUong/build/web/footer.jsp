@@ -16,12 +16,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </head>
     <style>
-        footer {
-            text-align: center;
-            padding: 3px;
-            background-color: #696969;
-            color: white;
-        }
+        <%@include  file="/css/footer.css" %>
     </style> 
     <body>
         <footer>

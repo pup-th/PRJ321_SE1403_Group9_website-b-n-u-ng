@@ -50,7 +50,7 @@ public class ChangeController extends HttpServlet {
                 String npass = request.getParameter("npass");
                 String cpass = request.getParameter("cpass");
                 String mail = request.getParameter("omail");
-                if (npass != cpass) {
+                if (npass != cpass ) {
                     out.println("<script language=\"javascript\">");
                     out.println("alert('Confirm wrong password !')");
                     out.println("</script>");
@@ -58,7 +58,7 @@ public class ChangeController extends HttpServlet {
                 }
                 else{
                     DAO.UserDAO dao = new DAO.UserDAO();
-                    dao.updatePassword(cpass, mail);
+                    dao.updatePassword(cpass, mail,opass);
                 }
             }
             /* TODO output your page here. You may use following sample code. */
