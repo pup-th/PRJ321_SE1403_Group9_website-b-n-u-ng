@@ -8,7 +8,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="DAO.ItemDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,11 +45,6 @@
         </style>
     </head>
     <body>
-        <%
-            if (request.getParameter("out") != null) {
-                request.getSession().removeAttribute("uMail");
-            }
-        %>
         <jsp:include page="header.jsp"/>
         <div class="container" id="container">
             <div id="carouselExampleIndicators" class="carousel slide"
@@ -112,7 +106,7 @@
             <div class="row row-cols-1 row-cols-md-3">
                 <%
                     DAO.ItemDAO it = new DAO.ItemDAO();
-                    ArrayList<Entities.Itemall> listName = new ArrayList<>();
+                    ArrayList<Entities.Items> listName = new ArrayList<>();
                     String choose = "";
 
                     if (request.getParameter("button") == null) {
@@ -131,36 +125,34 @@
                             listName = it.sortItemByNameza();
                         }
                     }
-                    for (Entities.Itemall name : listName) {
+                    for (Entities.Items name : listName) {
                         if (name != null) {
                             out.println("<div class=\"col-sm-4 mb-4\">"
-                                    + " <a href='view2.jsp?img=" + name.getiPic() + "&name=" + name.getiName() + "&size=" + name.getSize() + "&price=" + name.getpId() + "&status="
-                                    + "" + name.getStatus() + "&quantity=" + name.getQuantity() + "&discount=" + name.getDiscoutnStatus() + "&taste=" + name.getTaste() + ""
-                                    + "&expirydate=" + name.getExpiryDate() + "&rId=" + name.getrId() + "' target='_blank'>"
+                                    //                                    + "<div class=\"card h-100\">"
+                                    //                                    + "<img src=\"douong/" + name.getImg() + "\" class=\"card-img-top\" alt=\"...\">"
+                                    //                                    + "<div class=\"card-body\">"
+                                    //                                    + "<h5 class=\"card-title\">Drink: " + name.getName() + "</h5>"
+                                    //                                    + "<h5 class=\"card-title\"> Price: " + name.getPrice() + "</h5>"
+                                    //                                    + "<p class=\"card-text\"></p>"
+                                    //                                    + "<footer>"
+                                    //                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>"
+                                    //                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Add to cart</button>"
+                                    //                                    + "</footer>"
+                                    //                                    + "</div>"
+                                    //
+                                    + " <a href='view2.jsp?idpro="+name.getiId() +"' target='_blank'>"
                                     + "<div class='card'>"
-                                    + "<img src=\"douong/" + name.getiPic() + "\" class=\"card-img-top\" alt=\"...\">"
+                                    + "<img src=\"douong/" + name.getImg() + "\" class=\"card-img-top\" alt=\"...\">"
                                     + "<div class='card-body'>"
                                     + "</a>"
-                                    + "<h4 class='card-title'>" + name.getiName() + "</h4>"
-                                    + "<p class='card-text'>Price: " + name.getpId() + "</p>"
-                                    + "<a href='view.jsp?buy=" + name.getiId() + "' class=\"btn btn-lg btn-primary btn-block\" target='_blank'>Add to cart</a>"
+                                    + "<h4 class='card-title'>" + name.getName() + "</h4>"
+                                    + "<p class='card-text'>Price: " + name.getPrice() + "</p>"
                                     + "</div>"
                                     + "</div>"
                                     + "</div>");
                         }
                     }
                 %>
-                <c:forEach items="<%=listName%>" var="name">
-                    <div class='card'>
-                        <img src="douong/${name.getiPic()}" class="card-img-top" alt="...">
-                                <div class='card-body'>
-                            </a>
-                            <h4 class='card-title'> ${name.getiName()} </h4>
-                            <p class='card-text'>Price:  ${ name.getpId()} </p>
-                            <a href='view.jsp?buy=${name.getiId()}' class="btn btn-lg btn-primary btn-block    " target='_blank'>Add to cart</a>
-                            </div>"
-                        </div>
-                    </c:forEach>
             </div>
         </div>
         <footer>

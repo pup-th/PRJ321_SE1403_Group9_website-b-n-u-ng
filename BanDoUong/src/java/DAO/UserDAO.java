@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Entities.OrderDetail;
+import Entities.Orders;
 import Entities.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -130,22 +130,14 @@ public class UserDAO {
         return 0;
     }
 
-    public ArrayList<Entities.OrderDetail> getHisPurchase(String mail, int oId) {
+    public ArrayList<Entities.Orders> getHisPurchase(String mail) {
         try {
-            ArrayList<Entities.OrderDetail> list = new ArrayList<>();
-            PreparedStatement pst = conn.prepareStatement("SELECT * FROM `orderdetail` WHERE `uMail`=? and `oId` = ?");
+            ArrayList<Entities.Orders> list = new ArrayList<>();
+            PreparedStatement pst = conn.prepareStatement("SELECT * FROM `orderdetail` WHERE `uMail`=?");
             pst.setString(1, mail);
-            pst.setInt(2, oId);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new OrderDetail(
-                        rs.getInt("oId"),
-                        rs.getInt("payId"),
-                        rs.getString("uMail"), 
-                        rs.getInt("iId"), 
-                        rs.getInt("quantity"), 
-                        rs.getString("note"), 
-                        rs.getDate("orderDate")));
+                list.add(new Orders(rs.getString("iName"), rs.getInt("quantity"), rs.getInt("priceEachitem"), rs.getDate("orderDate"), rs.getInt("total")));
             }
             return list;
         } catch (SQLException ex) {

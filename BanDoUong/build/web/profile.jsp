@@ -105,7 +105,7 @@
                 <div class="container">
                     <table class="tableorder">
                         <%
-                            ArrayList<Entities.OrdersDetail> listorder = dao.getHisPurchase(mail);
+                            ArrayList<Entities.Orders> listorder = dao.getHisPurchase(mail);
                             int count = 1;
                             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
                             out.println("<tr align='center'>");
@@ -119,7 +119,6 @@
                             for (Entities.Orders elem : listorder) {
                                 out.println("<tr align='center'>");
                                 out.println("<td>" + count++ + "</td>");
-                                out.println("<td>" + elem.getoId() + "</td>");
                                 out.println("<td>" + elem.getName() + "</td>");
                                 out.println("<td>" + elem.getQuantity() + "</td>");
                                 out.println("<td>" + elem.getIprice() + "</td>");

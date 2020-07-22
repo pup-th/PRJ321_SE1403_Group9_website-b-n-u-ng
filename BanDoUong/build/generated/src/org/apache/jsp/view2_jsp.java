@@ -3,6 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.Date;
+import Entities.Items;
+import DAO.ItemDAO;
 
 public final class view2_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -11,10 +14,20 @@ public final class view2_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_forEach_end_begin;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_forEach_end_begin = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_forEach_end_begin.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -43,262 +56,124 @@ public final class view2_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>content</title>\n");
-      out.write("        <style>\n");
-      out.write("            body {  \n");
-      out.write("                font-family:Arial, Helvetica, sans-serif;   \n");
-      out.write("                overflow-x: hidden;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            img {   \n");
-      out.write("                max-width: 100%;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .preview {  \n");
-      out.write("                display: -webkit-box;   \n");
-      out.write("                display: -webkit-flex;  \n");
-      out.write("                display: -ms-flexbox;   \n");
-      out.write("                display: flex;  \n");
-      out.write("                -webkit-box-orient: vertical;   \n");
-      out.write("                -webkit-box-direction: normal;  \n");
-      out.write("                -webkit-flex-direction: column; \n");
-      out.write("                -ms-flex-direction: column; \n");
-      out.write("                flex-direction: column;\n");
-      out.write("            } \n");
-      out.write("\n");
-      out.write("            @media screen and (max-width: 996px) { \n");
-      out.write("                .preview { \n");
-      out.write("                    margin-bottom: 20px;\n");
-      out.write("                }\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .preview-pic {  \n");
-      out.write("                -webkit-box-flex: 1;    \n");
-      out.write("                -webkit-flex-grow: 1;   \n");
-      out.write("                -ms-flex-positive: 1;   \n");
-      out.write("                flex-grow: 1;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .preview-thumbnail.nav-tabs {   \n");
-      out.write("                border: none;   \n");
-      out.write("                margin-top: 15px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .preview-thumbnail.nav-tabs li {    \n");
-      out.write("                width: 18%; \n");
-      out.write("                margin-right: 2.5%;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .preview-thumbnail.nav-tabs li img {    \n");
-      out.write("                max-width: 100%;    \n");
-      out.write("                display: block;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .preview-thumbnail.nav-tabs li a {  \n");
-      out.write("                padding: 0; \n");
-      out.write("                margin: 0;  \n");
-      out.write("                cursor:pointer;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .preview-thumbnail.nav-tabs li:last-of-type {   \n");
-      out.write("                margin-right: 0;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .tab-content {  \n");
-      out.write("                overflow: hidden;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .tab-content img {  \n");
-      out.write("                width: 100%;    \n");
-      out.write("                -webkit-animation-name: opacity;    \n");
-      out.write("                animation-name: opacity; \n");
-      out.write("                -webkit-animation-duration: .3s; \n");
-      out.write("                animation-duration: .3s;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .card { \n");
-      out.write("                margin-top: 0px;    \n");
-      out.write("                background: #eee;   \n");
-      out.write("                padding: 3em;   \n");
-      out.write("                line-height: 1.5em;\n");
-      out.write("            } \n");
-      out.write("\n");
-      out.write("            @media screen and (min-width: 997px) { \n");
-      out.write("                .wrapper { \n");
-      out.write("                    display: -webkit-box; \n");
-      out.write("                    display: -webkit-flex; \n");
-      out.write("                    display: -ms-flexbox; \n");
-      out.write("                    display: flex;\n");
-      out.write("                }\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .details {  \n");
-      out.write("                display: -webkit-box;\n");
-      out.write("                display: -webkit-flex;  \n");
-      out.write("                display: -ms-flexbox;   \n");
-      out.write("                display: flex;  \n");
-      out.write("                -webkit-box-orient: vertical;   \n");
-      out.write("                -webkit-box-direction: normal;  \n");
-      out.write("                -webkit-flex-direction: column; \n");
-      out.write("                -ms-flex-direction: column; \n");
-      out.write("                flex-direction: column;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .colors {   \n");
-      out.write("                -webkit-box-flex: 1;    \n");
-      out.write("                -webkit-flex-grow: 1;   \n");
-      out.write("                -ms-flex-positive: 1;   \n");
-      out.write("                flex-grow: 1;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .product-title, .price, .sizes, .colors {   \n");
-      out.write("                text-transform: UPPERCASE;  \n");
-      out.write("                font-weight: bold;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .checked, .price span { \n");
-      out.write("                color: #ff9f1a;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .product-title, .rating, .product-description, .price, .vote, .sizes {  \n");
-      out.write("                margin-bottom: 15px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .product-title {    \n");
-      out.write("                margin-top: 0;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .size {\n");
-      out.write("                margin-right: 10px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .size:first-of-type {   \n");
-      out.write("                margin-left: 40px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .color {    \n");
-      out.write("                display: inline-block;  \n");
-      out.write("                vertical-align: middle; \n");
-      out.write("                margin-right: 10px; \n");
-      out.write("                height: 2em;    \n");
-      out.write("                width: 2em; \n");
-      out.write("                border-radius: 2px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .color:first-of-type {  \n");
-      out.write("                margin-left: 20px;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .add-to-cart, .like {   \n");
-      out.write("                background: #ff9f1a;    \n");
-      out.write("                padding: 1.2em 1.5em;   \n");
-      out.write("                border: none;   \n");
-      out.write("                text-transform: UPPERCASE;  \n");
-      out.write("                font-weight: bold;  \n");
-      out.write("                color: #fff;    \n");
-      out.write("                text-decoration:none; \n");
-      out.write("                -webkit-transition: background .3s ease; \n");
-      out.write("                transition: background .3s ease;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .add-to-cart:hover, .like:hover {   \n");
-      out.write("                background: #b36800;    \n");
-      out.write("                color: #fff;    \n");
-      out.write("                text-decoration:none;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .not-available {    \n");
-      out.write("                text-align: center; \n");
-      out.write("                line-height: 2em;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .not-available:before { \n");
-      out.write("                font-family: fontawesome;   \n");
-      out.write("                content: \"\\f00d\";   \n");
-      out.write("                color: #fff;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .orange {   \n");
-      out.write("                background: #ff9f1a;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .green {    \n");
-      out.write("                background: #85ad00;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .blue { \n");
-      out.write("                background: #0076ad;\n");
-      out.write("            }\n");
-      out.write("\n");
-      out.write("            .tooltip-inner {    \n");
-      out.write("                padding: 1.3em;\n");
-      out.write("            } \n");
-      out.write("\n");
-      out.write("            @-webkit-keyframes opacity { \n");
-      out.write("                0% { opacity: 0; -webkit-transform: scale(3); transform: scale(3);} \n");
-      out.write("                100% { opacity: 1; -webkit-transform: scale(1); transform: scale(1);}\n");
-      out.write("            } \n");
-      out.write("\n");
-      out.write("            @keyframes opacity { \n");
-      out.write("                0% { opacity: 0; -webkit-transform: scale(3); transform: scale(3);} \n");
-      out.write("                100% { opacity: 1; -webkit-transform: scale(1); transform: scale(1);}\n");
-      out.write("            }\n");
-      out.write("        </style>\n");
+      out.write("        <link href=\"css/view2.css\" rel=\"stylesheet\" type=\"text/css\" media=\"all\"/>\n");
       out.write("        <link href=\"https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css\" rel=\"stylesheet\"> \n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\"> <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>\n");
+      out.write("        <!--<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\"> <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>-->\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\">\n");
+      out.write("        <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\n");
+      out.write("        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js\"></script>\n");
+      out.write("        <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js\"></script>\n");
+      out.write("        <script>//<![CDATA[\n");
+      out.write("            $('input.input-qty').each(function () {\n");
+      out.write("                var $this = $(this),\n");
+      out.write("                        qty = $this.parent().find('.is-form'),\n");
+      out.write("                        min = Number($this.attr('min')),\n");
+      out.write("                        max = ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${param.quantity}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write(",\n");
+      out.write("                if (min == 0) {\n");
+      out.write("                    var d = 0\n");
+      out.write("                } else\n");
+      out.write("                    d = min\n");
+      out.write("                $(qty).on('click', function () {\n");
+      out.write("                    if ($(this).hasClass('minus')) {\n");
+      out.write("                        if (d > min)\n");
+      out.write("                            d += -1\n");
+      out.write("                    } else if ($(this).hasClass('plus')) {\n");
+      out.write("                        var x = Number($this.val()) + 1\n");
+      out.write("                        if (x <= max)\n");
+      out.write("                            d += 1\n");
+      out.write("                    }\n");
+      out.write("                    $this.attr('value', d).val(d)\n");
+      out.write("                })\n");
+      out.write("            })\n");
+      out.write("//]]></script>\n");
+      out.write("            ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
+      out.write("\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        ");
 
-            String img = request.getParameter("img");
-            String size = request.getParameter("size");
-            String price = request.getParameter("price");
-            String quantity = request.getParameter("quantity");
-            String rId = request.getParameter("rId");
+            int id= Integer.parseInt(request.getParameter("productid").toString());
+            DAO.ItemDAO dao= new ItemDAO();
+            Items i= dao.getItemById(id);
+            String img = i.getImg();
+            String size = i.getSize();
+            int price = i.getPrice();
+            int quantity = i.getQuantity();
+            int rId = i.getrId();
             String discount = request.getParameter("discount");
-            String status = request.getParameter("status");
+            int status = i.getStatus();
             String taste = request.getParameter("taste");
-            String expirydate = request.getParameter("expirydate");
-            String name = request.getParameter("name");
+            Date expirydate = i.getExpiryDate();
+            String name = i.getName();
         
       out.write("\n");
-      out.write("        <div class=\"container\"> \n");
-      out.write("            <div class=\"card\"> \n");
-      out.write("                <div class=\"container-fliud\"> \n");
-      out.write("                    <div class=\"wrapper row\"> \n");
-      out.write("                        <div class=\"preview col-md-6\"> \n");
-      out.write("                            <div class=\"preview-pic tab-content\"> \n");
-      out.write("                                <div class=\"tab-pane active\" id=\"pic-1\"><img src=\"douong/");
-      out.print( img );
+      out.write("\n");
+      out.write("        <div class=\"container\">\n");
+      out.write("            <div class=\"bod\">\n");
+      out.write("                <div class=\"card\"> \n");
+      out.write("                    <div class=\"container-fliud\"> \n");
+      out.write("                        <div class=\"wrapper row\"> \n");
+      out.write("                            <div class=\"preview col-md-6\"> \n");
+      out.write("                                <div class=\"preview-pic tab-content\"> \n");
+      out.write("                                    <div class=\"tab-pane active\" id=\"pic-1\"><img src=\"douong/");
+      out.print( img);
       out.write("\" alt=\"\">\n");
+      out.write("                                    </div> \n");
+      out.write("                                </div> \n");
+      out.write("                            </div> \n");
+      out.write("                            <div class=\"details col-md-6\"> \n");
+      out.write("                                <h3 class=\"product-title\">");
+      out.print( name);
+      out.write("</h3> \n");
+      out.write("                                <div class=\"rating\"> \n");
+      out.write("                                    <div class=\"stars\"> \n");
+      out.write("                                        5.0 \n");
+      out.write("                                        ");
+      if (_jspx_meth_c_forEach_0(_jspx_page_context))
+        return;
+      out.write("</br>\n");
+      out.write("                                        </br>\n");
+      out.write("                                    </div>   \n");
+      out.write("                                    <div>\n");
+      out.write("                                        <h2 class=\"pricei\">Price: ");
+      out.print( price);
+      out.write(" đ</h2>\n");
+      out.write("                                    </div>\n");
+      out.write("                                    <h5 class=\"sizes\">Size: <span  data-toggle=\"tooltip\" title=\"small\">");
+      out.print( size);
+      out.write("</span> \n");
+      out.write("                                    </h5>\n");
+      out.write("                                    <h5>Taste: ");
+      out.print( taste);
+      out.write("</h5>\n");
+      out.write("                                    <h5>Expiry Date: ");
+      out.print( expirydate);
+      out.write("</h5>\n");
+      out.write("                                    <h5>Quantity: <input aria-label=\"quantity\" class=\"input-qty\" max=\"10\" min=\"1\" name=\"\" type=\"number\" value=\"1\"></h5>\n");
+      out.write("                                    <div class=\"action\"> <a href=\"view2.jsp?idproduct=");
+      out.print( id);
+      out.write("\" target=\"_blank\">     \n");
+      out.write("                                            <button class=\"add-to-cart btn btn-default\" type=\"button\">ADD TO CART</button>  \n");
+      out.write("                                    </div> \n");
       out.write("                                </div> \n");
       out.write("                            </div> \n");
       out.write("                        </div> \n");
-      out.write("                        <div class=\"details col-md-6\"> \n");
-      out.write("                            <h3 class=\"product-title\">Thời trang cho bé trai nhiều màu sắc ngộ nghĩnh</h3> \n");
-      out.write("                            <div class=\"rating\"> \n");
-      out.write("                                <div class=\"stars\"> <span class=\"fa fa-star checked\"></span> <span class=\"fa fa-star checked\"></span> <span class=\"fa fa-star checked\"></span> <span class=\"fa fa-star\"></span> <span class=\"fa fa-star\"></span> \n");
-      out.write("                                </div> <span class=\"review-no\">123 đánh giá</span> \n");
-      out.write("                            </div> \n");
-      out.write("                            <p class=\"product-description\">Với trang phục này mẹ có thể cùng bé diện đi chơi, đi học đều rất phù hợp. Khi bé mặc vào, chắc chắn mẹ sẽ có cảm nhận hoàn toàn khác biệt vì màu sắc phong phú không chỉ khiến bộ trang phục trở nên bắt mắt mà còn tôn thêm vẻ nhí nhảnh, nghịch ngợm và năng động của các bé trai.            Khi diện những bộ thời trang cho bé trai ngộ nghĩnh này, mẹ đừng quên kèm theo cho bé một số phụ kiện phù hợp như mũ lưỡi trai cá tính, nón kết sành điệu, kính mát “cực ngầu” hay giày bata năng động nhé!            Chúc con yêu của bạn có thêm những bộ đồ thời trang cho bé trai theo phong cách đa màu sắc cực xinh xắn và đáng yêu!</p> \n");
-      out.write("                            <h4 class=\"price\">Price: </h4> \n");
-      out.write("                            <p class=\"vote\"><strong>91%</strong> of người mua hài lòng với sản phẩm này <strong>(87 bình chọn)</strong>\n");
-      out.write("                            </p> \n");
-      out.write("                            <h5 class=\"sizes\">Kích cỡ: <span class=\"size\" data-toggle=\"tooltip\" title=\"small\">s</span> <span class=\"size\" data-toggle=\"tooltip\" title=\"medium\">m</span> <span class=\"size\" data-toggle=\"tooltip\" title=\"large\">l</span> <span class=\"size\" data-toggle=\"tooltip\" title=\"xtra large\">xl</span> \n");
-      out.write("                            </h5> \n");
-      out.write("                            <h5 class=\"colors\">Màu: <span class=\"color orange not-available\" data-toggle=\"tooltip\" title=\"Not In store\"></span> <span class=\"color green\"></span> <span class=\"color blue\"></span> \n");
-      out.write("                            </h5> \n");
-      out.write("                            <div class=\"action\"> <a href=\"http://hocwebgiare.com/\" target=\"_blank\">            <button class=\"add-to-cart btn btn-default\" type=\"button\">MUA NGAY</button>            </a> <a href=\"http://hocwebgiare.com/\" target=\"_blank\">            <button class=\"like btn btn-default\" type=\"button\"><span class=\"fa fa-heart\"></span></button>            </a> \n");
-      out.write("                            </div> \n");
-      out.write("                        </div> \n");
-      out.write("                    </div> \n");
-      out.write("                </div> \n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
       out.write("            </div>\n");
-      out.write("        </div> \n");
+      out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>");
     } catch (Throwable t) {
@@ -312,5 +187,42 @@ public final class view2_jsp extends org.apache.jasper.runtime.HttpJspBase
     } finally {
       _jspxFactory.releasePageContext(_jspx_page_context);
     }
+  }
+
+  private boolean _jspx_meth_c_forEach_0(PageContext _jspx_page_context)
+          throws Throwable {
+    PageContext pageContext = _jspx_page_context;
+    JspWriter out = _jspx_page_context.getOut();
+    //  c:forEach
+    org.apache.taglibs.standard.tag.rt.core.ForEachTag _jspx_th_c_forEach_0 = (org.apache.taglibs.standard.tag.rt.core.ForEachTag) _jspx_tagPool_c_forEach_end_begin.get(org.apache.taglibs.standard.tag.rt.core.ForEachTag.class);
+    _jspx_th_c_forEach_0.setPageContext(_jspx_page_context);
+    _jspx_th_c_forEach_0.setParent(null);
+    _jspx_th_c_forEach_0.setBegin(1);
+    _jspx_th_c_forEach_0.setEnd(5);
+    int[] _jspx_push_body_count_c_forEach_0 = new int[] { 0 };
+    try {
+      int _jspx_eval_c_forEach_0 = _jspx_th_c_forEach_0.doStartTag();
+      if (_jspx_eval_c_forEach_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\n");
+          out.write("                                            <span class=\"fa fa-star checked\"></span>\n");
+          out.write("                                        ");
+          int evalDoAfterBody = _jspx_th_c_forEach_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_forEach_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        return true;
+      }
+    } catch (Throwable _jspx_exception) {
+      while (_jspx_push_body_count_c_forEach_0[0]-- > 0)
+        out = _jspx_page_context.popBody();
+      _jspx_th_c_forEach_0.doCatch(_jspx_exception);
+    } finally {
+      _jspx_th_c_forEach_0.doFinally();
+      _jspx_tagPool_c_forEach_end_begin.reuse(_jspx_th_c_forEach_0);
+    }
+    return false;
   }
 }

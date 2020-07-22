@@ -13,6 +13,7 @@ import java.sql.Date;
  */
 public class Items {
 
+    private int iId;
     private String name;
     private String size;
     private int price;
@@ -27,7 +28,8 @@ public class Items {
     public Items() {
     }
 
-    public Items(String name, String size, int price, int status, int quantity, int rId, int discounstt, String taste, Date expiryDate, String img) {
+    public Items(int iId, String name, String size, int price, int status, int quantity, int rId, int discounstt, String taste, Date expiryDate, String img) {
+        this.iId = iId;
         this.name = name;
         this.size = size;
         this.price = price;
@@ -38,6 +40,14 @@ public class Items {
         this.taste = taste;
         this.expiryDate = expiryDate;
         this.img = img;
+    }
+
+    public int getiId() {
+        return iId;
+    }
+
+    public void setiId(int iId) {
+        this.iId = iId;
     }
 
     public String getName() {
@@ -119,7 +129,5 @@ public class Items {
     public void setImg(String img) {
         this.img = img;
     }
-
-    
 
 }
