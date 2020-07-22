@@ -4,26 +4,50 @@
     Author     : Asus
 --%>
 
+<%@page import="Entities.Items"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DAO.ItemDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <style>
-            <%@include file="/css/home.css" %>
+            body{
+                background: #fff;
+                /*                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');	
+                                animation: snow 20s linear infinite;*/
+            }
+
+            @keyframes snow {
+                0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+                100% {background-position: 500px 1000px, 400px 400px, 300px 300px;}
+            }
+            #container{
+                margin-top: 55px;
+            }
+            #product{
+                padding-top: 20px;
+            }
         </style>
     </head>
     <body>
         <%
-            if(request.getParameter("out") != null){
+            if (request.getParameter("out") != null) {
                 request.getSession().removeAttribute("uMail");
             }
         %>
@@ -73,38 +97,70 @@
             </div>
         </div>
         <div class="container" id="product">
+            <div align="right">
+                <form action="SortController" method="POST">
+                    <select  name ="choose" >
+                        <option value = "default">Default</option>
+                        <option value = "lowhigh">Price: Low -> High</option>
+                        <option value = "highlow">Price: High -> Low</option>
+                        <option value = "az">A -> Z</option>
+                        <option value = "za">Z -> A</option>
+                    </select>
+                    <input type="submit" name="button" value="Sort"/>
+                </form>
+            </div>
             <div class="row row-cols-1 row-cols-md-3">
-                <div class="col-sm-4 mb-4">
-                    <div class="card h-100">
-                        <img src="douong/c2.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">C2</h5>
-                            <p class="card-text"></p>
-                            <footer>
-                                <button class="btn btn-lg btn-primary btn-block">Buy</button>
-                            </footer>
-                        </div>
-                    </div>
-                </div>
                 <%
-                    ArrayList<String> listName = new ItemDAO().getNameOfItems();
-                    for (String name : listName) {
-                        if (!name.isEmpty()) {
+                    DAO.ItemDAO it = new DAO.ItemDAO();
+                    ArrayList<Entities.Itemall> listName = new ArrayList<>();
+                    String choose = "";
+
+                    if (request.getParameter("button") == null) {
+                        listName = it.getNameOfItems();
+                    } else {
+                        choose = request.getAttribute("choose").toString();
+                        if (choose.equals("default")) {
+                            listName = it.getNameOfItems();
+                        } else if (choose.equals("lowhigh")) {
+                            listName = it.sortItemByPricelowhigh();
+                        } else if (choose.equals("highlow")) {
+                            listName = it.sortItemByPricehighlow();
+                        } else if (choose.equals("az")) {
+                            listName = it.sortItemByNameaz();
+                        } else if (choose.equals("za")) {
+                            listName = it.sortItemByNameza();
+                        }
+                    }
+                    for (Entities.Itemall name : listName) {
+                        if (name != null) {
                             out.println("<div class=\"col-sm-4 mb-4\">"
-                                    + "<div class=\"card h-100\">"
-                                    + "<img src=\"douong/" + name + "\" class=\"card-img-top\" alt=\"...\">"
-                                    + "<div class=\"card-body\">"
-                                    + "<h5 class=\"card-title\">" + name.substring(0, name.indexOf(".png")) + "</h5>"
-                                    + "<p class=\"card-text\"></p>"
-                                    + "<footer>"
-                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>"
-                                    + "</footer>"
+                                    + " <a href='view2.jsp?img=" + name.getiPic() + "&name=" + name.getiName() + "&size=" + name.getSize() + "&price=" + name.getpId() + "&status="
+                                    + "" + name.getStatus() + "&quantity=" + name.getQuantity() + "&discount=" + name.getDiscoutnStatus() + "&taste=" + name.getTaste() + ""
+                                    + "&expirydate=" + name.getExpiryDate() + "&rId=" + name.getrId() + "' target='_blank'>"
+                                    + "<div class='card'>"
+                                    + "<img src=\"douong/" + name.getiPic() + "\" class=\"card-img-top\" alt=\"...\">"
+                                    + "<div class='card-body'>"
+                                    + "</a>"
+                                    + "<h4 class='card-title'>" + name.getiName() + "</h4>"
+                                    + "<p class='card-text'>Price: " + name.getpId() + "</p>"
+                                    + "<a href='view.jsp?buy=" + name.getiId() + "' class=\"btn btn-lg btn-primary btn-block\" target='_blank'>Add to cart</a>"
                                     + "</div>"
                                     + "</div>"
                                     + "</div>");
                         }
                     }
                 %>
+                <c:forEach items="<%=listName%>" var="name">
+                    <div class='card'>
+                        <img src="douong/${name.getiPic()}" class="card-img-top" alt="...">
+                                <div class='card-body'>
+                            </a>
+                            <h4 class='card-title'> ${name.getiName()} </h4>
+                            <p class='card-text'>Price:  ${ name.getpId()} </p>
+                            <a href='view.jsp?buy=${name.getiId()}' class="btn btn-lg btn-primary btn-block    " target='_blank'>Add to cart</a>
+                            </div>"
+                        </div>
+                    </c:forEach>
             </div>
         </div>
         <footer>

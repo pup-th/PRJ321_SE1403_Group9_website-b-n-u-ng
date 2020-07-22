@@ -118,12 +118,11 @@ public class UserDAO {
         return 0;
     }
 
-    public int updatePassword(String email, String newpass, String oldpass) {
+     public int updatePassword(String email, String newpass) {
         try {
-            PreparedStatement pst = conn.prepareStatement("UPDATE `users` SET `uPassword`=MD5('?') WHERE `uMail`=? AND `uPassword`=MD5('?')");
+            PreparedStatement pst = conn.prepareStatement("UPDATE `users` SET `uPassword`=MD5(?) WHERE `uMail`= ?");
             pst.setString(1, newpass);
             pst.setString(2, email);
-            pst.setString(3, oldpass);
             return pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);

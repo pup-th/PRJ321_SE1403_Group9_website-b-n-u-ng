@@ -24,6 +24,7 @@
                 email = request.getSession().getAttribute("uMail").toString();
                 s = email.substring(0, email.indexOf("@"));
             }
+            
         %>
         <nav class="navbar navbar-expand-sm navbar-dark bg-black fixed-top" id="header">
             <div class="container">
@@ -53,7 +54,7 @@
                                         <a class="nav-link" href="#" data-toggle="dropdown"><%=s%></a>
                                         <div class="dropdown-menu">
                                             <a class="dropdown-item" href="#">Cart</a>
-                                            <a class="dropdown-item" href="#">Profile</a>
+                                            <a class="dropdown-item" href="profile.jsp">Profile</a>
                                             <a class="dropdown-item" href="home.jsp?out=1" >Sign out
                                                 <script>
                                                     function myFunction() {

@@ -6,6 +6,7 @@
 package DAO;
 
 import Entities.Itemall;
+import Entities.Items;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,21 +20,38 @@ import java.util.logging.Logger;
  * @author Asus
  */
 public class ItemDAO {
+
     public Connection conn;
 
     public ItemDAO() {
         this.conn = new DBConnection().getConnection();
     }
-    
-    public ArrayList getNameOfItems(){
+
+    public ArrayList getNameOfItems() {
         try {
-            ArrayList<String> listName = new ArrayList<>();
-            
+            ArrayList<Itemall> listName = new ArrayList<>();
+
             String sql = "SELECT * FROM `item` WHERE 1";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                listName.add(rs.getString("iPic"));
+            while (rs.next()) {
+                listName.add(new Itemall(rs.getInt("iId"), 
+                        rs.getInt("tId"), 
+                        rs.getInt("bId"),
+                        rs.getString("iName"),
+                        rs.getInt("blockId"), 
+                        rs.getString("size"), 
+                        rs.getInt("pId"), 
+                        rs.getInt("outputPrice"), 
+                        rs.getString("orginCode"),
+                        rs.getInt("status"), 
+                        rs.getInt("quantity"), 
+                        rs.getInt("rId"), 
+                        rs.getInt("discoutnStatus"),
+                        rs.getInt("vouId"), 
+                        rs.getString("taste"), 
+                        rs.getDate("expiryDate"), 
+                        rs.getString("iPic")));
             }
             return listName;
         } catch (SQLException ex) {
@@ -41,18 +59,31 @@ public class ItemDAO {
         }
         return null;
     }
-     public Itemall getNameOfItem(int iId) {
+
+    public Itemall getNameOfItem(int iId) {
         try {
             String sql = "SELECT * FROM `item` WHERE `iId`=?";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setInt(1, iId);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                Itemall i = new Itemall(rs.getInt("iId"), rs.getInt("tId"), rs.getInt("bId"),
+                Itemall i = new Itemall(rs.getInt("iId"), 
+                        rs.getInt("tId"), 
+                        rs.getInt("bId"),
                         rs.getString("iName"),
-                        rs.getInt("blockId"), rs.getString("size"), rs.getInt("pId"), rs.getInt("outputPrice"), rs.getString("orginCode"),
-                        rs.getInt("status"), rs.getInt("quantity"), rs.getInt("rId"), rs.getInt("discoutnStatus"),
-                        rs.getInt("vouId"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic"));
+                        rs.getInt("blockId"), 
+                        rs.getString("size"), 
+                        rs.getInt("pId"), 
+                        rs.getInt("outputPrice"), 
+                        rs.getString("orginCode"),
+                        rs.getInt("status"), 
+                        rs.getInt("quantity"), 
+                        rs.getInt("rId"), 
+                        rs.getInt("discoutnStatus"),
+                        rs.getInt("vouId"), 
+                        rs.getString("taste"), 
+                        rs.getDate("expiryDate"), 
+                        rs.getString("iPic"));
                 return i;
             }
 
@@ -136,15 +167,16 @@ public class ItemDAO {
         }
         return 0;
     }
-    public ArrayList sortItemByPriceASC(){
+
+    public ArrayList sortItemByPriceASC() {
         try {
             ArrayList<String> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` ORDER BY `outputPrice` ASC";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                listName.add(rs.getInt("outputPrice"),rs.getString("iPic"));
+            while (rs.next()) {
+                listName.add(rs.getInt("outputPrice"), rs.getString("iPic"));
             }
             return listName;
         } catch (SQLException ex) {
@@ -152,15 +184,16 @@ public class ItemDAO {
         }
         return null;
     }
-     public ArrayList sortItemByPriceDES(){
+
+    public ArrayList sortItemByPriceDES() {
         try {
             ArrayList<String> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` ORDER BY `outputPrice` DESC";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                listName.add(rs.getInt("outputPrice"),rs.getString("iPic"));
+            while (rs.next()) {
+                listName.add(rs.getInt("outputPrice"), rs.getString("iPic"));
             }
             return listName;
         } catch (SQLException ex) {
@@ -168,15 +201,16 @@ public class ItemDAO {
         }
         return null;
     }
-     public ArrayList sortItemByNameASC(){
+
+    public ArrayList sortItemByNameASC() {
         try {
             ArrayList<String> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` ORDER BY `iName` ASC";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                listName.add(rs.getInt("outputPrice"),rs.getString("iPic"));
+            while (rs.next()) {
+                listName.add(rs.getInt("outputPrice"), rs.getString("iPic"));
             }
             return listName;
         } catch (SQLException ex) {
@@ -184,15 +218,87 @@ public class ItemDAO {
         }
         return null;
     }
-     public ArrayList sortItemByNameDES(){
+
+    public ArrayList sortItemByNameDES() {
         try {
             ArrayList<String> listName = new ArrayList<>();
-            
+
             String sql = "SELECT * FROM `item` ORDER BY `iName` DESC";
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            while(rs.next()){
-                listName.add(rs.getInt("outputPrice"),rs.getString("iPic"));
+            while (rs.next()) {
+                listName.add(rs.getInt("outputPrice"), rs.getString("iPic"));
+            }
+            return listName;
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public ArrayList sortItemByPricelowhigh() {
+        try {
+            ArrayList<Items> listName = new ArrayList<>();
+
+            String sql = "SELECT * FROM `item` ORDER BY `outputPrice` ASC";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
+                        rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
+            }
+            return listName;
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public ArrayList sortItemByPricehighlow() {
+        try {
+            ArrayList<Items> listName = new ArrayList<>();
+
+            String sql = "SELECT * FROM `item` ORDER BY `outputPrice` DESC";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
+                        rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
+            }
+            return listName;
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public ArrayList sortItemByNameaz() {
+        try {
+            ArrayList<Items> listName = new ArrayList<>();
+
+            String sql = "SELECT * FROM `item` ORDER BY `iName` ASC";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
+                        rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
+            }
+            return listName;
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public ArrayList sortItemByNameza() {
+        try {
+            ArrayList<Items> listName = new ArrayList<>();
+
+            String sql = "SELECT * FROM `item` ORDER BY `iName` DESC";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                listName.add(new Items(rs.getString("iName"), rs.getString("size"), rs.getInt("outputPrice"), rs.getInt("status"), rs.getInt("quantity"),
+                        rs.getInt("rId"), rs.getInt("discoutnStatus"), rs.getString("taste"), rs.getDate("expiryDate"), rs.getString("iPic")));
             }
             return listName;
         } catch (SQLException ex) {

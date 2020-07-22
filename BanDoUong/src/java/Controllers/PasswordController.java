@@ -7,7 +7,11 @@ package Controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ASUS
  */
-public class SortController extends HttpServlet {
+public class PasswordController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,22 +36,53 @@ public class SortController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            if (request.getParameter("button") != null) {
-                String chon = request.getParameter("choose");
-                request.setAttribute("choose", chon);
-                RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
-                dis.forward(request, response);
+            String checkopass = "";
+            if (request.getParameter("btnChange") != null) {
+                String opass = request.getParameter("opass");
+                String npass = request.getParameter("npass");
+                String cpass = request.getParameter("cpass");
+                String mail = request.getParameter("omail");
+                String md5pass = request.getParameter("checkopass");
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                byte[] hashInBytes = md.digest(opass.getBytes(StandardCharsets.UTF_8));
+                StringBuilder sb = new StringBuilder();
+                for (byte b : hashInBytes) {
+                    sb.append(String.format("%02x", b));
+                }
+                checkopass = sb.toString();
+                if (npass.equals(cpass) && md5pass.equals(checkopass)) {
+                    DAO.UserDAO dao = new DAO.UserDAO();
+                    dao.updatePassword(mail, npass);
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Your password is updated !');");
+                    out.println("location='profile.jsp';");
+                    out.println("</script>");
+//                    response.sendRedirect("profile.jsp");
+                }
+                else if(!md5pass.equals(checkopass)) {
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('Your passsword is wrong !');");
+                    out.println("location='profile.jsp';");
+                    out.println("</script>");
+                }
+                else if(!npass.equals(cpass)) {
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('New password and confirm is not the same !');");
+                    out.println("location='profile.jsp';");
+                    out.println("</script>");
+                }
             }
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet SortController</title>");
+            out.println("<title>Servlet ChangeController</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet SortController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(PasswordController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

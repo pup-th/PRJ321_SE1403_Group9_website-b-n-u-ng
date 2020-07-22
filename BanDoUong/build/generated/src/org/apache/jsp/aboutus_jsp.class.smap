@@ -5,12 +5,8 @@ JSP
 *F
 + 0 aboutus.jsp
 aboutus.jsp
-+ 1 aboutUs.css
-css/aboutUs.css
 *L
-5,17:49
-1#1,43:66
-21#0,20:109
-41:129,3
-42,3:132
+5,150:44
+155:194,3
+156,85:197
 *E

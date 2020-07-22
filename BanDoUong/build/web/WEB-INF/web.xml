@@ -4,9 +4,33 @@
         <servlet-name>UserController</servlet-name>
         <servlet-class>Controllers.UserController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SortController</servlet-name>
+        <servlet-class>Controllers.SortController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangeController</servlet-name>
+        <servlet-class>Controllers.ChangeController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PasswordController</servlet-name>
+        <servlet-class>Controllers.PasswordController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
         <url-pattern>/UserController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SortController</servlet-name>
+        <url-pattern>/SortController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChangeController</servlet-name>
+        <url-pattern>/ChangeController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PasswordController</servlet-name>
+        <url-pattern>/PasswordController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
