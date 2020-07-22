@@ -5,10 +5,10 @@
  */
 package Controllers;
 
+import DAO.AdminDAO;
 import DAO.UserDAO;
 import Entities.Users;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -35,6 +35,7 @@ public class UserController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         UserDAO uDAO = new UserDAO();
+        AdminDAO aDAO = new AdminDAO();
         String email = request.getParameter("txtEmail");
         String pass = request.getParameter("txtPass");
         String name = request.getParameter("txtName");
@@ -42,28 +43,38 @@ public class UserController extends HttpServlet {
         String address = request.getParameter("txtAddress");
         if (address == null) {
             if (email != null && pass != null) {
-                String check = uDAO.checkLogin(email, pass);
-                if (!check.isEmpty()) {
-                    request.getSession().setAttribute("uMail", check);
-                    request.getRequestDispatcher("home.jsp").forward(request, response);
-//                response.sendRedirect("home.jsp");
-                } else {
-                    request.getSession().setAttribute("fail", "Wrong Username or Password");
-                    request.getRequestDispatcher("login.jsp").forward(request, response);
-//                response.sendRedirect("login.jsp");
+                String user = uDAO.checkLogin(email, pass);
+                String admin = aDAO.checkLogin(email, pass);
+                if(!admin.isEmpty()){
+                    request.getRequestDispatcher("admin.jsp").forward(request, response);
+                }else{
+                    if (!user.isEmpty()) {
+                        request.getSession().setAttribute("uMail", user);
+                        request.getRequestDispatcher("home.jsp").forward(request, response);
+    //                response.sendRedirect("home.jsp");
+                    } else {
+                        request.getSession().setAttribute("fail", "Wrong Username or Password");
+                        request.getRequestDispatcher("login.jsp").forward(request, response);
+    //                response.sendRedirect("login.jsp");
+                    }
                 }
             } else {
                 String mail = request.getParameter("mail");
                 if (mail != null) {
                     String uMail = uDAO.checkLoginByGoogle(mail);
-                    if (uMail.equals("")) {
-                        request.getSession().setAttribute("fail", "You don't have account on our website, please Register");
-                        request.getRequestDispatcher("login.jsp").forward(request, response);
-//                    response.sendRedirect("login.jsp");
-                    } else {
-                        request.getSession().setAttribute("uMail", mail);
-                        request.getRequestDispatcher("home.jsp").forward(request, response);
-//                    response.sendRedirect("home.jsp");
+                    String aMail = aDAO.checkLoginByGoogle(mail);
+                    if(!aMail.isEmpty()){
+                        request.getRequestDispatcher("admin.jsp").forward(request, response);
+                    }else{
+                        if (uMail.equals("")) {
+                            request.getSession().setAttribute("fail", "You don't have account on our website, please Register");
+                            request.getRequestDispatcher("login.jsp").forward(request, response);
+    //                    response.sendRedirect("login.jsp");
+                        } else {
+                            request.getSession().setAttribute("uMail", mail);
+                            request.getRequestDispatcher("home.jsp").forward(request, response);
+    //                    response.sendRedirect("home.jsp");
+                        }
                     }
                 }
             }

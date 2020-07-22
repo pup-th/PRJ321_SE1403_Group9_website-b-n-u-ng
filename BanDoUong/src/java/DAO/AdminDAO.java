@@ -24,13 +24,27 @@ public class AdminDAO {
     }
     public String checkLogin(String mail, String password) {
         try {
-            String sql = "SELECT * FROM `users` WHERE `uMail`=? and `uPassword` = MD5(?)";
+            String sql = "SELECT * FROM `admin` WHERE `aMail`=? and `aPassword` = MD5(?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, mail);
             pst.setString(2, password);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                return rs.getString("uMail");
+                return rs.getString("aMail");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "";
+    }
+     public String checkLoginByGoogle(String email) {
+        try {
+            String sql = "SELECT * FROM `admin` WHERE `aMail` = ?";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getString("aMail");
             }
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
