@@ -3,14 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/home.jsp</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/view.css</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/aboutus.jsp</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/DAO/ItemDAO.java</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/profile.jsp</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/aboutUs.css</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Entities/Items.java</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/view2.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/register.css</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Entities/OrderDetail.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/register.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/insert.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Controllers/AdminController.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Entities/Items.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Controllers/ChangeController.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/login.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/cart1.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/view.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/DAO/UserDAO.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/home.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/view2.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/header.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/DAO/AdminDAO.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Controllers/UserController.java</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/profile.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/login.css</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/admin.jsp</file>
+            <file>file:/C:/Users/Asus/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/update.jsp</file>
         </group>
     </open-files>
 </project-private>

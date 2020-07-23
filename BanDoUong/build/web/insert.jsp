@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Insert Product</h1>
-        <form action="AdminController" method="post">
+        <form action="AdminController" method="POST">
             <table>
                 <tr>
                     <td>tId</td>

@@ -1,3 +1,6 @@
+
+<%@page import="DAO.PriceDAO"%>
+<%@page import="DAO.ItemDAO"%>
 <%@page import="Controllers.ChangeController"%>
 <%@page import="java.nio.charset.StandardCharsets"%>
 <%@page import="java.security.MessageDigest"%>
@@ -105,7 +108,9 @@
                 <div class="container">
                     <table class="tableorder">
                         <%
-                            ArrayList<Entities.Orders> listorder = dao.getHisPurchase(mail);
+                            ArrayList<Entities.OrderDetail> listorder = dao.getHisPurchase(mail);
+                            ItemDAO iDAO = new ItemDAO();
+                            PriceDAO priceDAO = new PriceDAO();
                             int count = 1;
                             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
                             out.println("<tr align='center'>");
@@ -116,17 +121,27 @@
                             out.println("<th>Order Date</th>");
                             out.println("<th>Total</th>");
                             out.println("</tr>");
-                            for (Entities.Orders elem : listorder) {
+                            int to = 0;
+                            for (Entities.OrderDetail elem : listorder) {
+                                
                                 out.println("<tr align='center'>");
                                 out.println("<td>" + count++ + "</td>");
-                                out.println("<td>" + elem.getName() + "</td>");
+                                out.println("<td>" + iDAO.getItemById(elem.getiId()).getiName() + "</td>");
                                 out.println("<td>" + elem.getQuantity() + "</td>");
-                                out.println("<td>" + elem.getIprice() + "</td>");
-                                out.println("<td>" + sdf.format(elem.getDate()) + "</td>");
-                                out.println("<td>" + elem.getTotal() + "</td>");
+                                out.println("<td>" + priceDAO.getPriceByPId(iDAO.getItemById(elem.getiId()).getpId()) + "</td>");
+                                out.println("<td>" + sdf.format(elem.getOrderDate()) + "</td>");
+                                out.println("<td>" + priceDAO.getPriceByPId(iDAO.getItemById(elem.getiId()).getpId())*elem.getQuantity() + "</td>");
+                                to += priceDAO.getPriceByPId(iDAO.getItemById(elem.getiId()).getpId())*elem.getQuantity();
                                 out.println("<tr>");
                             }
-
+                            out.println("<tr align='center'>");
+                                out.println("<td></td>");
+                                out.println("<td></td>");
+                                out.println("<td></td>");
+                                out.println("<td></td>");
+                                out.println("<td>Total:</td>");
+                                out.println("<td>"+to+"</td>");
+                                out.println("<tr>");
                         %>
                     </table>
                 </div>
