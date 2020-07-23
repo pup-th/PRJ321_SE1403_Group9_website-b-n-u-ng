@@ -1,3 +1,7 @@
+<%@page import="Entities.Itemall"%>
+<%@page import="java.sql.Date"%>
+<%@page import="Entities.Items"%>
+<%@page import="DAO.ItemDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -5,7 +9,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>content</title>
-        <link href="css/view2.css" rel="stylesheet" type="text/css" media="all"/>
+        <link href="css/productdetail.css" rel="stylesheet" type="text/css" media="all"/>
         <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"> 
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,8 +22,9 @@
                 var $this = $(this),
                         qty = $this.parent().find('.is-form'),
                         min = Number($this.attr('min')),
-                        max = ${param.quantity},
-                if (min == 0) {
+                        max = ${param.quantity}
+    ,
+                        if (min == 0) {
                     var d = 0
                 } else
                     d = min
@@ -35,21 +40,30 @@
                     $this.attr('value', d).val(d)
                 })
             })
-//]]></script>
+    </script>
             <jsp:include page="header.jsp"/>
     </head>
     <body>
         <%
-            String img = request.getParameter("img");
-            String size = request.getParameter("size");
-            String price = request.getParameter("price");
-            String quantity = request.getParameter("quantity");
-            String rId = request.getParameter("rId");
-            String discount = request.getParameter("discount");
-            String status = request.getParameter("status");
-            String taste = request.getParameter("taste");
-            String expirydate = request.getParameter("expirydate");
-            String name = request.getParameter("name");
+            DAO.ItemDAO itemdao = new ItemDAO();
+            int id = Integer.parseInt(request.getParameter("idProductFromHome"));
+//            if(request.getSession().getAttribute("idpro")!=null){
+//                id=Integer.parseInt(request.getSession().getAttribute("idpro").toString());
+//            }
+//            else{id= ;0;
+                
+//            }
+            Itemall iall = itemdao.getNameOfItem(id);
+            String img = iall.getiPic();
+            String size = iall.getSize();
+            int price = iall.getOutputPrice();
+            int quantity = iall.getQuantity();
+            int rId = iall.getrId();
+            int discount = iall.getDiscoutnStatus();
+            int status = iall.getStatus();
+            String taste = iall.getTaste();
+            Date expirydate = iall.getExpiryDate();
+            String name = iall.getiName();
         %>
 
         <div class="container">
@@ -80,10 +94,14 @@
                                     </h5>
                                     <h5>Taste: <%= taste%></h5>
                                     <h5>Expiry Date: <%= expirydate%></h5>
-                                    <h5>Quantity: <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1"></h5>
-                                    <div class="action"> <a href="#" target="_blank">     
-                                            <button class="add-to-cart btn btn-default" type="button">ADD TO CART</button>  
-                                    </div> 
+                                    <form action="CartController" method="post">
+                                        <div class="action">
+                                            <!--<button class="add-to-cart btn btn-default" type="button" name="addcart">ADD TO CART</button>-->
+                                            <h5>Quantity: <input max="<%=quantity%>" min="1" name="cartQuantity" type="number" value="1"></h5>
+                                            <input type="hidden" value="<%=id%>" name="cartId"/>
+                                            <input type="submit" value="Add To Cart" name="btnAddcart"/>
+                                        </div>
+                                    </form>
                                 </div> 
                             </div> 
                         </div> 

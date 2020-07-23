@@ -6,6 +6,7 @@
 package DAO;
 
 import Entities.OrderDetail;
+import Entities.Orders;
 import Entities.Users;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,6 +28,15 @@ public class UserDAO {
         this.conn = new DBConnection().getConnection();
     }
 
+    public void addBillToDB(){
+        try {
+            String sql = "SELECT * FROM `users` WHERE `uMail`=? and `uPassword` = MD5(?)";
+            PreparedStatement pst = conn.prepareStatement(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public String checkLogin(String mail, String password) {
         try {
             String sql = "SELECT * FROM `users` WHERE `uMail`=? and `uPassword` = MD5(?)";
@@ -137,14 +147,7 @@ public class UserDAO {
             pst.setString(1, mail);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                list.add(new OrderDetail(
-                        rs.getInt("oId"),
-                        rs.getInt("payId"),
-                        rs.getString("uMail"), 
-                        rs.getInt("iId"), 
-                        rs.getInt("quantity"), 
-                        rs.getString("note"), 
-                        rs.getDate("orderDate")));
+                list.add(new OrderDetail(rs.getInt("oId"), rs.getInt("payId"),rs.getString("uMail"), rs.getInt("iId"),rs.getInt("quantity"),rs.getString("note"), rs.getDate("orderDate")));
             }
             return list;
         } catch (SQLException ex) {
@@ -152,7 +155,6 @@ public class UserDAO {
         }
         return null;
     }
-    
 
     public String getPassword(String mail) {
         try {
@@ -166,5 +168,33 @@ public class UserDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+   
+    public String getNameItemById(int id){
+        try {
+            PreparedStatement pst = conn.prepareStatement("SELECT `iName` FROM `item` WHERE `iId`=?");
+            pst.setInt(1, id);
+            ResultSet rs= pst.executeQuery();
+            if(rs.next()){
+                return rs.getString("iName");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public int getPriceItemById(int id){
+        try {
+            PreparedStatement pst = conn.prepareStatement("SELECT `outputPrice` FROM `item` WHERE `iId`=?");
+            pst.setInt(1, id);
+            ResultSet rs= pst.executeQuery();
+            if(rs.next()){
+                return rs.getInt("outputPrice");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 }

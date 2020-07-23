@@ -1,6 +1,4 @@
-
-<%@page import="DAO.PriceDAO"%>
-<%@page import="DAO.ItemDAO"%>
+<%@page import="DAO.UserDAO"%>
 <%@page import="Controllers.ChangeController"%>
 <%@page import="java.nio.charset.StandardCharsets"%>
 <%@page import="java.security.MessageDigest"%>
@@ -41,15 +39,13 @@
                 <input type="text" placeholder="Enter Full Name" name="nname" required value="<%= name%>"/>
 
                 <label for="psw"><b>Email</b></label>
-                <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                       title="A form with an email field that that must be in the following order: characters@characters.domain"
-                       placeholder="Enter Email" name="nmail" required value="<%= mail%>"/>
+                <input type="text" placeholder="Enter Email" name="nmail" required value="<%= mail%>"/>
 
                 <label for="psw"><b>Phone</b></label>
-                <input type="text" pattern="\d{10}" title="Phone number must be 10 digits" placeholder="Enter Phone" name="nphone" required value="<%= phone%>"/>
+                <input type="text" placeholder="Enter Phone" name="nphone" required value="<%= phone%>"/>
 
                 <label for="psw"><b>Address</b></label>
-                <input type="text" placeholder="Enter Address" title="It's can be empty" name="naddress" required value="<%= address%>"/>
+                <input type="text" placeholder="Enter Address" name="naddress" required value="<%= address%>"/>
 
                 <button type="submit" name="btnSave">Save</button>
             </div>
@@ -105,14 +101,13 @@
         <div id="id02" class="modal">
             <form class="modal-content animate" method="post">
                 <div class="imgcontainer">
-                    <span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>
+                    <!--<span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>-->
                 </div>
                 <div class="container">
                     <table class="tableorder">
                         <%
                             ArrayList<Entities.OrderDetail> listorder = dao.getHisPurchase(mail);
-                            ItemDAO iDAO = new ItemDAO();
-                            PriceDAO priceDAO = new PriceDAO();
+                            DAO.UserDAO userdao= new UserDAO();
                             int count = 1;
                             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
                             out.println("<tr align='center'>");
@@ -123,27 +118,18 @@
                             out.println("<th>Order Date</th>");
                             out.println("<th>Total</th>");
                             out.println("</tr>");
-                            int to = 0;
                             for (Entities.OrderDetail elem : listorder) {
-                                
+                                int price = userdao.getPriceItemById(elem.getiId());
                                 out.println("<tr align='center'>");
                                 out.println("<td>" + count++ + "</td>");
-                                out.println("<td>" + iDAO.getItemById(elem.getiId()).getiName() + "</td>");
+                                out.println("<td>" + userdao.getNameItemById(elem.getiId()) + "</td>");
                                 out.println("<td>" + elem.getQuantity() + "</td>");
-                                out.println("<td>" + priceDAO.getPriceByPId(iDAO.getItemById(elem.getiId()).getpId()) + "</td>");
+                                out.println("<td>" + price + "</td>");
                                 out.println("<td>" + sdf.format(elem.getOrderDate()) + "</td>");
-                                out.println("<td>" + priceDAO.getPriceByPId(iDAO.getItemById(elem.getiId()).getpId())*elem.getQuantity() + "</td>");
-                                to += priceDAO.getPriceByPId(iDAO.getItemById(elem.getiId()).getpId())*elem.getQuantity();
+                                out.println("<td>" + (price*elem.getQuantity()) + "</td>");
                                 out.println("<tr>");
                             }
-                            out.println("<tr align='center'>");
-                                out.println("<td></td>");
-                                out.println("<td></td>");
-                                out.println("<td></td>");
-                                out.println("<td></td>");
-                                out.println("<td>Total:</td>");
-                                out.println("<td>"+to+"</td>");
-                                out.println("<tr>");
+
                         %>
                     </table>
                 </div>

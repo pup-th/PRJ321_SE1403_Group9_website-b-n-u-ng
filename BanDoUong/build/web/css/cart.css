@@ -64,7 +64,7 @@ body a {
 
 .container {
     width: 55%;
-    margin: 0 auto;
+    margin-top:0 auto ;
 }
 
 h1 {
@@ -264,7 +264,7 @@ p {
         font-size: 50px;
     }
     .container {
-        width: 40%;
+        width: 45%;
     }
     .copyright {
         margin-top: 200px;
@@ -603,6 +603,9 @@ p {
     }
     .checkout-btn a {
         margin-right: 5px;
+    }
+    .cardbody{
+        font-family: arial;
     }
 }
 

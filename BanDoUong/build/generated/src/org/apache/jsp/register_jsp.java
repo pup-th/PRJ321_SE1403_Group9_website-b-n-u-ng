@@ -60,33 +60,33 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write("    <head>\r\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>JSP Page</title>\r\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\" \r\n");
-      out.write("              integrity=\"sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk\" \r\n");
-      out.write("              crossorigin=\"anonymous\">\r\n");
-      out.write("        <meta name=\"google-signin-client_id\" content=\"559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com\"/>\r\n");
-      out.write("        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\r\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/register.css\" type=\"text/css\" media=\"all\" />\r\n");
-      out.write("    </head>\r\n");
-      out.write("    <body>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>JSP Page</title>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\" \n");
+      out.write("              integrity=\"sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk\" \n");
+      out.write("              crossorigin=\"anonymous\">\n");
+      out.write("        <meta name=\"google-signin-client_id\" content=\"559443797881-d6drq7akg8ki94d777tu66a43cj4v061.apps.googleusercontent.com\"/>\n");
+      out.write("        <script src=\"https://apis.google.com/js/platform.js\" async defer></script>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/register.css\" type=\"text/css\" media=\"all\" />\n");
+      out.write("    </head>\n");
+      out.write("    <body>\n");
       out.write("        ");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("\r\n");
-      out.write("<!DOCTYPE html>\r\n");
-      out.write("<html>\r\n");
-      out.write("    <head>\r\n");
-      out.write("        <meta charset=\"utf-8\">\r\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n");
-      out.write("        <style>\r\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html>\n");
+      out.write("    <head>\n");
+      out.write("        <meta charset=\"utf-8\">\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n");
+      out.write("        <style>\n");
       out.write("            ");
       out.write("\r\n");
       out.write("\r\n");
@@ -102,11 +102,11 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                font-family: Helvetica, Arial, sans-serif;\r\n");
       out.write("                background-color: #696969;\r\n");
       out.write("            }");
-      out.write("\r\n");
-      out.write("        </style>\r\n");
-      out.write("    </head>\r\n");
-      out.write("\r\n");
-      out.write("    <body>\r\n");
+      out.write("\n");
+      out.write("        </style>\n");
+      out.write("    </head>\n");
+      out.write("\n");
+      out.write("    <body>\n");
       out.write("        ");
 
             String email = null;
@@ -115,22 +115,21 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
                 email = request.getSession().getAttribute("uMail").toString();
                 s = email.substring(0, email.indexOf("@"));
             }
-            
         
-      out.write("\r\n");
-      out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-black fixed-top\" id=\"header\">\r\n");
-      out.write("            <div class=\"container\">\r\n");
-      out.write("                <a href=\"home.jsp\" class=\"navbar-brand\">GroupChin</a>\r\n");
-      out.write("                <button class=\"navbar-toggler\" data-toggle=\"collapse\"\r\n");
-      out.write("                        data-target=\"#navbarCollapse\">\r\n");
-      out.write("                    <span class=\"navbar-toggler-icon\"></span>\r\n");
-      out.write("                </button>\r\n");
-      out.write("                <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\r\n");
-      out.write("                    <ul class=\"navbar-nav ml-auto \">\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"home.jsp\" class=\"nav-link\">HOME</a></li>\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">CART</a></li>\r\n");
-      out.write("                        <li class=\"nav-item\"><a href=\"aboutus.jsp\" class=\"nav-link\">ABOUT US</a></li>\r\n");
-      out.write("                        <li class=\"nav-item\">\r\n");
+      out.write("\n");
+      out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-black fixed-top\" id=\"header\">\n");
+      out.write("            <div class=\"container\">\n");
+      out.write("                <a href=\"home.jsp\" class=\"navbar-brand\">GroupChin</a>\n");
+      out.write("                <button class=\"navbar-toggler\" data-toggle=\"collapse\"\n");
+      out.write("                        data-target=\"#navbarCollapse\">\n");
+      out.write("                    <span class=\"navbar-toggler-icon\"></span>\n");
+      out.write("                </button>\n");
+      out.write("                <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n");
+      out.write("                    <ul class=\"navbar-nav ml-auto \">\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"home.jsp\" class=\"nav-link\">HOME</a></li>\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link\">CART</a></li>\n");
+      out.write("                        <li class=\"nav-item\"><a href=\"aboutus.jsp\" class=\"nav-link\">ABOUT US</a></li>\n");
+      out.write("                        <li class=\"nav-item\">\n");
       out.write("                            ");
       //  c:choose
       org.apache.taglibs.standard.tag.common.core.ChooseTag _jspx_th_c_choose_0 = (org.apache.taglibs.standard.tag.common.core.ChooseTag) _jspx_tagPool_c_choose.get(org.apache.taglibs.standard.tag.common.core.ChooseTag.class);
@@ -139,7 +138,7 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       int _jspx_eval_c_choose_0 = _jspx_th_c_choose_0.doStartTag();
       if (_jspx_eval_c_choose_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
         do {
-          out.write("\r\n");
+          out.write("\n");
           out.write("                                ");
           //  c:when
           org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_0 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
@@ -149,14 +148,14 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
           int _jspx_eval_c_when_0 = _jspx_th_c_when_0.doStartTag();
           if (_jspx_eval_c_when_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
             do {
-              out.write("\r\n");
-              out.write("                                    <div class=\"dropdown navbar-nav ml-auto \">\r\n");
-              out.write("                                        <a class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\">ACCOUNT</a>\r\n");
-              out.write("                                        <div class=\"dropdown-menu\">\r\n");
-              out.write("                                            <a class=\"dropdown-item\" href=\"login.jsp\">Sign in</a>\r\n");
-              out.write("                                            <a class=\"dropdown-item\" href=\"register.jsp\">Register</a>\r\n");
-              out.write("                                        </div>\r\n");
-              out.write("                                    </div> \r\n");
+              out.write("\n");
+              out.write("                                    <div class=\"dropdown navbar-nav ml-auto \">\n");
+              out.write("                                        <a class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\">ACCOUNT</a>\n");
+              out.write("                                        <div class=\"dropdown-menu\">\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"login.jsp\">Sign in</a>\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"register.jsp\">Register</a>\n");
+              out.write("                                        </div>\n");
+              out.write("                                    </div> \n");
               out.write("                                ");
               int evalDoAfterBody = _jspx_th_c_when_0.doAfterBody();
               if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -168,7 +167,7 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
             return;
           }
           _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_0);
-          out.write("\r\n");
+          out.write("\n");
           out.write("                                ");
           //  c:when
           org.apache.taglibs.standard.tag.rt.core.WhenTag _jspx_th_c_when_1 = (org.apache.taglibs.standard.tag.rt.core.WhenTag) _jspx_tagPool_c_when_test.get(org.apache.taglibs.standard.tag.rt.core.WhenTag.class);
@@ -178,23 +177,25 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
           int _jspx_eval_c_when_1 = _jspx_th_c_when_1.doStartTag();
           if (_jspx_eval_c_when_1 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
             do {
-              out.write("\r\n");
-              out.write("                                    <div class=\"dropdown navbar-nav ml-auto \">\r\n");
+              out.write("\n");
+              out.write("                                    <div class=\"dropdown navbar-nav ml-auto \">\n");
               out.write("                                        <a class=\"nav-link\" href=\"#\" data-toggle=\"dropdown\">");
               out.print(s);
-              out.write("</a>\r\n");
-              out.write("                                        <div class=\"dropdown-menu\">\r\n");
-              out.write("                                            <a class=\"dropdown-item\" href=\"#\">Cart</a>\r\n");
-              out.write("                                            <a class=\"dropdown-item\" href=\"profile.jsp\">Profile</a>\r\n");
-              out.write("                                            <a class=\"dropdown-item\" href=\"home.jsp?out=1\" >Sign out\r\n");
-              out.write("                                                <script>\r\n");
-              out.write("                                                    function myFunction() {\r\n");
-              out.write("                                                        gapi.auth2.getAuthInstance().disconnect();\r\n");
-              out.write("                                                        location.reload();\r\n");
-              out.write("                                                    }\r\n");
-              out.write("                                                </script></a>\r\n");
-              out.write("                                        </div>\r\n");
-              out.write("                                    </div> \r\n");
+              out.write("</a>\n");
+              out.write("                                        <div class=\"dropdown-menu\">\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"#\">Cart</a>\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"profile.jsp?em=");
+              out.print(email);
+              out.write("\">Profile</a>\n");
+              out.write("                                            <a class=\"dropdown-item\" href=\"home.jsp?out=1\" >Sign out\n");
+              out.write("                                                <script>\n");
+              out.write("                                                    function myFunction() {\n");
+              out.write("                                                        gapi.auth2.getAuthInstance().disconnect();\n");
+              out.write("                                                        location.reload();\n");
+              out.write("                                                    }\n");
+              out.write("                                                </script></a>\n");
+              out.write("                                        </div>\n");
+              out.write("                                    </div> \n");
               out.write("                                ");
               int evalDoAfterBody = _jspx_th_c_when_1.doAfterBody();
               if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -206,7 +207,7 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
             return;
           }
           _jspx_tagPool_c_when_test.reuse(_jspx_th_c_when_1);
-          out.write("  \r\n");
+          out.write("  \n");
           out.write("                            ");
           int evalDoAfterBody = _jspx_th_c_choose_0.doAfterBody();
           if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
@@ -218,56 +219,53 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
         return;
       }
       _jspx_tagPool_c_choose.reuse(_jspx_th_c_choose_0);
-      out.write("\r\n");
-      out.write("                        </li>\r\n");
-      out.write("                    </ul>\r\n");
-      out.write("                </div>\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </nav>\r\n");
-      out.write("    </body>\r\n");
+      out.write("\n");
+      out.write("                        </li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </nav>\n");
+      out.write("    </body>\n");
       out.write("</html>");
-      out.write("\r\n");
-      out.write("        <div class=\"login\">\r\n");
-      out.write("            <div class=\"login-top\">\r\n");
-      out.write("                <h2>Register</h2>\r\n");
-      out.write("            </div>\r\n");
-      out.write("            <div class=\"login-bottom\">\r\n");
-      out.write("                <h3>Fill out all information: </h3>\r\n");
-      out.write("                <form action=\"UserController\" method=\"POST\">\r\n");
-      out.write("                    <div class=\"user\">\r\n");
-      out.write("                        <input type=\"text\" pattern=\"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$\"\r\n");
-      out.write("                               title=\"A form with an email field that that must be in the following order: characters@characters.domain\" \r\n");
-      out.write("                               placeHolder=\"Email\" name =\"txtEmail\" onfocus=\"this.value = '';\"\r\n");
-      out.write("                               onblur=\"if (this.value == '') {this.value = 'Email';}\"><i></i>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"user-in\">\r\n");
-      out.write("                        <input type=\"password\" pattern=\"\\w{8,16}\" title=\"From 8-16 characters\" placeholder=\"Password\" name=\"txtPass\" required ><i></i>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"user\">\r\n");
-      out.write("                        <input type=\"text\"  title=\"It's can be empty\" placeholder=\"Your name\" name=\"txtName\" required><i></i>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"user\">\r\n");
-      out.write("                        <input type=\"text\" pattern=\"\\d{10}\" title=\"Phone number must be 10 digits\" placeholder=\"Phone number\" name=\"txtPhone\" required><i></i>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"user\">\r\n");
-      out.write("                        <input type=\"text\" title=\"It's can be empty\" placeholder=\"Address\" name=\"txtAddress\" required><i></i>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"forgot\">\r\n");
-      out.write("                        <div class=\"forgot-register\">\r\n");
-      out.write("                            <p>Already have an account?<a href=\"login.jsp\">Login Now</a></p>\r\n");
-      out.write("                        </div> \r\n");
-      out.write("                    </div>\r\n");
-      out.write("                    <div class=\"keepme\">\r\n");
-      out.write("                        <div class=\"keep-loginbutton\">\r\n");
-      out.write("                            <input type=\"submit\" value=\"Register\" />\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        <div class=\"clear\"> </div>\r\n");
-      out.write("                    </div>\r\n");
-      out.write("                </form>\r\n");
-      out.write("            </div>\r\n");
-      out.write("        </div>\r\n");
-      out.write("    </body>\r\n");
-      out.write("</html>\r\n");
+      out.write("\n");
+      out.write("        <div class=\"login\">\n");
+      out.write("            <div class=\"login-top\">\n");
+      out.write("                <h2>Register</h2>\n");
+      out.write("            </div>\n");
+      out.write("            <div class=\"login-bottom\">\n");
+      out.write("                <h3>Fill out all information: </h3>\n");
+      out.write("                <form action=\"UserController\" method=\"POST\">\n");
+      out.write("                    <div class=\"user\">\n");
+      out.write("                        <input type=\"text\" placeholder=\"Email\" name=\"txtEmail\" required autofocus><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"user-in\">\n");
+      out.write("                        <input type=\"password\" placeholder=\"Password\" name=\"txtPass\" required ><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"user\">\n");
+      out.write("                        <input type=\"text\" placeholder=\"Your name\" name=\"txtName\" required><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"user\">\n");
+      out.write("                        <input type=\"text\" placeholder=\"Phone number\" name=\"txtPhone\" required><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"user\">\n");
+      out.write("                        <input type=\"text\" placeholder=\"Address\" name=\"txtAddress\" required><i></i>\n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"forgot\">\n");
+      out.write("                        <div class=\"forgot-register\">\n");
+      out.write("                            <p>Already have an account?<a href=\"login.jsp\">Login Now</a></p>\n");
+      out.write("                        </div> \n");
+      out.write("                    </div>\n");
+      out.write("                    <div class=\"keepme\">\n");
+      out.write("                        <div class=\"keep-loginbutton\">\n");
+      out.write("                            <input type=\"button\" value=\"Register\" />\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"clear\"> </div>\n");
+      out.write("                    </div>\n");
+      out.write("                </form>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

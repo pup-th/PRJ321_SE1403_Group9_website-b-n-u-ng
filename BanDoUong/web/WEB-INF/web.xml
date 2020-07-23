@@ -16,6 +16,14 @@
         <servlet-name>PasswordController</servlet-name>
         <servlet-class>Controllers.PasswordController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>Controllers.CartController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BuyController</servlet-name>
+        <servlet-class>Controllers.BuyController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
         <url-pattern>/UserController</url-pattern>
@@ -31,6 +39,14 @@
     <servlet-mapping>
         <servlet-name>PasswordController</servlet-name>
         <url-pattern>/PasswordController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/CartController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BuyController</servlet-name>
+        <url-pattern>/BuyController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -8,14 +8,21 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="DAO.ItemDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1">-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -24,7 +31,7 @@
                 background: #fff;
                 /*                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');	
                                 animation: snow 20s linear infinite;*/
-                background-color:rgba(192,192,192,0.5);
+                background-image: url('background/a.png')
             }
 
             @keyframes snow {
@@ -40,11 +47,6 @@
         </style>
     </head>
     <body>
-        <%
-            if (request.getParameter("out") != null) {
-                request.getSession().removeAttribute("uMail");
-            }
-        %>
         <jsp:include page="header.jsp"/>
         <div class="container" id="container">
             <div id="carouselExampleIndicators" class="carousel slide"
@@ -59,7 +61,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="background/1.jpg"
-                             class="d-md-block w-100" alt="...">
+                             class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h3>WELCOME TO OUR SHOP</h3>
                         </div>
@@ -67,14 +69,13 @@
                     <div class="carousel-item">
                         <img
                             src="background/2.jpg"
-                            class="d-md-block w-100" alt="...">
+                            class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h3>WELCOME TO OUR SHOP</h3>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="background/3.jpg" 
-                             class="d-md-block w-100" alt="...">
+                        <img src="background/3.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h3>WELCOME TO OUR SHOP</h3>
                         </div>
@@ -94,20 +95,20 @@
         <div class="container" id="product">
             <div align="right">
                 <form action="SortController" method="POST">
-                    <select  name ="choose" class="choose">
+                    <select  name ="choose" >
                         <option value = "default">Default</option>
                         <option value = "lowhigh">Price: Low -> High</option>
                         <option value = "highlow">Price: High -> Low</option>
                         <option value = "az">A -> Z</option>
                         <option value = "za">Z -> A</option>
                     </select>
-                    <input type="submit" class="btn btn-lg btn-primary" name="button" value="Sort"/>
+                    <input type="submit" name="button" value="Sort"/>
                 </form>
             </div>
             <div class="row row-cols-1 row-cols-md-3">
                 <%
                     DAO.ItemDAO it = new DAO.ItemDAO();
-                    ArrayList<Entities.Itemall> listName = new ArrayList<>();
+                    ArrayList<Entities.Items> listName = new ArrayList<>();
                     String choose = "";
 
                     if (request.getParameter("button") == null) {
@@ -126,35 +127,22 @@
                             listName = it.sortItemByNameza();
                         }
                     }
-                    for (Entities.Itemall name : listName) {
+                    for (Entities.Items name : listName) {
                         if (name != null) {
                             out.println("<div class=\"col-sm-4 mb-4\">"
-                                    + " <a href='view2.jsp?img=" + name.getiPic() + "&name=" + name.getiName() + "&size=" + name.getSize() + "&price=" + name.getpId() + "&status="
-                                    + "" + name.getStatus() + "&quantity=" + name.getQuantity() + "&discount=" + name.getDiscoutnStatus() + "&taste=" + name.getTaste() + ""
-                                    + "&expirydate=" + name.getExpiryDate() + "&rId=" + name.getrId() + "' target='_blank'>"
+                                    + " <a href='view2.jsp?idProductFromHome=" + name.getiId() + "'>"
                                     + "<div class='card'>"
-                                    + "<img src=\"douong/" + name.getiPic() + "\" class=\"card-img-top\" alt=\"...\">"
+                                    + "<img src=\"douong/" + name.getImg() + "\" class=\"card-img-top\" alt=\"...\">"
                                     + "<div class='card-body'>"
                                     + "</a>"
-                                    + "<h4 class='card-title'>" + name.getiName() + "</h4>"
-                                    + "<p class='card-text'>Price: " + name.getpId() + "</p>"
-                                    + "<a href='view.jsp?buy=" + name.getiId() + "' class=\"btn btn-lg btn-primary btn-block\" target='_blank'>Add to cart</a>"
+                                    + "<h4 class='card-title'>" + name.getName() + "</h4>"
+                                    + "<h6 class='card-text'>Price: " + name.getPrice() + "</h6>"
                                     + "</div>"
                                     + "</div>"
                                     + "</div>");
                         }
                     }
                 %>
-                <c:forEach items="<%=listName%>" var="name">
-                    <div class='card'>
-                        <img src="douong/${name.getiPic()}" class="card-img-top" alt="...">
-                                <div class='card-body'>
-                            <h4 class='card-title'> ${name.getiName()} </h4>
-                            <p class='card-text'>Price:  ${ name.getpId()} </p>
-                            <a href='view.jsp?buy=${name.getiId()}' class="btn btn-lg btn-primary btn-block    " target='_blank'>Add to cart</a>
-                            </div>"
-                        </div>
-                    </c:forEach>
             </div>
         </div>
         <footer>

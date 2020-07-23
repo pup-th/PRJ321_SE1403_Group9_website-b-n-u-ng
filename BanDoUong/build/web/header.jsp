@@ -20,9 +20,14 @@
         <%
             String email = null;
             String s = "";
-            if (request.getSession().getAttribute("uMail") != null) {
-                email = request.getSession().getAttribute("uMail").toString();
-                s = email.substring(0, email.indexOf("@"));
+            
+            if(request.getParameter("out") != null){
+                request.getSession().removeAttribute("uMail");
+            }else{
+                if (request.getSession().getAttribute("uMail") != null) {
+                        email = request.getSession().getAttribute("uMail").toString();
+                        s = email.substring(0, email.indexOf("@"));
+                    }
             }
             
         %>
@@ -36,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto ">
                         <li class="nav-item"><a href="home.jsp" class="nav-link">HOME</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">CART</a></li>
+                        <li class="nav-item"><a href="cart1.jsp" class="nav-link">CART</a></li>
                         <li class="nav-item"><a href="aboutus.jsp" class="nav-link">ABOUT US</a></li>
                         <li class="nav-item">
                             <c:choose>
