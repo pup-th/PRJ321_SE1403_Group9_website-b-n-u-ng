@@ -67,7 +67,7 @@ public class UserController extends HttpServlet {
                         request.getRequestDispatcher("admin.jsp").forward(request, response);
                     }else{
                         if (uMail.equals("")) {
-                            request.getSession().setAttribute("fail", "You don't have account on our website, please Register");
+                            request.getSession().setAttribute("fail", "Wrong Username or Password");
                             request.getRequestDispatcher("login.jsp").forward(request, response);
     //                    response.sendRedirect("login.jsp");
                         } else {

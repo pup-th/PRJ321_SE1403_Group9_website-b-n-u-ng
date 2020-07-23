@@ -27,19 +27,22 @@
                 <h3>Fill out all information: </h3>
                 <form action="UserController" method="POST">
                     <div class="user">
-                        <input type="text" placeHolder="Email" name ="txtEmail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"><i></i>
+                        <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                               title="A form with an email field that that must be in the following order: characters@characters.domain" 
+                               placeHolder="Email" name ="txtEmail" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = 'Email';}"><i></i>
                     </div>
                     <div class="user-in">
-                        <input type="password" placeholder="Password" name="txtPass" required ><i></i>
+                        <input type="password" pattern="\w{8,16}" title="From 8-16 characters" placeholder="Password" name="txtPass" required ><i></i>
                     </div>
                     <div class="user">
-                        <input type="text" placeholder="Your name" name="txtName" required><i></i>
+                        <input type="text"  title="It's can be empty" placeholder="Your name" name="txtName" required><i></i>
                     </div>
                     <div class="user">
-                        <input type="text" placeholder="Phone number" name="txtPhone" required><i></i>
+                        <input type="text" pattern="\d{10}" title="Phone number must be 10 digits" placeholder="Phone number" name="txtPhone" required><i></i>
                     </div>
                     <div class="user">
-                        <input type="text" placeholder="Address" name="txtAddress" required><i></i>
+                        <input type="text" title="It's can be empty" placeholder="Address" name="txtAddress" required><i></i>
                     </div>
                     <div class="forgot">
                         <div class="forgot-register">

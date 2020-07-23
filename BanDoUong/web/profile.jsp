@@ -41,13 +41,15 @@
                 <input type="text" placeholder="Enter Full Name" name="nname" required value="<%= name%>"/>
 
                 <label for="psw"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="nmail" required value="<%= mail%>"/>
+                <input type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                       title="A form with an email field that that must be in the following order: characters@characters.domain"
+                       placeholder="Enter Email" name="nmail" required value="<%= mail%>"/>
 
                 <label for="psw"><b>Phone</b></label>
-                <input type="text" placeholder="Enter Phone" name="nphone" required value="<%= phone%>"/>
+                <input type="text" pattern="\d{10}" title="Phone number must be 10 digits" placeholder="Enter Phone" name="nphone" required value="<%= phone%>"/>
 
                 <label for="psw"><b>Address</b></label>
-                <input type="text" placeholder="Enter Address" name="naddress" required value="<%= address%>"/>
+                <input type="text" placeholder="Enter Address" title="It's can be empty" name="naddress" required value="<%= address%>"/>
 
                 <button type="submit" name="btnSave">Save</button>
             </div>
