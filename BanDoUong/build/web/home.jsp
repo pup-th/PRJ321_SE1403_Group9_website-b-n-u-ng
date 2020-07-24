@@ -8,18 +8,12 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="DAO.ItemDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-                <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-                <meta name="viewport" content="width=device-width, initial-scale=1">-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -48,6 +42,19 @@
     </head>
     <body>
         <jsp:include page="header.jsp"/>
+        <%
+            String fail = "";
+            try {
+                fail= request.getSession().getAttribute("cartFail").toString();
+                } catch (Exception e) {
+                }
+        %>
+        <c:if test="<%=fail != null%>">
+            <div class="alert alert-info alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Info!</strong> This alert box could indicate a neutral informative change or action.
+            </div>
+        </c:if>
         <div class="container" id="container">
             <div id="carouselExampleIndicators" class="carousel slide"
                  data-ride="carousel">

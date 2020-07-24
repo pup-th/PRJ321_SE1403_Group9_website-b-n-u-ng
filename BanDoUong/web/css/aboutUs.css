@@ -1,6 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
+    margin:  5% 5% 5% 5%;
 }
 
 html {
@@ -78,10 +78,8 @@ html {
     width: 33.3%;
 }
 .para{
-    margin-top: 30px;
-    margin-left: 250px;
-    width:70%;
-    align-content: center;
+    margin: 5% 5% 5% 5%;
+    text-align: center;
 }
 
 /*icon style*/
@@ -113,10 +111,7 @@ html {
     color: white;
 }
 .help{
-    padding: 20px;  
-    display: flex;
-    margin-top: -10px;
-    margin-left: 34%;
+    margin: 5% 5% 5% 5%;
 }
 .contact{
     font-size: 230%;
@@ -133,7 +128,8 @@ html {
     font-size: 170%;
 }
 .phoneicon{
-    margin-top: -35px;
-    margin-left: 28%;
-    margin-bottom: 30px;
+    margin: 5% 5% 5% 5%;
+}
+.phoneicon i .icon{
+	color: red;
 }

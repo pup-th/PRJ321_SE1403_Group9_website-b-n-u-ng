@@ -14,10 +14,20 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
 
   private static java.util.List<String> _jspx_dependants;
 
+  private org.apache.jasper.runtime.TagHandlerPool _jspx_tagPool_c_if_test;
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
     return _jspx_dependants;
+  }
+
+  public void _jspInit() {
+    _jspx_tagPool_c_if_test = org.apache.jasper.runtime.TagHandlerPool.getTagHandlerPool(getServletConfig());
+  }
+
+  public void _jspDestroy() {
+    _jspx_tagPool_c_if_test.release();
   }
 
   public void _jspService(HttpServletRequest request, HttpServletResponse response)
@@ -50,18 +60,12 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <title>JSP Page</title>\r\n");
-      out.write("        <!--        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css\">\r\n");
-      out.write("                <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.7.0/css/all.css\" integrity=\"sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ\" crossorigin=\"anonymous\">\r\n");
-      out.write("                <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js\"></script>\r\n");
-      out.write("                <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js\"></script>\r\n");
-      out.write("                <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js\"></script>\r\n");
-      out.write("                <link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">\r\n");
-      out.write("                <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">-->\r\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css\">\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\r\n");
@@ -73,6 +77,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                background: #fff;\r\n");
       out.write("                /*                background-image: url('background/snow1.png'), url('background/snow2.png'), url('background/snow3.png');\t\r\n");
       out.write("                                animation: snow 20s linear infinite;*/\r\n");
+      out.write("                background-image: url('background/a.png')\r\n");
       out.write("            }\r\n");
       out.write("\r\n");
       out.write("            @keyframes snow {\r\n");
@@ -90,6 +95,37 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\r\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "header.jsp", out, false);
+      out.write("\r\n");
+      out.write("        ");
+
+            String fail = request.getSession().getAttribute("cartFail").toString();
+        
+      out.write("\r\n");
+      out.write("        ");
+      //  c:if
+      org.apache.taglibs.standard.tag.rt.core.IfTag _jspx_th_c_if_0 = (org.apache.taglibs.standard.tag.rt.core.IfTag) _jspx_tagPool_c_if_test.get(org.apache.taglibs.standard.tag.rt.core.IfTag.class);
+      _jspx_th_c_if_0.setPageContext(_jspx_page_context);
+      _jspx_th_c_if_0.setParent(null);
+      _jspx_th_c_if_0.setTest(fail != null);
+      int _jspx_eval_c_if_0 = _jspx_th_c_if_0.doStartTag();
+      if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
+        do {
+          out.write("\r\n");
+          out.write("            <div class=\"alert alert-info alert-dismissible fade show\">\r\n");
+          out.write("                <button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>\r\n");
+          out.write("                <strong>Info!</strong> This alert box could indicate a neutral informative change or action.\r\n");
+          out.write("            </div>\r\n");
+          out.write("        ");
+          int evalDoAfterBody = _jspx_th_c_if_0.doAfterBody();
+          if (evalDoAfterBody != javax.servlet.jsp.tagext.BodyTag.EVAL_BODY_AGAIN)
+            break;
+        } while (true);
+      }
+      if (_jspx_th_c_if_0.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
+        _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
+        return;
+      }
+      _jspx_tagPool_c_if_test.reuse(_jspx_th_c_if_0);
       out.write("\r\n");
       out.write("        <div class=\"container\" id=\"container\">\r\n");
       out.write("            <div id=\"carouselExampleIndicators\" class=\"carousel slide\"\r\n");
@@ -174,19 +210,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
                     for (Entities.Items name : listName) {
                         if (name != null) {
                             out.println("<div class=\"col-sm-4 mb-4\">"
-                                    //                                    + "<div class=\"card h-100\">"
-                                    //                                    + "<img src=\"douong/" + name.getImg() + "\" class=\"card-img-top\" alt=\"...\">"
-                                    //                                    + "<div class=\"card-body\">"
-                                    //                                    + "<h5 class=\"card-title\">Drink: " + name.getName() + "</h5>"
-                                    //                                    + "<h5 class=\"card-title\"> Price: " + name.getPrice() + "</h5>"
-                                    //                                    + "<p class=\"card-text\"></p>"
-                                    //                                    + "<footer>"
-                                    //                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Buy</button>"
-                                    //                                    + "<button class=\"btn btn-lg btn-primary btn-block\">Add to cart</button>"
-                                    //                                    + "</footer>"
-                                    //                                    + "</div>"
-                                    //
-                                    + " <a href='view2.jsp?idProductFromHome="+name.getiId() +"'>"
+                                    + " <a href='view2.jsp?idProductFromHome=" + name.getiId() + "'>"
                                     + "<div class='card'>"
                                     + "<img src=\"douong/" + name.getImg() + "\" class=\"card-img-top\" alt=\"...\">"
                                     + "<div class='card-body'>"

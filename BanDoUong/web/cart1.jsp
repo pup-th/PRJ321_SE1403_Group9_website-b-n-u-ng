@@ -90,30 +90,44 @@
             </div>
             <div>
                 <%                    HashMap<Integer, Integer> map = (HashMap) request.getSession().getAttribute("hashMapItemCart");
-                    if (request.getParameter("delIdHash") != null) {
-                        map.remove(Integer.parseInt(request.getParameter("delIdHash")));
-                    }
-                    DAO.ItemDAO idao = new ItemDAO();
-                    for (Integer i : map.keySet()) {
-                        int hashid = i;
-                        int hashquantity = map.get(i);
-                        Entities.Itemall item = idao.getNameOfItem(hashid);
-                        out.print("<div class='items'>"
-                                + "<div class='item1'>"
-                                + "<div class='close1'>"
-                                + "<div class='image1'>"
-                                + "<img src='douong/" + item.getiPic() + "' alt='item1'></div>"
-                                + "<div class='title1'>"
-                                + "<p>" + item.getiName() + "</p>"
-                                + "</div>"
-                                + "<div class='quantity1'>" + hashquantity + "</div>"
-                                + "<div class='price1'><p>" + item.getOutputPrice() + "</p></div>"
-                                + "<a href='?delIdHash=" + item.getiId() + "'> <i class='fa fa-trash' style ='font-size:24px;color:red'></i></a>"
-                                + "<div class='clear'></div>"
-                                + "</div>"
-                                + "</div>"
-                                + "</div>");
-                        total += (item.getOutputPrice() * hashquantity);
+                        DAO.ItemDAO idao = new ItemDAO();
+                    try {
+                        
+                        if (request.getSession().getAttribute("uMail") == null
+                                || map == null || map.isEmpty()) {
+                            String fail = "wrong";
+                            request.getSession().setAttribute("cartFail", fail);
+                            request.getRequestDispatcher("home.jsp").forward(request, response);
+                        }
+                        if (request.getParameter("delIdHash") != null) {
+                            map.remove(Integer.parseInt(request.getParameter("delIdHash")));
+                        }
+                        for (Integer i : map.keySet()) {
+                            int hashid = i;
+                            int hashquantity = map.get(i);
+                            Entities.Itemall item = idao.getNameOfItem(hashid);
+                            out.print("<div class='items'>"
+                                    + "<div class='item1'>"
+                                    + "<div class='close1'>"
+                                    + "<div class='image1'>"
+                                    + "<img src='douong/" + item.getiPic() + "' alt='item1'></div>"
+                                    + "<div class='title1'>"
+                                    + "<p>" + item.getiName() + "</p>"
+                                    + "</div>"
+                                    + "<div class='quantity1'>" + hashquantity + "</div>"
+                                    + "<div class='price1'><p>" + item.getOutputPrice() + "</p></div>"
+                                    + "<a href='?delIdHash=" + item.getiId() + "'> <i class='fa fa-trash' style ='font-size:24px;color:red'></i></a>"
+                                    + "<div class='clear'></div>"
+                                    + "</div>"
+                                    + "</div>"
+                                    + "</div>");
+                            total += (item.getOutputPrice() * hashquantity);
+                        }
+                    } catch (Exception e) {
+                        out.println("<script type=\"text/javascript\">");
+                        out.println("alert('You must login before buy something! Or You don't have any cart');");
+                        out.println("location='home.jsp';");
+                        out.println("</script>");
                     }
                 %>
             </div>

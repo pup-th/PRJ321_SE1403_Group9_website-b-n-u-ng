@@ -38,7 +38,7 @@ public class CartController extends HttpServlet {
             request.setAttribute("hashid", id);
             request.setAttribute("hashquanity", quantity);
             request.setAttribute("idpro", id);
-            RequestDispatcher dis = request.getRequestDispatcher("cart.jsp");
+            RequestDispatcher dis = request.getRequestDispatcher("cart1.jsp");
             dis.forward(request, response);
         }
     }
@@ -93,7 +93,7 @@ public class CartController extends HttpServlet {
 //        request.getSession().setAttribute("hashid", request.getParameter("cartId"));
 //        request.getSession().setAttribute("hashquantity", request.getParameter("cartQuantity"));
 //        request.getSession().setAttribute("idpro", id);
-            request.getRequestDispatcher("home.jsp").forward(request, response);
+            request.getRequestDispatcher("cart1.jsp").forward(request, response);
         } else {
             PrintWriter out = response.getWriter();
             out.println("<script type=\"text/javascript\">");

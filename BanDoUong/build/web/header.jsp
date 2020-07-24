@@ -23,6 +23,7 @@
             
             if(request.getParameter("out") != null){
                 request.getSession().removeAttribute("uMail");
+                request.getSession().removeAttribute("hashMapItemCart");
             }else{
                 if (request.getSession().getAttribute("uMail") != null) {
                         email = request.getSession().getAttribute("uMail").toString();
@@ -58,7 +59,7 @@
                                     <div class="dropdown navbar-nav ml-auto ">
                                         <a class="nav-link" href="#" data-toggle="dropdown"><%=s%></a>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Cart</a>
+                                            <a class="dropdown-item" href="cart1.jsp">Cart</a>
                                             <a class="dropdown-item" href="profile.jsp">Profile</a>
                                             <a class="dropdown-item" href="home.jsp?out=1" >Sign out
                                                 <script>
@@ -69,7 +70,7 @@
                                                 </script></a>
                                         </div>
                                     </div> 
-                                </c:when>  
+                                </c:when>
                             </c:choose>
                         </li>
                     </ul>

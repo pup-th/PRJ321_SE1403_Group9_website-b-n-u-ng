@@ -26,10 +26,10 @@
         </div>
 
         <h2 style="text-align:center">Our Team</h2>
-        <div class="row">
-            <div class="column" align="center">
+        <div class="row" >
+            <div class="col-md-4" align="center">
                 <div class="card">
-                    <img src="background/phuc.jpg" class="rounded-circle" alt="Responsive image" width="535px" height="535px">
+                    <img src="background/phuc.jpg" class="rounded-circle" alt="Responsive image"width="100%" height="100%">
                     <div class="container">
                         <h2>Tran Hoang Phuc</h2>
                         <p class="title">Leader</p>
@@ -39,9 +39,9 @@
                 </div>
             </div>
 
-            <div class="column" align="center">
+            <div class="col-md-4" align="center">
                 <div class="card">
-                    <img src="background/tri.jpg" class="rounded-circle" alt="Responsive image" width="535px" height="535px">
+                    <img src="background/tri.jpg" class="rounded-circle" alt="Responsive image" width="100%" height="100%">
                     <div class="container">
                         <h2>Le Minh Tri</h2>
                         <p class="title">Member</p>
@@ -51,9 +51,9 @@
                 </div>
             </div>
 
-            <div class="column" align="center">
+            <div class="col-md-4" align="center">
                 <div class="card">
-                    <img src="background/qui.png" class="rounded-circle" alt="Responsive image" width="535px" height="535px">
+                    <img src="background/qui.png" class="rounded-circle" alt="Responsive image"width="100%" height="100%">
                     <div class="container">
                         <h2>Tran Hoang Qui</h2>
                         <p class="title">Member</p>
@@ -66,7 +66,7 @@
         <div class="mentor">
             <div align="center">
                 <div class="card">
-                    <img src="background/mentor.jpg" class="rounded-circle" alt="Responsive image" width="515px" height="535px">
+                    <img src="background/mentor.jpg" class="rounded-circle" alt="Responsive image" width="100%" height="100%">
                     <div class="container">
                         <h2>Luong Hoang Huong</h2>
                         <p class="title">Mentor</p>
@@ -76,30 +76,33 @@
                 </div>
             </div>
         </div>
-        <div class="para" align='center'>
-            <h1 align='center'>ABOUT US</h1>
-            <div class="dv">
-                <p>There are many types of soft drinks from bottled water, carbonated soft drinks, coffee or tea prepared, fruit juices of all kinds 
-                    not to mention alcoholic drinks, with many different brands. compete in Vietnam market. On average, Vietnamese people consume beverage 
-                    more than 23 liters / person / year. Improved living standards have helped the beverage market develop rapidly in Vietnam and consumption 
-                    continues to increase because the gap is quite far away from many countries in the world.
-                </p>
-            </div>
+        <div center>
+            <div class="para">
+                <h1>ABOUT US</h1>
+                <div class="dv">
+                    <p>There are many types of soft drinks from bottled water, carbonated soft drinks, coffee or tea prepared, fruit juices of all kinds 
+                        not to mention alcoholic drinks, with many different brands. compete in Vietnam market. On average, Vietnamese people consume beverage 
+                        more than 23 liters / person / year. Improved living standards have helped the beverage market develop rapidly in Vietnam and consumption 
+                        continues to increase because the gap is quite far away from many countries in the world.
+                    </p>
+                </div>
 
-        </div>
-        <div class="help">
-            <table>
-                <td class="contact">Contact us:</td>
-                <td>
-                    <i><a href="#" class="fa fa-facebook"></a></i>
-                    <i><a href="#" class="fa fa-twitter"></a></i>
-                    <i><a href="#" class="fa fa-google"></a></i>
-                    <i><a href="#" class="fa fa-instagram"></a></i>
-                </td>
-            </table>
-        </div>
-        <div class="phoneicon"><i class="fa fa-phone-square" style="font-size:40px;color:red">Hotline:</i>
-            <i class="phonenum">0123456789 - 0321654987 - 0147852369</i>
+            </div>
+            <div class="para">
+                <table class="contact">
+                    <td >Contact us:</td>
+                    <td>
+                        <i><a href="#" class="fa fa-facebook"></a></i>
+                        <i><a href="#" class="fa fa-twitter"></a></i>
+                        <i><a href="#" class="fa fa-google"></a></i>
+                        <i><a href="#" class="fa fa-instagram"></a></i>
+                    </td>
+                </table>
+            </div>
+            <div class="para" center><i class="icon fa fa-phone-square" style="color: red">Hotline:</i>
+                <i class="phonenum">0123456789 - 0321654987 - 0147852369</i>
+            </div>
+            
         </div>
     </body>
 </html>

@@ -66,7 +66,6 @@
                     <div id="fail" style="text-align: center; color: red; font-family: sans-serif;"><%=fail%></div>
                 </c:if>
                 <div class="keepme">
-                    <label class="checkbox"><input type="checkbox" name="checkbox" checked><i> </i>Remember me</label>
                     <div class="keep-loginbutton">
                         <input type="submit" value="Log in" />
                         </form>
