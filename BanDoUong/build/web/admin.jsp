@@ -23,32 +23,54 @@
             }
 
         %>
-        <table>
-<!--            <th>ID</th>
-            <th>Name</th>
-            <th>Birthday</th>
-            <th>Gender</th>
-            <th>Address</th>-->
-                <sql:setDataSource var="conn" scope="session" 
-                                   driver="com.mysql.jdbc.Driver"
-                                   url="jdbc:mysql://localhost/bannuocuong"
-                                   user="root"
-                                   password=""/>
-                <sql:query  var="items" dataSource="${conn}">
-                SELECT * FROM `item`
-            </sql:query>
-            <sql:update var="delete" dataSource="${conn}" sql="DELETE FROM `item` WHERE `iId`='${param.del}'"/>
-            <c:forEach var="row" items="${items.rows}"  begin="1" end="17" step="1">
-                <tr>
-                    <c:forEach var="colums" items="${row}">
-                        <td><c:out value="${colums.value}"/></td>
-                        
+        <!--            <th>ID</th>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th>Gender</th>
+                    <th>Address</th>-->
+        <sql:setDataSource var="conn" scope="session" 
+                           driver="com.mysql.jdbc.Driver"
+                           url="jdbc:mysql://localhost/bannuocuong"
+                           user="root"
+                           password=""/>
+        <sql:query  var="items" dataSource="${conn}">
+            SELECT * FROM `item`
+        </sql:query>
+        <sql:update var="delete" dataSource="${conn}" sql="DELETE FROM `item` WHERE `iId`='${param.del}'"/>
+        <table border="1" align="center" width="100%">
+            <tr>
+                <c:forEach var="colName" items="${items.columnNames}">
+                    <th ><c:out value="${colName}"/></th>
                     </c:forEach>
+                <td>Update</td>
+                <td>Delete</td>
+            </tr>
+            <c:forEach var="row" items="${items.rows}">
+                <tr
+                    <td><c:out value="${row.bId}"/></td>
+                    <td><c:out value="${row.iName}"/></td>
+                    <td><c:out value="${row.blockId}"/></td>
+                    <td><c:out value="${row.size}"/></td>
+                    <td><c:out value="${row.pId}"/></td>
+                    <td><c:out value="${row.outputPrice}"/></td>
+                    <td><c:out value="${row.originCode}"/></td>
+                    <td><c:out value="${row.status}"/></td>
+                    <td><c:out value="${row.quantity}"/></td>
+                    <td><c:out value="${row.discoutnStatus}"/></td>
+                    <td><c:out value="${row.vouId}"/></td>
+                    <td><c:out value="${row.taste}"/></td>
+                    <td><c:out value="${row.expiryDate}"/></td>
+                    <td><c:out value="${row.iPic}"/></td>
+                    <td><c:out value="${row.bId}"/></td>
+                    <td><c:out value="${row.bId}"/></td>
                     <td><a href="admin.jsp?del=${row.iId}">Delete</a></td>
                     <td><a href="update.jsp?id=${row.iId}">Update</a></td>
                 </tr>
             </c:forEach>
-        </table> 
+        </table>
+    </body>
+</html>
+
         <%//                ItemDAO item = new ItemDAO();
 //                ArrayList<Itemall>list = item.getNameOfItems();
 //                out.print("<table>");
@@ -76,5 +98,3 @@
 //                    }
 //                out.print("</table>");
 //            %>
-    </body>
-</html>

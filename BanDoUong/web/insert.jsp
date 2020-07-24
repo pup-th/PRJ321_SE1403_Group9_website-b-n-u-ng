@@ -13,76 +13,112 @@
     </head>
     <body>
         <h1>Insert Product</h1>
+        
         <form action="AdminController" method="post">
             <table>
                 <tr>
-                    <td>tId</td>
-                    <td><input type="text" name="txttId"/></td>
+                    <td>Brand</td>
+                    <td>
+                        <select  name ="txtbId" >
+                            <option value = "1">Coca Cola</option>
+                            <option value = "2">Pepsi</option>
+                            <option value = "3">Sting</option>
+                            <option value = "4">7Up</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td>bId</td>
-                    <td><input type="text" name="txtbId"/> </td>
-                </tr>
-                <tr>
-                    <td>iName</td> 
+                    <td>Item Name</td> 
                     <td><input type="text" name="txtiName"/></td>
                 </tr>
                 <tr>
-                    <td>blockId</td>
-                    <td><input type="text" name="txtblockId"/></td>
+                    <td>Block</td>
+                    <td>
+                        <select  name ="txtblockId" >
+                            <option value = "1">120</option>
+                            <option value = "2">100</option>
+                            <option value = "3">70</option>
+                            <option value = "4">50</option>
+                            <option value = "5">35</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
                     <td>Size</td>
                     <td><input type="text" name="txtsize"/></td>
                 </tr>
                 <tr>
-                    <td>pId</td>
-                    <td><input type="text" name="txtpId"/></td>
+                    <td>Pay</td>
+                    <td>
+                        <select  name ="txtpId" >
+                            <option value = "1">5000</option>
+                            <option value = "2">6000</option>
+                            <option value = "3">7000</option>
+                            <option value = "4">8000</option>
+                            <option value = "5">9000</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td>outputPrice</td>
+                    <td>Output Price</td>
                     <td><input type="text" name="txtoutputPrice"/> </td>
                 </tr>
                 <tr>
-                    <td>orginCode</td> 
-                    <td><input type="text" name="txtorginCode"/></td>
+                    <td>Origin</td> 
+                    <td>
+                        <select  name ="txtorginCode" >
+                            <option value = "1">Chai</option>
+                            <option value = "2">Lon</option>
+                            <option value = "3">chai sanh</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td>status</td>
-                    <td><input type="text" name="txtstatus"/></td>
+                    <td>Discount</td>
+                    <td>
+                        <select  name ="txtstatus" >
+                            <option value = "1">Con hang</option>
+                            <option value = "0">Het hang</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td>quantity</td>
+                    <td>Quantity</td>
                     <td><input type="text" name="txtquantity"/></td>
                 </tr>
                 <tr>
-                    <td>rId</td> 
-                    <td><input type="text" name="txtrId"/></td>
+                    <td>Discount Status</td>
+                    <td>
+                        <select  name ="txtdiscoutnStatus" >
+                            <option value = "1">Co</option>
+                            <option value = "0">Khong</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td>discoutnStatus</td>
-                    <td><input type="text" name="txtdiscoutnStatus"/></td>
+                    <td>Voucher</td>
+                    <td>
+                        <select  name ="txtvouId" >
+                            <option value = "1">Theo ngay(20%)</option>
+                            <option value = "2">Theo san pham(10%)</option>
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td>vouId</td>
-                    <td><input type="text" name="txtvouId"/></td>
-                </tr>
-                <tr>
-                    <td>taste</td> 
+                    <td>Taste</td> 
                     <td><input type="text" name="txttaste"/></td>
                 </tr>
                 <tr>
-                    <td>expiryDate</td>
-                    <td><input type="text" name="txtexpiryDate"/></td>
+                    <td>Expiry Date</td>
+                    <td><input type="date" name="txtexpiryDate"/></td>
                 </tr>
                 <tr>
-                    <td>iPic</td>
+                    <td>Image Name</td>
                     <td><input type="text" name="txtiPic"/></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="OK" name="btnOK"/></td>
-                </tr>               
-                
+                </tr>    
             </table>
         </form>
     </body>

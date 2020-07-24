@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author DELL
+ * @author ASUS
  */
 public class AdminController extends HttpServlet {
 
@@ -34,6 +34,47 @@ public class AdminController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            if (request.getParameter("btnOK") != null) {
+                int bId = Integer.parseInt(request.getParameter("txtbId"));
+                int blockId = Integer.parseInt(request.getParameter("txtblockId"));
+                int pId = Integer.parseInt(request.getParameter("txtpId"));
+                int outputPrice = Integer.parseInt(request.getParameter("txtoutputPrice"));
+                int vouId = Integer.parseInt(request.getParameter("txtvouId"));
+                int status = Integer.parseInt(request.getParameter("txtstatus"));
+                int quantity = Integer.parseInt(request.getParameter("txtquantity"));
+                int discoutnStatus = Integer.parseInt(request.getParameter("txtdiscoutnStatus"));
+                String iName = request.getParameter("txtiName");
+                String size = request.getParameter("txtsize");
+                String orginCode = request.getParameter("txtorginCode");
+                String taste = request.getParameter("txttaste");
+                String iPic = request.getParameter("txtiPic");
+                Date expiryDate = Date.valueOf(request.getParameter("txtexpiryDate"));
+                DAO.ItemDAO idao = new ItemDAO();
+                Itemall itemall = new Itemall(bId, iName, blockId, size, pId, outputPrice, orginCode, status, quantity, discoutnStatus, vouId, taste, expiryDate, iPic);
+                idao.insertItem(itemall);
+                response.sendRedirect("home.jsp");
+            }
+            if(request.getParameter("btnUpdate")!=null){
+                int id= Integer.parseInt(request.getParameter("txtiId"));
+                int bId = Integer.parseInt(request.getParameter("txtbId"));
+                int blockId = Integer.parseInt(request.getParameter("txtblockId"));
+                int pId = Integer.parseInt(request.getParameter("txtpId"));
+                int outputPrice = Integer.parseInt(request.getParameter("txtoutputPrice"));
+                int vouId = Integer.parseInt(request.getParameter("txtvouId"));
+                int status = Integer.parseInt(request.getParameter("txtstatus"));
+                int quantity = Integer.parseInt(request.getParameter("txtquantity"));
+                int discoutnStatus = Integer.parseInt(request.getParameter("txtdiscoutnStatus"));
+                String iName = request.getParameter("txtiName");
+                String size = request.getParameter("txtsize");
+                String orginCode = request.getParameter("txtorginCode");
+                String taste = request.getParameter("txttaste");
+                String iPic = request.getParameter("txtiPic");
+                Date expiryDate = Date.valueOf(request.getParameter("txtexpiryDate"));
+                DAO.ItemDAO idao= new ItemDAO();
+                Entities.Itemall iall= new Itemall(bId, iName, blockId, size, pId, outputPrice, orginCode, status, quantity, discoutnStatus, vouId, taste, expiryDate, iPic);
+                idao.updateItem(iall, id);
+                response.sendRedirect("admin.jsp");
+            }
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -73,30 +114,7 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("btnOK") != null) {
-            int tId = Integer.parseInt(request.getParameter("txttId"));
-            int bId = Integer.parseInt(request.getParameter("txtbId"));
-            int blockId = Integer.parseInt(request.getParameter("txtblockId"));
-            int pId = Integer.parseInt(request.getParameter("txtpId"));
-            int outputPrice = Integer.parseInt(request.getParameter("txtoutputPrice"));
-            int vouId = Integer.parseInt(request.getParameter("txtvouId"));
-            int status = Integer.parseInt(request.getParameter("txtstatus"));
-            int quantity = Integer.parseInt(request.getParameter("txtquantity"));
-            int rId = Integer.parseInt(request.getParameter("txtrId"));
-            int discoutnStatus = Integer.parseInt(request.getParameter("txtdiscoutnStatus"));
-            String iName = request.getParameter("txtiName");
-            String size = request.getParameter("txtsize");
-            String orginCode = request.getParameter("txtorginCode");
-            String taste = request.getParameter("txttaste");
-            String iPic = request.getParameter("txtiPic");
-            Date expiryDate = Date.valueOf(request.getParameter("txtexpiryDate"));
-            Itemall itemall = new Itemall(rId, tId, bId, iName, blockId, size, pId, outputPrice, orginCode, 
-                    status, quantity, rId, discoutnStatus, vouId, taste, expiryDate, iPic);
-            ItemDAO idao = new ItemDAO();
-            idao.insert(itemall);
-            response.sendRedirect("admin.jsp");
-        }
-
+        processRequest(request, response);
     }
 
     /**

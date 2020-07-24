@@ -13,8 +13,6 @@ import java.sql.Date;
  */
 public class Itemall {
 
-    private int iId;
-    private int tId;
     private int bId;
     private String iName;
     private int blockId;
@@ -24,7 +22,6 @@ public class Itemall {
     private String originCode;
     private int status;
     private int quantity;
-    private int rId;
     private int discoutnStatus;
     private int vouId;
     private String taste ;
@@ -34,9 +31,7 @@ public class Itemall {
     public Itemall() {
     }
 
-    public Itemall(int iId, int tId, int bId, String iName, int blockId, String size, int pId, int outputPrice, String originCode, int status, int quantity, int rId, int discoutnStatus, int vouId, String taste, Date expiryDate, String iPic) {
-        this.iId = iId;
-        this.tId = tId;
+    public Itemall(int bId, String iName, int blockId, String size, int pId, int outputPrice, String originCode, int status, int quantity, int discoutnStatus, int vouId, String taste, Date expiryDate, String iPic) {
         this.bId = bId;
         this.iName = iName;
         this.blockId = blockId;
@@ -46,28 +41,11 @@ public class Itemall {
         this.originCode = originCode;
         this.status = status;
         this.quantity = quantity;
-        this.rId = rId;
         this.discoutnStatus = discoutnStatus;
         this.vouId = vouId;
         this.taste = taste;
         this.expiryDate = expiryDate;
         this.iPic = iPic;
-    }
-
-    public int getiId() {
-        return iId;
-    }
-
-    public void setiId(int iId) {
-        this.iId = iId;
-    }
-
-    public int gettId() {
-        return tId;
-    }
-
-    public void settId(int tId) {
-        this.tId = tId;
     }
 
     public int getbId() {
@@ -142,14 +120,6 @@ public class Itemall {
         this.quantity = quantity;
     }
 
-    public int getrId() {
-        return rId;
-    }
-
-    public void setrId(int rId) {
-        this.rId = rId;
-    }
-
     public int getDiscoutnStatus() {
         return discoutnStatus;
     }
@@ -189,10 +159,7 @@ public class Itemall {
     public void setiPic(String iPic) {
         this.iPic = iPic;
     }
+
     
-    
-    
-    
-            
-    
+  
 }

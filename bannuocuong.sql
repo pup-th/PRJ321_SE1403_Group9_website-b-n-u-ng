@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 19, 2020 at 05:18 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th7 24, 2020 lúc 05:21 PM
+-- Phiên bản máy phục vụ: 10.1.38-MariaDB
+-- Phiên bản PHP: 5.6.40
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bannuocuong`
+-- Cơ sở dữ liệu: `bannuocuong`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Cấu trúc bảng cho bảng `admin`
 --
 
 CREATE TABLE `admin` (
@@ -34,18 +34,18 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `admin`
+-- Đang đổ dữ liệu cho bảng `admin`
 --
 
 INSERT INTO `admin` (`aMail`, `aPassword`) VALUES
-('phuc@gmai.com', 'e10adc3949ba59abbe56e057f20f883e'),
+('phuc@gmail.com', 'e10adc3949ba59abbe56e057f20f883e'),
 ('qui@gmai.com', 'e10adc3949ba59abbe56e057f20f883e'),
 ('tri@gmai.com', 'e10adc3949ba59abbe56e057f20f883e');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blockitems`
+-- Cấu trúc bảng cho bảng `blockitems`
 --
 
 CREATE TABLE `blockitems` (
@@ -55,7 +55,7 @@ CREATE TABLE `blockitems` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `blockitems`
+-- Đang đổ dữ liệu cho bảng `blockitems`
 --
 
 INSERT INTO `blockitems` (`blockId`, `blockItemQuantity`, `blockItemPrice`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `blockitems` (`blockId`, `blockItemQuantity`, `blockItemPrice`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `brand`
+-- Cấu trúc bảng cho bảng `brand`
 --
 
 CREATE TABLE `brand` (
@@ -77,7 +77,7 @@ CREATE TABLE `brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `brand`
+-- Đang đổ dữ liệu cho bảng `brand`
 --
 
 INSERT INTO `brand` (`bId`, `brandName`) VALUES
@@ -89,7 +89,7 @@ INSERT INTO `brand` (`bId`, `brandName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `discount`
+-- Cấu trúc bảng cho bảng `discount`
 --
 
 CREATE TABLE `discount` (
@@ -100,7 +100,7 @@ CREATE TABLE `discount` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `discount`
+-- Đang đổ dữ liệu cho bảng `discount`
 --
 
 INSERT INTO `discount` (`iId`, `aId`, `date`, `numDiscount`) VALUES
@@ -111,12 +111,11 @@ INSERT INTO `discount` (`iId`, `aId`, `date`, `numDiscount`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `item`
+-- Cấu trúc bảng cho bảng `item`
 --
 
 CREATE TABLE `item` (
   `iId` int(11) NOT NULL COMMENT 'Item Id',
-  `tId` int(11) NOT NULL COMMENT 'User Id',
   `bId` int(11) NOT NULL COMMENT 'Brand Id',
   `iName` varchar(50) NOT NULL COMMENT 'Item Name',
   `blockId` int(11) NOT NULL COMMENT 'Block Id',
@@ -126,7 +125,6 @@ CREATE TABLE `item` (
   `orginCode` varchar(50) NOT NULL COMMENT 'Orgin Code',
   `status` tinyint(1) NOT NULL COMMENT 'Status Of Item',
   `quantity` int(11) NOT NULL COMMENT 'Quantity Of Item',
-  `rId` int(11) NOT NULL COMMENT 'Rating Id',
   `discoutnStatus` tinyint(1) NOT NULL COMMENT 'Discount Status',
   `vouId` int(11) NOT NULL COMMENT 'Voucher Id',
   `taste` varchar(50) NOT NULL COMMENT 'Item Taste',
@@ -135,25 +133,24 @@ CREATE TABLE `item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Bảng lưu trữ thông tin của sản phẩm';
 
 --
--- Dumping data for table `item`
+-- Đang đổ dữ liệu cho bảng `item`
 --
 
-INSERT INTO `item` (`iId`, `tId`, `bId`, `iName`, `blockId`, `size`, `pId`, `outputPrice`, `orginCode`, `status`, `quantity`, `rId`, `discoutnStatus`, `vouId`, `taste`, `expiryDate`, `iPic`) VALUES
-(1, 1, 1, 'Sting dau', 1, 'M', 1, 7000, '1', 1, 100, 1, 0, 1, 'Tang luc', '2021-12-23', 'stingdau.jpg'),
-(3, 1, 1, 'Sting vang', 1, 'M', 1, 7000, '1', 1, 100, 1, 0, 1, 'tang luc', '2021-12-23', 'stingvang.jpg'),
-(4, 1, 1, 'Pepsi', 1, 'M', 2, 8000, '1', 1, 100, 1, 0, 1, 'Pepsi', '2021-12-23', 'pepsi.jpg'),
-(5, 1, 1, 'Khong do', 1, 'M', 2, 8000, '1', 1, 100, 1, 0, 1, 'Tra xanh', '2021-12-23', 'khongdo.jpg'),
-(6, 1, 1, 'C2', 1, 'M', 3, 6000, '1', 1, 100, 1, 0, 1, 'Tra xanh', '2021-12-23', 'c2.jpg'),
-(7, 1, 1, 'Dr.Thanh', 1, 'M', 1, 9000, '1', 1, 100, 1, 0, 1, 'Tra', '2021-12-23', 'drthanh.jpg'),
-(8, 1, 1, 'Number One', 1, 'M', 1, 9000, '1', 1, 100, 1, 0, 1, 'Tang luc', '2021-12-23', 'number1.jpg'),
-(9, 1, 1, 'Revive', 1, 'M', 1, 9000, '1', 1, 100, 1, 0, 1, 'Tang luc', '2021-12-23', 'revive.jpg'),
-(10, 1, 1, 'Tea Plus', 1, 'M', 1, 9000, '1', 1, 100, 1, 0, 1, 'Tra', '2021-12-23', 'teaplus.jpg'),
-(11, 1, 1, 'Rong Do', 1, 'M', 1, 9000, '1', 1, 100, 1, 0, 1, 'Tang luc', '2021-12-23', 'rongdo.jpg');
+INSERT INTO `item` (`iId`, `bId`, `iName`, `blockId`, `size`, `pId`, `outputPrice`, `orginCode`, `status`, `quantity`, `discoutnStatus`, `vouId`, `taste`, `expiryDate`, `iPic`) VALUES
+(1, 1, 'Nuoc tang luc Sting dau', 1, 'M', 1, 7000, '1', 1, 100, 0, 1, 'Tang luc', '2021-12-23', 'stingdau.jpg'),
+(3, 1, 'Nuoc tang luc Sting vang', 1, 'M', 1, 7000, '1', 1, 100, 0, 1, 'Tang luc', '2021-12-23', 'stingvang.jpg'),
+(5, 1, 'Tra xanh khong do', 1, 'M', 2, 8000, '1', 1, 100, 0, 1, 'Tra xanh', '2021-12-23', 'khongdo.jpg'),
+(6, 1, 'Tra xanh C2 huong chanh', 1, 'M', 3, 6000, '1', 1, 100, 0, 1, 'Tra xanh', '2021-12-23', 'c2.jpg'),
+(7, 1, 'Tra thanh nhiet Dr.Thanh', 1, 'M', 1, 9000, '1', 1, 100, 0, 1, 'Tra', '2021-12-23', 'drthanh.jpg'),
+(8, 1, 'Nuoc tang luc Number One', 1, 'M', 1, 9000, '1', 1, 100, 0, 1, 'Tang luc', '2021-12-23', 'number1.jpg'),
+(9, 1, 'Revive muoi khoang', 1, 'M', 1, 9000, '1', 1, 100, 0, 1, 'Tang luc', '2021-12-23', 'revive.jpg'),
+(10, 1, 'Tra o long Tea Plus', 1, 'M', 1, 9000, '1', 1, 100, 0, 1, 'Tra', '2021-12-23', 'teaplus.jpg'),
+(12, 1, 'Nuoc tang luc Rong Do', 1, 'M', 1, 9000, '1', 1, 100, 0, 1, 'Tang luc', '2021-12-23', 'rongdo.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `itemcomment`
+-- Cấu trúc bảng cho bảng `itemcomment`
 --
 
 CREATE TABLE `itemcomment` (
@@ -166,7 +163,7 @@ CREATE TABLE `itemcomment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `itemcomment`
+-- Đang đổ dữ liệu cho bảng `itemcomment`
 --
 
 INSERT INTO `itemcomment` (`cId`, `iId`, `uMail`, `content`, `uName`, `cDate`) VALUES
@@ -180,7 +177,7 @@ INSERT INTO `itemcomment` (`cId`, `iId`, `uMail`, `content`, `uName`, `cDate`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `itemtype`
+-- Cấu trúc bảng cho bảng `itemtype`
 --
 
 CREATE TABLE `itemtype` (
@@ -189,7 +186,7 @@ CREATE TABLE `itemtype` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `itemtype`
+-- Đang đổ dữ liệu cho bảng `itemtype`
 --
 
 INSERT INTO `itemtype` (`tId`, `typeName`) VALUES
@@ -200,81 +197,77 @@ INSERT INTO `itemtype` (`tId`, `typeName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderdetail`
+-- Cấu trúc bảng cho bảng `orderdetail`
 --
 
 CREATE TABLE `orderdetail` (
+  `iDetailIndex` int(11) NOT NULL,
   `oId` int(11) NOT NULL,
   `payId` int(11) NOT NULL,
   `uMail` varchar(100) NOT NULL,
   `iId` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `note` varchar(50) NOT NULL,
-  `iName` varchar(50) NOT NULL,
-  `priceEachitem` int(11) NOT NULL,
-  `orderDate` date NOT NULL,
-  `total` int(11) NOT NULL
+  `orderDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Bảng lưu trữ thông tin của order';
 
 --
--- Dumping data for table `orderdetail`
+-- Đang đổ dữ liệu cho bảng `orderdetail`
 --
 
-INSERT INTO `orderdetail` (`oId`, `payId`, `uMail`, `iId`, `quantity`, `note`, `iName`, `priceEachitem`, `orderDate`, `total`) VALUES
-(1, 1, 'user2@gmail.com', 1, 5, '', 'sting dau', 7000, '2020-01-14', 35000),
-(2, 1, 'user1@gmail.com', 4, 3, '', 'pepsi', 8000, '2020-01-14', 24000),
-(3, 1, 'user3@gmail.com', 6, 5, '', 'C2', 6000, '2020-01-14', 30000);
+INSERT INTO `orderdetail` (`iDetailIndex`, `oId`, `payId`, `uMail`, `iId`, `quantity`, `note`, `orderDate`) VALUES
+(1, 1, 1, 'user2@gmail.com', 1, 5, '', '2020-01-14'),
+(3, 3, 1, 'user3@gmail.com', 6, 5, '', '2020-01-14'),
+(5, 2, 1, 'user1@gmail.com', 1, 3, '', '2020-01-14'),
+(6, 2, 1, 'user1@gmail.com', 1, 3, '', '2020-01-14'),
+(9, 5, 1, 'user1@gmail.com', 1, 3, '', '2020-07-24'),
+(10, 6, 1, 'user1@gmail.com', 3, 3, '', '2020-07-24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 CREATE TABLE `orders` (
   `oId` int(11) NOT NULL,
-  `uMail` varchar(100) NOT NULL,
-  `iId` int(11) NOT NULL,
-  `orderDate` date NOT NULL
+  `uMail` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `orders`
+-- Đang đổ dữ liệu cho bảng `orders`
 --
 
-INSERT INTO `orders` (`oId`, `uMail`, `iId`, `orderDate`) VALUES
-(1, 'user1@gmail.com', 1, '2020-01-14'),
-(2, 'user3@gmail.com', 2, '2020-01-14'),
-(3, 'user2@gmail.com', 3, '2020-01-14');
+INSERT INTO `orders` (`oId`, `uMail`) VALUES
+(1, 'user1@gmail.com'),
+(2, 'user3@gmail.com'),
+(3, 'user2@gmail.com'),
+(5, 'user1@gmail.com'),
+(6, 'user1@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment`
+-- Cấu trúc bảng cho bảng `payment`
 --
 
 CREATE TABLE `payment` (
   `payId` int(11) NOT NULL,
-  `iId` int(11) NOT NULL,
-  `uMail` varchar(100) NOT NULL,
   `payName` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `payment`
+-- Đang đổ dữ liệu cho bảng `payment`
 --
 
-INSERT INTO `payment` (`payId`, `iId`, `uMail`, `payName`) VALUES
-(1, 1, 'user2@gmail.com', 'Thanh toan khi nhan hang'),
-(2, 2, 'user3@gmail.com', 'Thanh toan bang the ngan hang'),
-(3, 3, 'user1@gmail.com', 'Thanh toan khi nhan hang'),
-(4, 4, 'user2@gmail.com', 'Thanh toan khi nhan hang'),
-(5, 5, 'user1@gmail.com', 'Thanh toan bang the ngan hang');
+INSERT INTO `payment` (`payId`, `payName`) VALUES
+(1, 'Thanh toan khi nhan hang'),
+(2, 'Thanh toan bang the ngan hang');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `price`
+-- Cấu trúc bảng cho bảng `price`
 --
 
 CREATE TABLE `price` (
@@ -286,7 +279,7 @@ CREATE TABLE `price` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `price`
+-- Đang đổ dữ liệu cho bảng `price`
 --
 
 INSERT INTO `price` (`priceId`, `price`, `date`, `aId`, `upDown`) VALUES
@@ -297,7 +290,7 @@ INSERT INTO `price` (`priceId`, `price`, `date`, `aId`, `upDown`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rating`
+-- Cấu trúc bảng cho bảng `rating`
 --
 
 CREATE TABLE `rating` (
@@ -307,7 +300,7 @@ CREATE TABLE `rating` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `rating`
+-- Đang đổ dữ liệu cho bảng `rating`
 --
 
 INSERT INTO `rating` (`rId`, `uMail`, `rNumberStar`) VALUES
@@ -320,7 +313,7 @@ INSERT INTO `rating` (`rId`, `uMail`, `rNumberStar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -332,21 +325,21 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`uMail`, `uPassword`, `uName`, `uPhone`, `uAddress`) VALUES
 ('a@gmai.com', 'e10adc3949ba59abbe56e057f20f883e', 'phuc', '0987654321', 'vl'),
 ('b@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1', '1', '1'),
 ('phucthce140628@fpt.edu.vn', 'e10adc3949ba59abbe56e057f20f883e', 'Hoang Phuc', '0987654321', 'Vinh Long'),
-('user1@gmail.com', '8a13a81b63c9f02d897e8b39dd21372f', 'Nguyen Van A', '0123456789', 'Can Tho'),
+('user1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyen Van A', '0123456789', 'Can Tho'),
 ('user2@gmail.com', '415ae01d78998c8191a416ddd8cabe33', 'Tran Thi B', '0321654897', 'An Giang'),
 ('user3@gmail.com', '456ab20472cd48e1e621f3e8ac0f3eb1', 'Huynh Van C', '0147258963', 'Soc Trang');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `vendor`
+-- Cấu trúc bảng cho bảng `vendor`
 --
 
 CREATE TABLE `vendor` (
@@ -359,19 +352,19 @@ CREATE TABLE `vendor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `vendor`
+-- Đang đổ dữ liệu cho bảng `vendor`
 --
 
 INSERT INTO `vendor` (`vId`, `iId`, `address`, `email`, `phone`, `vName`) VALUES
 (1, 1, 'Hau Giang', 'hg@gmail.com', '012345679', 'Thanh Cong'),
-(2, 2, 'Can Tho', 'ct@gmail.com', '012345679', 'ahihi'),
-(3, 3, 'Soc Trang', 'st@gmail.com', '012345679', 'Ahoho'),
+(2, 2, 'Can Tho', 'ct@gmail.com', '012345679', 'Chien Thang'),
+(3, 3, 'Soc Trang', 'st@gmail.com', '012345679', 'Dai Phat'),
 (4, 4, 'Ca Mau', 'cm@gmail.com', '012345679', 'Tuan tu');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `voucher`
+-- Cấu trúc bảng cho bảng `voucher`
 --
 
 CREATE TABLE `voucher` (
@@ -382,7 +375,7 @@ CREATE TABLE `voucher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `voucher`
+-- Đang đổ dữ liệu cho bảng `voucher`
 --
 
 INSERT INTO `voucher` (`vuoId`, `vouType`, `vouDiscount`, `vouDescription`) VALUES
@@ -390,171 +383,171 @@ INSERT INTO `voucher` (`vuoId`, `vouType`, `vouDiscount`, `vouDescription`) VALU
 (2, 'Theo san pham', 10, '');
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admin`
+-- Chỉ mục cho bảng `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`aMail`);
 
 --
--- Indexes for table `blockitems`
+-- Chỉ mục cho bảng `blockitems`
 --
 ALTER TABLE `blockitems`
   ADD PRIMARY KEY (`blockId`);
 
 --
--- Indexes for table `brand`
+-- Chỉ mục cho bảng `brand`
 --
 ALTER TABLE `brand`
   ADD PRIMARY KEY (`bId`);
 
 --
--- Indexes for table `discount`
+-- Chỉ mục cho bảng `discount`
 --
 ALTER TABLE `discount`
   ADD PRIMARY KEY (`iId`);
 
 --
--- Indexes for table `item`
+-- Chỉ mục cho bảng `item`
 --
 ALTER TABLE `item`
   ADD PRIMARY KEY (`iId`);
 
 --
--- Indexes for table `itemcomment`
+-- Chỉ mục cho bảng `itemcomment`
 --
 ALTER TABLE `itemcomment`
   ADD PRIMARY KEY (`cId`);
 
 --
--- Indexes for table `itemtype`
+-- Chỉ mục cho bảng `itemtype`
 --
 ALTER TABLE `itemtype`
   ADD PRIMARY KEY (`tId`);
 
 --
--- Indexes for table `orderdetail`
+-- Chỉ mục cho bảng `orderdetail`
 --
 ALTER TABLE `orderdetail`
-  ADD PRIMARY KEY (`oId`);
+  ADD PRIMARY KEY (`iDetailIndex`);
 
 --
--- Indexes for table `orders`
+-- Chỉ mục cho bảng `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`oId`);
 
 --
--- Indexes for table `payment`
+-- Chỉ mục cho bảng `payment`
 --
 ALTER TABLE `payment`
   ADD PRIMARY KEY (`payId`);
 
 --
--- Indexes for table `price`
+-- Chỉ mục cho bảng `price`
 --
 ALTER TABLE `price`
   ADD PRIMARY KEY (`priceId`);
 
 --
--- Indexes for table `rating`
+-- Chỉ mục cho bảng `rating`
 --
 ALTER TABLE `rating`
   ADD PRIMARY KEY (`rId`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD UNIQUE KEY `uni_mail` (`uMail`);
 
 --
--- Indexes for table `vendor`
+-- Chỉ mục cho bảng `vendor`
 --
 ALTER TABLE `vendor`
   ADD PRIMARY KEY (`vId`);
 
 --
--- Indexes for table `voucher`
+-- Chỉ mục cho bảng `voucher`
 --
 ALTER TABLE `voucher`
   ADD PRIMARY KEY (`vuoId`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `blockitems`
+-- AUTO_INCREMENT cho bảng `blockitems`
 --
 ALTER TABLE `blockitems`
   MODIFY `blockId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `brand`
+-- AUTO_INCREMENT cho bảng `brand`
 --
 ALTER TABLE `brand`
   MODIFY `bId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `item`
+-- AUTO_INCREMENT cho bảng `item`
 --
 ALTER TABLE `item`
-  MODIFY `iId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Item Id', AUTO_INCREMENT=7;
+  MODIFY `iId` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Item Id', AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `itemcomment`
+-- AUTO_INCREMENT cho bảng `itemcomment`
 --
 ALTER TABLE `itemcomment`
   MODIFY `cId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `itemtype`
+-- AUTO_INCREMENT cho bảng `itemtype`
 --
 ALTER TABLE `itemtype`
   MODIFY `tId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `orderdetail`
+-- AUTO_INCREMENT cho bảng `orderdetail`
 --
 ALTER TABLE `orderdetail`
-  MODIFY `oId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `iDetailIndex` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `oId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `oId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `payment`
+-- AUTO_INCREMENT cho bảng `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `payId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `price`
+-- AUTO_INCREMENT cho bảng `price`
 --
 ALTER TABLE `price`
   MODIFY `priceId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `rating`
+-- AUTO_INCREMENT cho bảng `rating`
 --
 ALTER TABLE `rating`
   MODIFY `rId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `vendor`
+-- AUTO_INCREMENT cho bảng `vendor`
 --
 ALTER TABLE `vendor`
   MODIFY `vId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `voucher`
+-- AUTO_INCREMENT cho bảng `voucher`
 --
 ALTER TABLE `voucher`
   MODIFY `vuoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

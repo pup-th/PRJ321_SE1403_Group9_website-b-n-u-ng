@@ -36,8 +36,7 @@ public class ItemDAO {
             pst.setInt(1, iId);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                Itemall i = new Itemall(rs.getInt("iId"),
-                        rs.getInt("tId"),
+                Itemall i = new Itemall(
                         rs.getInt("bId"),
                         rs.getString("iName"),
                         rs.getInt("blockId"),
@@ -47,7 +46,6 @@ public class ItemDAO {
                         rs.getString("orginCode"),
                         rs.getInt("status"),
                         rs.getInt("quantity"),
-                        rs.getInt("rId"),
                         rs.getInt("discoutnStatus"),
                         rs.getInt("vouId"),
                         rs.getString("taste"),
@@ -62,29 +60,27 @@ public class ItemDAO {
         return null;
     }
 
-    public boolean insert(Itemall i) {
-        String sql = "INSERT INTO `item`( `tId`, `bId`, `iName`, `blockId`, `size`, "
+    public boolean insertItem(Itemall i) {
+        String sql = "INSERT INTO `item`( `bId`, `iName`, `blockId`, `size`, "
                 + "`pId`, `outputPrice`, `orginCode`, `status`, "
-                + "`quantity`, `rId`, `discoutnStatus`, `vouId`, `taste`, `expiryDate`, `iPic`) "
-                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "`quantity`, `discoutnStatus`, `vouId`, `taste`, `expiryDate`, `iPic`) "
+                + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setInt(1, i.gettId());
-            pst.setInt(2, i.getbId());
-            pst.setString(3, i.getiName());
-            pst.setInt(4, i.getBlockId());
-            pst.setString(5, i.getSize());
-            pst.setInt(6, i.getpId());
-            pst.setInt(7, i.getOutputPrice());
-            pst.setString(8, i.getOriginCode());
-            pst.setInt(9, i.getStatus());
-            pst.setInt(10, i.getQuantity());
-            pst.setInt(11, i.getrId());
-            pst.setInt(12, i.getDiscoutnStatus());
-            pst.setInt(13, i.getVouId());
-            pst.setString(14, i.getTaste());
-            pst.setDate(15, i.getExpiryDate());
-            pst.setString(16, i.getiPic());
+            pst.setInt(1, i.getbId());
+            pst.setString(2, i.getiName());
+            pst.setInt(3, i.getBlockId());
+            pst.setString(4, i.getSize());
+            pst.setInt(5, i.getpId());
+            pst.setInt(6, i.getOutputPrice());
+            pst.setString(7, i.getOriginCode());
+            pst.setInt(8, i.getStatus());
+            pst.setInt(9, i.getQuantity());
+            pst.setInt(10, i.getDiscoutnStatus());
+            pst.setInt(11, i.getVouId());
+            pst.setString(12, i.getTaste());
+            pst.setDate(13, i.getExpiryDate());
+            pst.setString(14, i.getiPic());
 
             return pst.execute();
         } catch (SQLException ex) {
@@ -93,31 +89,27 @@ public class ItemDAO {
         return false;
     }
 
-    public int updateStudent(Itemall i) {
-        String sql = "UPDATE `item` SET `tId`=?,`bId`=?,`iName`=?,`blockId`=?,`size`=?,`pId`=?,"
-                + "`outputPrice`=?,`orginCode`=?,`status`=?,`quantity`=?,`rId`=?,"
+    public int updateItem(Itemall i, int iId) {
+        String sql = "UPDATE `item` SET `bId`=?,`iName`=?,`blockId`=?,`size`=?,`pId`=?,"
+                + "`outputPrice`=?,`orginCode`=?,`status`=?,`quantity`=?,"
                 + "`discoutnStatus`=?,`vouId`=?,`taste`=?,`expiryDate`=?,`iPic`=? WHERE iID=?";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
-
-            pst.setInt(1, i.gettId());
-            pst.setInt(2, i.getbId());
-            pst.setString(3, i.getiName());
-            pst.setInt(4, i.getBlockId());
-            pst.setString(5, i.getSize());
-            pst.setInt(6, i.getpId());
-            pst.setInt(7, i.getOutputPrice());
-            pst.setString(8, i.getOriginCode());
-            pst.setInt(9, i.getStatus());
-            pst.setInt(10, i.getQuantity());
-            pst.setInt(11, i.getrId());
-            pst.setInt(12, i.getDiscoutnStatus());
-            pst.setInt(13, i.getVouId());
-            pst.setString(14, i.getTaste());
-            pst.setDate(15, i.getExpiryDate());
-            pst.setString(16, i.getiPic());
-            pst.setInt(17, i.getiId());
-
+            pst.setInt(1, i.getbId());
+            pst.setString(2, i.getiName());
+            pst.setInt(3, i.getBlockId());
+            pst.setString(4, i.getSize());
+            pst.setInt(5, i.getpId());
+            pst.setInt(6, i.getOutputPrice());
+            pst.setString(7, i.getOriginCode());
+            pst.setInt(8, i.getStatus());
+            pst.setInt(9, i.getQuantity());
+            pst.setInt(10, i.getDiscoutnStatus());
+            pst.setInt(11, i.getVouId());
+            pst.setString(12, i.getTaste());
+            pst.setDate(13, i.getExpiryDate());
+            pst.setString(14, i.getiPic());
+            pst.setInt(15, iId);
             return pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -125,7 +117,7 @@ public class ItemDAO {
         return 0;
     }
 
-    public int deleteStudent(int iId) {
+    public int deleteItem(int iId) {
         String sql = "DELETE FROM `item` WHERE ID=?";
         try {
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -266,7 +258,7 @@ public class ItemDAO {
             pst2.setInt(4, iId);
             pst2.setInt(5, oDetail.getQuantity());
             pst2.setString(6, oDetail.getNote());
-            pst2.setDate(7, (java.sql.Date)oDetail.getOrderDate());
+            pst2.setDate(7, (java.sql.Date) oDetail.getOrderDate());
             return pst2.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);

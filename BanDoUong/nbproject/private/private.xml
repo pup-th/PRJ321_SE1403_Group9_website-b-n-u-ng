@@ -3,15 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/home.jsp</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/douong/pepsi.jpg</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/DAO/ItemDAO.java</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Entities/OrderDetail.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/topuser.jsp</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/mana.css</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/topdrink.jsp</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/insert.jsp</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/adminManagement.jsp</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/update.jsp</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/login.jsp</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/cart1.jsp</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/profile.jsp</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Controllers/CartController.java</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Controllers/BuyController.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/admin.jsp</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/DAO/AdminDAO.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Entities/Items.java</file>
         </group>
     </open-files>
 </project-private>

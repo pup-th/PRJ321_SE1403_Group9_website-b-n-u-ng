@@ -142,6 +142,12 @@ public final class topdrink_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       out.write("\n");
       out.write("        </table>\n");
+      out.write("            <div class=\"span1\">\n");
+      out.write("    \t<a href=\"adminManagement.jsp\">\n");
+      out.write("    \t\t<i>Home</i>\n");
+      out.write("    \t\t<div class=\"clear\"></div>\n");
+      out.write("    \t</a>\n");
+      out.write("    </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

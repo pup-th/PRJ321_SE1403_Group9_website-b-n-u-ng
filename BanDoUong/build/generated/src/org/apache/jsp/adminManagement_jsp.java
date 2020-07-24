@@ -69,7 +69,7 @@ public final class adminManagement_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("                            <div class=\"clear\"></div>\n");
       out.write("                </form>\t-->\n");
       out.write("            <div class=\"col-md-4\">\n");
-      out.write("                <div class=\"span\">\n");
+      out.write("                <div class=\"\">\n");
       out.write("                    <a href=\"insert.jsp\">\n");
       out.write("                        <i>Insert</i>\n");
       out.write("                        <div class=\"clear\"></div>\n");
@@ -77,7 +77,7 @@ public final class adminManagement_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("            <div class=\"col-md-4\">\n");
-      out.write("                <div class=\"span1\">\n");
+      out.write("                <div class=\"\">\n");
       out.write("                    <a href=\"adminManagement.jsp\">\n");
       out.write("                        <i>Home</i>\n");
       out.write("                        <div class=\"clear\"></div>\n");
@@ -86,7 +86,7 @@ public final class adminManagement_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("            </div>\n");
       out.write("            <div class=\"col-md-4\">\n");
       out.write("                <div class=\"clear\"></div>\t\n");
-      out.write("                <div class=\"span2\">\n");
+      out.write("                <div class=\"\">\n");
       out.write("                    <a href=\"topuser.jsp\">\n");
       out.write("                        <i>Top User</i><img src=\"images/contact.png\" alt=\"\"/>\n");
       out.write("                        <div class=\"clear\"></div>\n");
@@ -95,7 +95,7 @@ public final class adminManagement_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\n");
       out.write("            </div>\n");
       out.write("            <div class=\"col-md-4\">\n");
-      out.write("                <div class=\"span3\">\n");
+      out.write("                <div class=\"\">\n");
       out.write("                    <a href=\"topdrink.jsp\">\n");
       out.write("                        <i>Top Drink</i><img src=\"images/art.png\" alt=\"\"/>\n");
       out.write("                        <div class=\"clear\"></div>\n");
@@ -104,7 +104,7 @@ public final class adminManagement_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\n");
       out.write("            </div>\n");
       out.write("            <div class=\"col-md-4\">\n");
-      out.write("                <div class=\"span3\">\n");
+      out.write("                <div class=\"\">\n");
       out.write("                    <a href=\"admin.jsp\">\n");
       out.write("                        <i>List Item</i><img src=\"images/art.png\" alt=\"\"/>\n");
       out.write("                        <div class=\"clear\"></div>\n");
