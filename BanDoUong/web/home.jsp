@@ -49,7 +49,7 @@
                 } catch (Exception e) {
                 }
         %>
-        <c:if test="<%=fail != null%>">
+        <c:if test="<%=!fail.isEmpty()%>">
             <div class="alert alert-info alert-dismissible fade show">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Info!</strong> This alert box could indicate a neutral informative change or action.

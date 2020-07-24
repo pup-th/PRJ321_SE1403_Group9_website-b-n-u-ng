@@ -148,7 +148,7 @@
             </div>
         </div>
         <div id="id02" class="modal">
-            <form class="modal-content animate" method="post">
+            <form class="modal-content animate" action="BuyController" method="post">
                 <div class="imgcontainer">
                     <!--<span onclick="document.getElementById('id02').style.display = 'none'" class="close" title="Close Modal">&times;</span>-->  
                 </div>
@@ -180,11 +180,9 @@
                         %>
                     </table>
                 </div>
-                <form action="" method="POST">
-                    <button type="submit" name="btnBuyForBill">Buy</button>
+                    <input type="submit" name="btnBuyForBill" value="Buy"/>
                     <button type="button" onclick="document.getElementById('id02').style.display = 'none'" class="cancelbtn">Cancel</button>
                 </form>
-            </form>
         </div>
         <script>
             // Get the modal
@@ -198,3 +196,4 @@
         </script>
     </body>
 </html>
+<!--<button type="submit" name="btnBuyForBill">Buy</button>-->

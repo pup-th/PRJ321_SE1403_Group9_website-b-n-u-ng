@@ -5,8 +5,12 @@
  */
 package Controllers;
 
+import DAO.ItemDAO;
+import Entities.OrderDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +40,7 @@ public class BuyController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet BuyController</title>");            
+            out.println("<title>Servlet BuyController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet BuyController at " + request.getContextPath() + "</h1>");
@@ -71,11 +75,28 @@ public class BuyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("btnBuyForBill")!=null){
+        if (request.getParameter("btnBuyForBill") != null) {
             HashMap<Integer, Integer> map = (HashMap<Integer, Integer>) request.getSession().getAttribute("hashMapItemCart");
-            
-                    
-            
+            PrintWriter out = response.getWriter();
+            String mail = request.getSession().getAttribute("uMail").toString();
+            for (Integer i : map.keySet()) {
+                DAO.ItemDAO itemdao = new ItemDAO();
+                itemdao.inserTotOrder(mail);
+                int oId = itemdao.getoId();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Entities.OrderDetail orderdetail = new OrderDetail(oId, 1, mail, i, map.get(i), "", Date.valueOf(java.time.LocalDate.now()));
+                itemdao.inserTotOrderDetail(i, orderdetail);
+//                 out.println(++oId);
+//                 out.println(i);
+//                 out.println(map.get(i));
+//                 out.println(Date.valueOf(java.time.LocalDate.now()));
+//                 out.println(mail);
+            }
+            request.getSession().removeAttribute("hashMapItemCart");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Order success!');");
+            out.println("location='home.jsp';");
+            out.println("</script>");
         }
     }
 

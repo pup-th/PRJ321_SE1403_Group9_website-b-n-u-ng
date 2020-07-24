@@ -7,7 +7,9 @@ package DAO;
 
 import Entities.Itemall;
 import Entities.Items;
+import Entities.OrderDetail;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -240,5 +242,48 @@ public class ItemDAO {
             Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+
+    public int inserTotOrder(String uMail) {
+        try {
+            PreparedStatement pst1 = conn.prepareStatement("INSERT INTO `orders`(`uMail`) "
+                    + "VALUES (?)");
+            pst1.setString(1, uMail);
+            return pst1.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    public int inserTotOrderDetail(int iId, OrderDetail oDetail) {
+        try {
+            PreparedStatement pst2 = conn.prepareStatement("INSERT INTO `orderdetail`(`oId`, `payId`, `uMail`, `iId`, `quantity`, `note`, `orderDate`)"
+                    + "VALUES (?,?,?,?,?,?,?)");
+            pst2.setInt(1, oDetail.getoId());
+            pst2.setInt(2, oDetail.getPayId());
+            pst2.setString(3, oDetail.getuMail());
+            pst2.setInt(4, iId);
+            pst2.setInt(5, oDetail.getQuantity());
+            pst2.setString(6, oDetail.getNote());
+            pst2.setDate(7, (java.sql.Date)oDetail.getOrderDate());
+            return pst2.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
+    }
+
+    public int getoId() {
+        try {
+            PreparedStatement pst = conn.prepareStatement("SELECT `oId` FROM orders WHERE oId=(SELECT max(oId) FROM orders)");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("oId");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return 0;
     }
 }

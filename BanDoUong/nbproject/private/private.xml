@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/DAO/UserDAO.java</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/home.jsp</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/profile.css</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/header.jsp</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/douong/pepsi.jpg</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/DAO/ItemDAO.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Entities/OrderDetail.java</file>
+            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/login.jsp</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/cart1.jsp</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/profile.jsp</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Controllers/CartController.java</file>
             <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/src/java/Controllers/BuyController.java</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/header.css</file>
-            <file>file:/C:/Users/ASUS/Documents/GitHub/PRJ321_SE1403_Group9_website-b-n-u-ng/BanDoUong/web/css/cart.css</file>
         </group>
     </open-files>
 </project-private>
