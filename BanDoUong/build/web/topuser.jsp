@@ -50,5 +50,11 @@
                 </tr>
             </c:forEach>
         </table>
+        <div class="span1">
+    	<a href="adminManagement.jsp">
+    		<i>Home</i>
+    		<div class="clear"></div>
+    	</a>
+    </div>
     </body>
 </html>

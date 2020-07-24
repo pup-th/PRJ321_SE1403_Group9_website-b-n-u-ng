@@ -42,6 +42,12 @@ public class Items {
         this.img = img;
     }
 
+    public Items(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+    
+
     public int getiId() {
         return iId;
     }

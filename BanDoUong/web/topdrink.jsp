@@ -1,14 +1,13 @@
 <%-- 
-    Document   : topuser
-    Created on : Jul 23, 2020, 8:01:24 AM
+    Document   : topdrink
+    Created on : Jul 24, 2020, 5:43:36 PM
     Author     : ASUS
 --%>
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="DAO.AdminDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -34,23 +33,26 @@
     <body>
         <%
             DAO.AdminDAO adminDao = new AdminDAO();
-            ArrayList<Entities.OrderDetail> list = adminDao.reportListTopUser();
+            ArrayList<Entities.Items> list = adminDao.reportListTopDrink();
         %>
         <table>
             <tr>
-                <th>Number Orders</th>
-                <th>Use Email</th>
-                <th>Quantities</th>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Sell Quantities</th>
             </tr>
+            <%
+                int count=0;
+            %>
             <c:forEach var="listuser" items="<%=list%>">
                 <tr>
-                    <td>${listuser.getoId()}</td>
-                    <td>${listuser.getuMail()}</td>
+                    <td><%=++count%></td>
+                    <td>${listuser.getName()}</td>
                     <td>${listuser.getQuantity()}</td>
                 </tr>
             </c:forEach>
         </table>
-        <div class="span1">
+            <div class="span1">
     	<a href="adminManagement.jsp">
     		<i>Home</i>
     		<div class="clear"></div>

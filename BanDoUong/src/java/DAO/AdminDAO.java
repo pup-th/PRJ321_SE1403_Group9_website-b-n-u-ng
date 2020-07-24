@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import Entities.Items;
 import Entities.OrderDetail;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -65,6 +66,22 @@ public class AdminDAO {
             while (rs.next()) {
                 list.add(new OrderDetail(rs.getInt("oId"), rs.getInt("payId"), rs.getString("uMail"), rs.getInt("iId"), rs.getInt("quantity"), rs.getString("note"), rs.getDate("orderDate")));
             }
+            return list;
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    public ArrayList<Entities.Items> reportListTopDrink() {
+        try {
+            PreparedStatement pst = conn.prepareStatement("SELECT `iId`, sum(`quantity`) AS quantity FROM `orderdetail` WHERE 1 GROUP BY `iId`");
+            ResultSet rs = pst.executeQuery();
+            ItemDAO iDAO = new ItemDAO();
+            ArrayList<Items> list = new ArrayList<>();
+            while (rs.next()) {
+                list.add(new Items(iDAO.getItemById(rs.getInt("iId")).getName(), rs.getInt("quantity")));
+            }
+            System.out.println("adf");
             return list;
         } catch (SQLException ex) {
             Logger.getLogger(AdminDAO.class.getName()).log(Level.SEVERE, null, ex);
