@@ -74,7 +74,7 @@ public class AdminDAO {
     }
     public ArrayList<Entities.Items> reportListTopDrink() {
         try {
-            PreparedStatement pst = conn.prepareStatement("SELECT `iId`, sum(`quantity`) AS quantity FROM `orderdetail` WHERE GROUP BY `iId`");
+            PreparedStatement pst = conn.prepareStatement("SELECT `iId`, sum(`quantity`) AS quantity FROM `orderdetail` WHERE 1 GROUP BY `iId`");
             ResultSet rs = pst.executeQuery();
             ItemDAO iDAO = new ItemDAO();
             ArrayList<Items> list = new ArrayList<>();

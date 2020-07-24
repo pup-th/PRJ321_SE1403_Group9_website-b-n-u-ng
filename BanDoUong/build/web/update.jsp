@@ -20,6 +20,7 @@
             int id = Integer.parseInt(request.getParameter("id"));
             ItemDAO dao = new ItemDAO();
             Itemall i = dao.getNameOfItem(id);
+            int tId = i.gettId();
             int bId = i.getbId();
             int blockId = i.getBlockId();
             int pId = i.getpId();
@@ -27,6 +28,7 @@
             int vouId = i.getVouId();
             int status = i.getStatus();
             int quantity = i.getQuantity();
+            int rId = i.getrId();
             int discoutnStatus = i.getDiscoutnStatus();
             String iName = i.getiName();
             String size = i.getSize();
@@ -38,109 +40,73 @@
         <form action="AdminController" method="post">
             <table>
                 <tr>
-                    <td>Brand</td>
-                    <td>
-                        <select  name ="txtbId">
-                            <option value = "1">Coca Cola</option>
-                            <option value = "2">Pepsi</option>
-                            <option value = "3">Sting</option>
-                            <option value = "4">7Up</option>
-                        </select>
-                    </td>
+                    <td>tId</td>
+                    <td><input type="text" name="txttId" value="<%= tId%>"/></td>
                 </tr>
                 <tr>
-                    <td>Item Name</td> 
+                    <td>bId</td>
+                    <td><input type="text" name="txtbId" value="<%= bId%>"/> </td>
+                </tr>
+                <tr>
+                    <td>iName</td> 
                     <td><input type="text" name="txtiName" value="<%= iName%>"/></td>
                 </tr>
                 <tr>
-                    <td>Block</td>
-                    <td>
-                        <select  name ="txtblockId" >
-                            <option value = "1">120</option>
-                            <option value = "2">100</option>
-                            <option value = "3">70</option>
-                            <option value = "4">50</option>
-                            <option value = "5">35</option>
-                        </select>
-                    </td>
+                    <td>blockId</td>
+                    <td><input type="text" name="txtblockId" value="<%= blockId%>"/></td>
                 </tr>
                 <tr>
                     <td>Size</td>
                     <td><input type="text" name="txtsize" value="<%= size%>"/></td>
                 </tr>
                 <tr>
-                    <td>Pay</td>
-                    <td>
-                        <select  name ="txtpId" >
-                            <option value = "1">5000</option>
-                            <option value = "2">6000</option>
-                            <option value = "3">7000</option>
-                            <option value = "4">8000</option>
-                            <option value = "5">9000</option>
-                        </select>
-                    </td>
+                    <td>pId</td>
+                    <td><input type="text" name="txtpId" value="<%= pId%>"/></td>
                 </tr>
                 <tr>
-                    <td>Output Price</td>
+                    <td>outputPrice</td>
                     <td><input type="text" name="txtoutputPrice" value="<%= outputPrice%>"/> </td>
                 </tr>
                 <tr>
-                    <td>Origin</td> 
-                    <td>
-                        <select  name ="txtorginCode" >
-                            <option value = "1">Chai</option>
-                            <option value = "2">Lon</option>
-                            <option value = "3">chai sanh</option>
-                        </select>
-                    </td>
+                    <td>orginCode</td> 
+                    <td><input type="text" name="txtorginCode" value="<%= orginCode%>"/></td>
                 </tr>
                 <tr>
-                    <td>Discount</td>
-                    <td>
-                        <select  name ="txtstatus" >
-                            <option value = "1">Con hang</option>
-                            <option value = "0">Het hang</option>
-                        </select>
-                    </td>
+                    <td>status</td>
+                    <td><input type="text" name="txtstatus" value="<%= status%>"/></td>
                 </tr>
                 <tr>
-                    <td>Quantity</td>
+                    <td>quantity</td>
                     <td><input type="text" name="txtquantity" value="<%= quantity%>"/></td>
                 </tr>
                 <tr>
-                    <td>Discount Status</td>
-                    <td>
-                        <select  name ="txtdiscoutnStatus" >
-                            <option value = "1">Co</option>
-                            <option value = "0">Khong</option>
-                        </select>
-                    </td>
+                    <td>rId</td> 
+                    <td><input type="text" name="txtrId" value="<%= rId%>"/></td>
                 </tr>
                 <tr>
-                    <td>Voucher</td>
-                    <td>
-                        <select  name ="txtvouId" >
-                            <option value = "1">Theo ngay(20%)</option>
-                            <option value = "2">Theo san pham(10%)</option>
-                        </select>
-                    </td>
+                    <td>discoutnStatus</td>
+                    <td><input type="text" name="txtdiscoutnStatus" value="<%= discoutnStatus%>"/></td>
                 </tr>
                 <tr>
-                    <td>Taste</td> 
-                    <td><input type="text" name="txttaste"  value="<%= taste %>"/></td>
+                    <td>vouId</td>
+                    <td><input type="text" name="txtvouId" value="<%= vouId%>"/></td>
                 </tr>
                 <tr>
-                    <td>Expiry Date</td>
-                    <td><input type="date" name="txtexpiryDate"  value="<%= expiryDate%>"/></td>
+                    <td>taste</td> 
+                    <td><input type="text" name="txttaste" value="<%= taste%>"/></td>
                 </tr>
                 <tr>
-                    <td>Image Name</td>
+                    <td>expiryDate</td>
+                    <td><input type="text" name="txtexpiryDate" value="<%= expiryDate%>"/></td>
+                </tr>
+                <tr>
+                    <td>iPic</td>
                     <td><input type="text" name="txtiPic" value="<%= iPic%>"/></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Update" name="btnUpdate"/></td>
-                </tr>
-                <input type="hidden" name="txtiId" value="<%=id %>"/>
+                    <td><input type="submit" value="OK" name="btnupdate"/></td>
+                </tr>               
+
             </table>
         </form>
     </body>

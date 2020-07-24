@@ -158,7 +158,7 @@
                     <div>
                         <h4>Contact us by: </h4>
                         <a href="https://www.facebook.com/profile.php?id=100033120579664"><i class="fa fa-facebook-square fa-2x"></i></a>
-                        <a href="#"><i class="fa fa-instagram fa-2x"></i></a>
+                        
                     </div>
                 </div>
             </div>

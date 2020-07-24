@@ -24,10 +24,6 @@
         <servlet-name>BuyController</servlet-name>
         <servlet-class>Controllers.BuyController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>AdminController</servlet-name>
-        <servlet-class>Controllers.AdminController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
         <url-pattern>/UserController</url-pattern>
@@ -51,10 +47,6 @@
     <servlet-mapping>
         <servlet-name>BuyController</servlet-name>
         <url-pattern>/BuyController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AdminController</servlet-name>
-        <url-pattern>/AdminController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

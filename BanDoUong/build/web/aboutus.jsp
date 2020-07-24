@@ -20,10 +20,6 @@
         <jsp:include page="header.jsp"/>
     </head>
     <body>
-        <div class="about-section">
-            <h1>About Us Page</h1>
-            <p class="contentsp">If you have some problems with our website, you can follow us so we can assist for you in the best way.</p>
-        </div>
 
         <h2 style="text-align:center">Our Team</h2>
         <div class="row" >
@@ -87,17 +83,6 @@
                     </p>
                 </div>
 
-            </div>
-            <div class="para">
-                <table class="contact">
-                    <td >Contact us:</td>
-                    <td>
-                        <i><a href="#" class="fa fa-facebook"></a></i>
-                        <i><a href="#" class="fa fa-twitter"></a></i>
-                        <i><a href="#" class="fa fa-google"></a></i>
-                        <i><a href="#" class="fa fa-instagram"></a></i>
-                    </td>
-                </table>
             </div>
             <div class="para" center><i class="icon fa fa-phone-square" style="color: red">Hotline:</i>
                 <i class="phonenum">0123456789 - 0321654987 - 0147852369</i>

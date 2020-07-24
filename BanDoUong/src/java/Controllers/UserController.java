@@ -47,7 +47,7 @@ public class UserController extends HttpServlet {
                 String user = uDAO.checkLogin(email, pass);
                 String admin = aDAO.checkLogin(email, pass);
                 if(!admin.isEmpty()){
-                    request.getRequestDispatcher("admin.jsp").forward(request, response);
+                    request.getRequestDispatcher("adminManagement.jsp").forward(request, response);
                 }else{
                     if (!user.isEmpty()) {
                         request.getSession().setAttribute("uMail", user);

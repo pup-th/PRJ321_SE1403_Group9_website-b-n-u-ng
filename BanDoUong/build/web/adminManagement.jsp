@@ -22,58 +22,48 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     </head>
     <body>
         <!-- start-buttons -->
-
-        <div class="row">
+        <h1>Admin Management</h1>
+        <div class="buttons">
             <!--   <form class="search" action="#" method="post" name="contact_form">
                             <input type="text" name="Search" value="Search" onblur="if (this.value=='') this.value = 'Search'" onfocus="if (this.value=='Search') this.value = ''">
                             <input type="submit" value="GO" id="submit" name="submit">
                             <div class="clear"></div>
                 </form>	-->
-            <div class="col-md-4">
-                <div class="">
-                    <a href="insert.jsp">
-                        <i>Insert</i>
-                        <div class="clear"></div>
-                    </a>
-                </div>
+
+            <div class="span2">
+                <a href="insert.jsp">
+                    <i>Insert</i>
+                    <div class="clear"></div>
+                </a>
             </div>
-            <div class="col-md-4">
-                <div class="">
-                    <a href="adminManagement.jsp">
-                        <i>Home</i>
-                        <div class="clear"></div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="clear"></div>	
-                <div class="">
-                    <a href="topuser.jsp">
-                        <i>Top User</i><img src="images/contact.png" alt=""/>
-                        <div class="clear"></div>
-                    </a>
-                </div>
+
+             	
+            <div class="span4">
+                <a href="topuser.jsp">
+                    <i>TopUser</i><img src="images/contact.png" alt=""/>
+                    <div class="clear"></div>
+                </a>
 
             </div>
-            <div class="col-md-4">
-                <div class="">
-                    <a href="topdrink.jsp">
-                        <i>Top Drink</i><img src="images/art.png" alt=""/>
-                        <div class="clear"></div>
-                    </a>
-                </div>
-
+            <div class="span5">
+                <a href="topdrink.jsp">
+                    <i>Top Drink</i><img src="images/art.png" alt=""/>
+                    <div class="clear"></div>
+                </a>
             </div>
-            <div class="col-md-4">
-                <div class="">
-                    <a href="admin.jsp">
-                        <i>List Item</i><img src="images/art.png" alt=""/>
-                        <div class="clear"></div>
-                    </a>
-                </div>
 
+            <div class="span6">
+                <a href="admin.jsp">
+                    <i>List Item</i><img src="images/art.png" alt=""/>
+                    <div class="clear"></div>
+                </a>
+            </div> 
+        </div>	 
+        <div class="span3">
+                <a href="home.jsp">
+                    <i>Logout</i>
+                    <div class="clear"></div>
+                </a>
             </div>
-        </div>	
-
     </body>
 </html>

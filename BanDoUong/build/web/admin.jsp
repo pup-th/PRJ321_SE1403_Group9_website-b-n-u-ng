@@ -9,13 +9,37 @@
 <%@page import="DAO.ItemDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib  prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+              integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     </head>
+    <style>
+        table {
+            border: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 2px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th{
+            background-color: #ff6600;
+            color: white;
+        }
+    </style>
     <body>
         <%
             if (request.getParameter("del") != null) {
@@ -23,78 +47,59 @@
             }
 
         %>
-        <!--            <th>ID</th>
-                    <th>Name</th>
-                    <th>Birthday</th>
-                    <th>Gender</th>
-                    <th>Address</th>-->
-        <sql:setDataSource var="conn" scope="session" 
-                           driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://localhost/bannuocuong"
-                           user="root"
-                           password=""/>
-        <sql:query  var="items" dataSource="${conn}">
-            SELECT * FROM `item`
-        </sql:query>
-        <sql:update var="delete" dataSource="${conn}" sql="DELETE FROM `item` WHERE `iId`='${param.del}'"/>
-        <table border="1" align="center" width="100%">
+        <table >
             <tr>
-                <c:forEach var="colName" items="${items.columnNames}">
-                    <th ><c:out value="${colName}"/></th>
-                    </c:forEach>
-                <td>Update</td>
-                <td>Delete</td>
+               <th>ID</th>
+                <th>Type ID</th>
+                <th>Brand ID</th>
+                <th>Item Name</th>
+                <th>Block ID</th>
+                <th>Size</th>
+                <th>Input Price</th>
+                <th>Output Price</th>
+                <th>Origin Code</th>
+                <th>Status</th>
+                <th>Quantity</th>
+                <th>Rating ID</th>
+                <th>Discount status</th>
+                <th>Voucher ID</th>
+                <th>Taste</th>
+                <th>Expiry Date</th>
+                <th>Picture Name</th>
+                <th>Delete</th>
+                <th>Update</th>
             </tr>
-            <c:forEach var="row" items="${items.rows}">
-                <tr
-                    <td><c:out value="${row.bId}"/></td>
-                    <td><c:out value="${row.iName}"/></td>
-                    <td><c:out value="${row.blockId}"/></td>
-                    <td><c:out value="${row.size}"/></td>
-                    <td><c:out value="${row.pId}"/></td>
-                    <td><c:out value="${row.outputPrice}"/></td>
-                    <td><c:out value="${row.originCode}"/></td>
-                    <td><c:out value="${row.status}"/></td>
-                    <td><c:out value="${row.quantity}"/></td>
-                    <td><c:out value="${row.discoutnStatus}"/></td>
-                    <td><c:out value="${row.vouId}"/></td>
-                    <td><c:out value="${row.taste}"/></td>
-                    <td><c:out value="${row.expiryDate}"/></td>
-                    <td><c:out value="${row.iPic}"/></td>
-                    <td><c:out value="${row.bId}"/></td>
-                    <td><c:out value="${row.bId}"/></td>
+            <%
+                ArrayList<Entities.Itemall> list = new ArrayList<>();
+                if(request.getParameter("del") != null){
+                    new ItemDAO().deleteItem(Integer.parseInt(request.getParameter("del")));
+                }
+                list = new ItemDAO().getAll();
+            %>
+            <c:forEach var="row" items="<%=list%>">
+                <tr>
+                    <td>${row.getiId()}</td>
+                    <td>${row.gettId()}</td>
+                    <td>${row.getbId()}</td>
+                    <td>${row.getiName()}</td>
+                    <td>${row.getBlockId()}</td>
+                    <td>${row.getSize()}</td>
+                    <td>${row.getpId()}</td>
+                    <td>${row.getOutputPrice()}</td>
+                    <td>${row.getOriginCode()}</td>
+                    <td>${row.getStatus()}</td>
+                    <td>${row.getQuantity()}</td>
+                    <td>${row.getrId()}</td>
+                    <td>${row.getDiscoutnStatus()}</td>
+                    <td>${row.getVouId()}</td>
+                    <td>${row.getTaste()}</td>
+                    <td>${row.getExpiryDate()}</td>
+                    <td>${row.getiPic()}</td>
                     <td><a href="admin.jsp?del=${row.iId}">Delete</a></td>
                     <td><a href="update.jsp?id=${row.iId}">Update</a></td>
                 </tr>
             </c:forEach>
         </table>
+            <a href="adminManagement.jsp" style="text-align: center">Admin Home</a>
     </body>
 </html>
-
-        <%//                ItemDAO item = new ItemDAO();
-//                ArrayList<Itemall>list = item.getNameOfItems();
-//                out.print("<table>");
-//                for (Itemall i : list) {
-//                        out.print("<tr>");
-//                        out.print("<td>"+i.getiId()+" </td>");
-//                        out.print("<td>"+i.gettId()+" </td>");
-//                        out.print("<td>"+i.getpId()+" </td>");
-//                        out.print("<td>"+i.getiName()+" </td>");
-//                        out.print("<td>"+i.getBlockId()+" </td>");
-//                        out.print("<td>"+i.getSize()+" </td>");
-//                        out.print("<td>"+i.getpId()+" </td>");
-//                        out.print("<td>"+i.getOutputPrice()+" </td>");
-//                        out.print("<td>"+i.getOriginCode()+" </td>");
-//                        out.print("<td>"+i.getStatus()+" </td>");
-//                        out.print("<td>"+i.getQuantity()+" </td>");
-//                        out.print("<td>"+i.getrId()+" </td>");
-//                        out.print("<td>"+i.getDiscoutnStatus()+" </td>");
-//                        out.print("<td>"+i.getVouId()+" </td>");
-//                        out.print("<td>"+i.getTaste()+" </td>");
-//                        out.print("<td>"+i.getExpiryDate()+" </td>");
-//                        out.print("<td>"+i.getiPic()+" </td>");
-//                        out.print("</tr>");
-//                        
-//                    }
-//                out.print("</table>");
-//            %>
